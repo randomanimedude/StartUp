@@ -1,18 +1,19 @@
 #pragma once
 #include "CommonLib.h"
-#include <Sprite.hpp>
 #include <Area2D.hpp>
-#include <Input.hpp>
+#include <GlobalConstants.hpp>
+#include <InputEventMouseButton.hpp>
+
 
 class Test :
-    public Sprite
+    public Area2D
 {
-    GODOT_CLASS(Test, Sprite);
+    GODOT_CLASS(Test, Area2D);
 
 public:
 	static void _register_methods();
 	void _init();
 
-	void _ready();
+	void _input_event(Node* viewport, InputEventMouseButton* event, int shape_idx);
 };
 

@@ -2,14 +2,16 @@
 
 void Test::_register_methods()
 {
-	register_method("_ready", &Test::_ready);
+	register_method("_input_event", &Test::_input_event);
 }
 
 void Test::_init()
 {
 }
 
-void Test::_ready()
+void Test::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
 {
+	if (event->is_pressed() && event->get_button_index() == GlobalConstants::BUTTON_LEFT)
+		set_visible(false);
 }
 
