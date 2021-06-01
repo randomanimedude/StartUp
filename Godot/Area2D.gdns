@@ -3,6 +3,6 @@
 [ext_resource path="res://NativeLib/cpp_lib.gdnlib" type="GDNativeLibrary" id=1]
 
 [resource]
-resource_name = "Test"
-class_name = "Test"
+resource_name = "Oblast"
+class_name = "Oblast"
 library = ExtResource( 1 )

@@ -162,11 +162,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="NativeLib.cpp" />
-    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="Oblast.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonLib.h" />
-    <ClInclude Include="Test.h" />
+    <ClInclude Include="Oblast.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
