@@ -1,54 +1,54 @@
 [gd_scene load_steps=74 format=2]
 
-[ext_resource path="res://Textures/map/1/обводка 1.png" type="Texture" id=1]
-[ext_resource path="res://NativeLib/Scripts/Oblast.gdns" type="Script" id=2]
-[ext_resource path="res://Textures/map/1/1.png" type="Texture" id=3]
+[ext_resource path="res://Textures/map/2/border 2.png" type="Texture" id=1]
+[ext_resource path="res://Textures/map/3/border 3.png" type="Texture" id=2]
+[ext_resource path="res://Textures/map/1/border 1.png" type="Texture" id=3]
 [ext_resource path="res://Textures/map/11/11.png" type="Texture" id=4]
-[ext_resource path="res://Textures/map/24/обводка 24.png" type="Texture" id=5]
-[ext_resource path="res://Textures/map/17/17.png" type="Texture" id=6]
-[ext_resource path="res://Textures/map/12/обводка 12.png" type="Texture" id=7]
-[ext_resource path="res://Textures/map/12/12.png" type="Texture" id=8]
-[ext_resource path="res://Textures/map/19/19.png" type="Texture" id=9]
-[ext_resource path="res://Textures/map/14/обводка 14.png" type="Texture" id=10]
-[ext_resource path="res://Textures/map/21/обводка 21.png" type="Texture" id=11]
-[ext_resource path="res://Textures/map/16/16.png" type="Texture" id=12]
-[ext_resource path="res://Textures/map/8/8.png" type="Texture" id=13]
-[ext_resource path="res://Textures/map/22/обводка 22.png" type="Texture" id=14]
-[ext_resource path="res://Textures/map/6/обводка 6.png" type="Texture" id=15]
-[ext_resource path="res://Textures/map/10/10.png" type="Texture" id=16]
-[ext_resource path="res://Textures/map/10/обводка 10.png" type="Texture" id=17]
-[ext_resource path="res://Textures/map/4/4.png" type="Texture" id=18]
-[ext_resource path="res://Textures/map/6/6.png" type="Texture" id=19]
-[ext_resource path="res://Textures/map/8/обводка 8.png" type="Texture" id=20]
-[ext_resource path="res://Textures/map/17/обводка 17.png" type="Texture" id=21]
-[ext_resource path="res://Textures/map/9/обводка 9.png" type="Texture" id=22]
-[ext_resource path="res://Textures/map/19/обводка 19.png" type="Texture" id=23]
-[ext_resource path="res://Textures/map/7/обводка 7.png" type="Texture" id=24]
-[ext_resource path="res://Textures/map/23/ободка 23.png" type="Texture" id=25]
-[ext_resource path="res://Textures/map/13/обводка 13.png" type="Texture" id=26]
-[ext_resource path="res://Textures/map/5/5.png" type="Texture" id=27]
-[ext_resource path="res://Textures/map/20/20.png" type="Texture" id=28]
-[ext_resource path="res://Textures/map/5/обводка 5.png" type="Texture" id=29]
-[ext_resource path="res://Textures/map/7/7.png" type="Texture" id=30]
-[ext_resource path="res://Textures/map/18/18.png" type="Texture" id=31]
-[ext_resource path="res://Textures/map/21/21.png" type="Texture" id=32]
-[ext_resource path="res://Textures/map/24/24.png" type="Texture" id=33]
-[ext_resource path="res://Textures/map/15/обводка 15.png" type="Texture" id=34]
-[ext_resource path="res://Textures/map/16/обводка 16.png" type="Texture" id=35]
-[ext_resource path="res://Textures/map/14/14.png" type="Texture" id=36]
-[ext_resource path="res://Textures/map/23/23.png" type="Texture" id=37]
-[ext_resource path="res://Textures/map/9/9.png" type="Texture" id=38]
-[ext_resource path="res://Textures/map/11/обводка 11.png" type="Texture" id=39]
-[ext_resource path="res://Textures/map/18/обводка 18.png" type="Texture" id=40]
-[ext_resource path="res://Textures/map/22/22.png" type="Texture" id=41]
-[ext_resource path="res://Textures/map/4/обводка 4.png" type="Texture" id=42]
-[ext_resource path="res://Textures/map/20/обводка 20.png" type="Texture" id=43]
-[ext_resource path="res://Textures/map/15/15.png" type="Texture" id=44]
-[ext_resource path="res://Textures/map/13/13.png" type="Texture" id=45]
-[ext_resource path="res://Textures/map/2/2.png" type="Texture" id=46]
-[ext_resource path="res://Textures/map/3/3.png" type="Texture" id=47]
-[ext_resource path="res://Textures/map/2/обводка 2.png" type="Texture" id=48]
-[ext_resource path="res://Textures/map/3/обводка 3.png" type="Texture" id=49]
+[ext_resource path="res://Textures/map/4/border 4.png" type="Texture" id=5]
+[ext_resource path="res://Textures/map/17/border 17.png" type="Texture" id=6]
+[ext_resource path="res://Textures/map/6/6.png" type="Texture" id=7]
+[ext_resource path="res://Textures/map/9/border 9.png" type="Texture" id=8]
+[ext_resource path="res://Textures/map/23/border 23.png" type="Texture" id=9]
+[ext_resource path="res://Textures/map/7/7.png" type="Texture" id=10]
+[ext_resource path="res://Textures/map/16/border 16.png" type="Texture" id=11]
+[ext_resource path="res://Textures/map/17/17.png" type="Texture" id=12]
+[ext_resource path="res://Textures/map/23/23.png" type="Texture" id=13]
+[ext_resource path="res://Textures/map/5/5.png" type="Texture" id=14]
+[ext_resource path="res://Textures/map/11/border 11.png" type="Texture" id=15]
+[ext_resource path="res://Textures/map/9/9.png" type="Texture" id=16]
+[ext_resource path="res://Textures/map/8/border 8.png" type="Texture" id=17]
+[ext_resource path="res://Textures/map/7/border 7.png" type="Texture" id=18]
+[ext_resource path="res://Textures/map/22/22.png" type="Texture" id=19]
+[ext_resource path="res://Textures/map/15/border 15.png" type="Texture" id=20]
+[ext_resource path="res://Textures/map/18/border 18.png" type="Texture" id=21]
+[ext_resource path="res://Textures/map/14/border 14.png" type="Texture" id=22]
+[ext_resource path="res://Textures/map/1/1.png" type="Texture" id=23]
+[ext_resource path="res://Textures/map/24/border 24.png" type="Texture" id=24]
+[ext_resource path="res://Textures/map/19/19.png" type="Texture" id=25]
+[ext_resource path="res://Textures/map/22/border 22.png" type="Texture" id=26]
+[ext_resource path="res://Textures/map/8/8.png" type="Texture" id=27]
+[ext_resource path="res://Textures/map/20/border 20.png" type="Texture" id=28]
+[ext_resource path="res://Textures/map/10/10.png" type="Texture" id=29]
+[ext_resource path="res://Textures/map/5/border 5.png" type="Texture" id=30]
+[ext_resource path="res://Textures/map/4/4.png" type="Texture" id=31]
+[ext_resource path="res://Textures/map/6/border 6.png" type="Texture" id=32]
+[ext_resource path="res://Textures/map/20/20.png" type="Texture" id=33]
+[ext_resource path="res://Textures/map/18/18.png" type="Texture" id=34]
+[ext_resource path="res://Textures/map/21/21.png" type="Texture" id=35]
+[ext_resource path="res://Textures/map/12/12.png" type="Texture" id=36]
+[ext_resource path="res://Textures/map/24/24.png" type="Texture" id=37]
+[ext_resource path="res://Textures/map/19/border 19.png" type="Texture" id=38]
+[ext_resource path="res://Textures/map/10/border 10.png" type="Texture" id=39]
+[ext_resource path="res://Textures/map/21/border 21.png" type="Texture" id=40]
+[ext_resource path="res://Textures/map/14/14.png" type="Texture" id=41]
+[ext_resource path="res://Textures/map/16/16.png" type="Texture" id=42]
+[ext_resource path="res://Textures/map/3/3.png" type="Texture" id=43]
+[ext_resource path="res://Textures/map/12/border 12.png" type="Texture" id=44]
+[ext_resource path="res://Textures/map/15/15.png" type="Texture" id=45]
+[ext_resource path="res://Textures/map/13/13.png" type="Texture" id=46]
+[ext_resource path="res://Textures/map/13/border 13.png" type="Texture" id=47]
+[ext_resource path="res://Textures/map/2/2.png" type="Texture" id=48]
+[ext_resource path="res://NativeLib/Scripts/Oblast.gdns" type="Script" id=49]
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {
@@ -372,17 +372,17 @@ position = Vector2( 386.509, -56.9797 )
 scale = Vector2( 0.15, 0.15 )
 
 [node name="Луганська область" type="Area2D" parent="Map"]
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Луганська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 1 )
-texture = ExtResource( 3 )
+texture = ExtResource( 23 )
 
 [node name="Border" type="Sprite" parent="Map/Луганська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Луганська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -390,17 +390,17 @@ polygon = PoolVector2Array( -265, -536.4, -257, -533.4, -257, -532, -253, -529, 
 
 [node name="Харківська область" type="Area2D" parent="Map"]
 position = Vector2( -850.746, -218.268 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Харківська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 2 )
-texture = ExtResource( 46 )
+texture = ExtResource( 48 )
 
 [node name="Border" type="Sprite" parent="Map/Харківська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 48 )
+texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Харківська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -408,17 +408,17 @@ polygon = PoolVector2Array( 298, -471.5, 308, -468.5, 308, -466.7, 316, -457.8, 
 
 [node name="Донецька область" type="Area2D" parent="Map"]
 position = Vector2( -329.816, 492.054 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Донецька область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 3 )
-texture = ExtResource( 47 )
+texture = ExtResource( 43 )
 
 [node name="Border" type="Sprite" parent="Map/Донецька область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 49 )
+texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Донецька область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -426,17 +426,17 @@ polygon = PoolVector2Array( -23, -571.2, -23, -567.9, -23.9, -551.9, -16, -541, 
 
 [node name="Запорізька область" type="Area2D" parent="Map"]
 position = Vector2( -995.363, 982.125 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Запорізька область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 4 )
-texture = ExtResource( 18 )
+texture = ExtResource( 31 )
 
 [node name="Border" type="Sprite" parent="Map/Запорізька область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 42 )
+texture = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Запорізька область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -444,17 +444,17 @@ polygon = PoolVector2Array( -45, -461.2, -35, -456.2, -35, -454.8, -29.2, -449, 
 
 [node name="Дніпропетроська область" type="Area2D" parent="Map"]
 position = Vector2( -1280.4, 442.778 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Дніпропетроська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 5 )
-texture = ExtResource( 27 )
+texture = ExtResource( 14 )
 
 [node name="Border" type="Sprite" parent="Map/Дніпропетроська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 29 )
+texture = ExtResource( 30 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Дніпропетроська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -462,17 +462,17 @@ polygon = PoolVector2Array( 19, -419, 19, -417.7, 35, -414.7, 35, -412.9, 114.7,
 
 [node name="Полтавська область" type="Area2D" parent="Map"]
 position = Vector2( -1719.75, -217.365 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Полтавська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 6 )
-texture = ExtResource( 19 )
+texture = ExtResource( 7 )
 
 [node name="Border" type="Sprite" parent="Map/Полтавська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 15 )
+texture = ExtResource( 32 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Полтавська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -480,17 +480,17 @@ polygon = PoolVector2Array( 132, -430.8, 132, -416.5, 136, -409.5, 136, -398.5, 
 
 [node name="Сумська область" type="Area2D" parent="Map"]
 position = Vector2( -1564.19, -1009.32 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Сумська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 7 )
-texture = ExtResource( 30 )
+texture = ExtResource( 10 )
 
 [node name="Border" type="Sprite" parent="Map/Сумська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 24 )
+texture = ExtResource( 18 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Сумська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -498,17 +498,17 @@ polygon = PoolVector2Array( -168.5, -560.6, -168.5, -558.9, -156.5, -547.9, -156
 
 [node name="Чернігівська область" type="Area2D" parent="Map"]
 position = Vector2( -2311.37, -1063.53 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Чернігівська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 8 )
-texture = ExtResource( 13 )
+texture = ExtResource( 27 )
 
 [node name="Border" type="Sprite" parent="Map/Чернігівська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 20 )
+texture = ExtResource( 17 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Чернігівська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -516,17 +516,17 @@ polygon = PoolVector2Array( 437.5, -510.7, 443.5, -509.7, 443.5, -507.8, 445.3, 
 
 [node name="Київська область" type="Area2D" parent="Map"]
 position = Vector2( -2719.26, -544.389 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Київська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 9 )
-texture = ExtResource( 38 )
+texture = ExtResource( 16 )
 
 [node name="Border" type="Sprite" parent="Map/Київська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 22 )
+texture = ExtResource( 8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Київська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -534,17 +534,17 @@ polygon = PoolVector2Array( -291, -577.9, -269, -558.9, -269, -556, -264.1, -556
 
 [node name="Черкаська область" type="Area2D" parent="Map"]
 position = Vector2( -2524.48, -34.9646 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Черкаська область"]
 position = Vector2( -24.3542, -74.9351 )
 mesh = SubResource( 10 )
-texture = ExtResource( 16 )
+texture = ExtResource( 29 )
 
 [node name="Border" type="Sprite" parent="Map/Черкаська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 17 )
+texture = ExtResource( 39 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Черкаська область"]
 position = Vector2( -24.3542, -74.9351 )
@@ -552,7 +552,7 @@ polygon = PoolVector2Array( 266, -436.3, 271.3, -424, 272, -424, 282, -411, 285,
 
 [node name="Кіровоградська область" type="Area2D" parent="Map"]
 position = Vector2( -2333.77, 383.523 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Кіровоградська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -562,7 +562,7 @@ texture = ExtResource( 4 )
 [node name="Border" type="Sprite" parent="Map/Кіровоградська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 39 )
+texture = ExtResource( 15 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Кіровоградська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -570,17 +570,17 @@ polygon = PoolVector2Array( 348.9, -352, 371.3, -352, 413, -339.5, 413, -337.9, 
 
 [node name="Херсонська область" type="Area2D" parent="Map"]
 position = Vector2( -1814.64, 1223.57 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Херсонська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 12 )
-texture = ExtResource( 8 )
+texture = ExtResource( 36 )
 
 [node name="Border" type="Sprite" parent="Map/Херсонська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 7 )
+texture = ExtResource( 44 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Херсонська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -588,18 +588,17 @@ polygon = PoolVector2Array( 62, -386.9, 72, -377.9, 72, -374.5, 77.2, -364, 89.7
 
 [node name="Крим" type="Area2D" parent="Map"]
 position = Vector2( -1429.41, 2066.62 )
-scale = Vector2( 1, 1 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Крим"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 13 )
-texture = ExtResource( 45 )
+texture = ExtResource( 46 )
 
 [node name="Border" type="Sprite" parent="Map/Крим"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 26 )
+texture = ExtResource( 47 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Крим"]
 position = Vector2( -19.0571, -80.2325 )
@@ -607,17 +606,17 @@ polygon = PoolVector2Array( -299, -454.6, -299, -452.7, -293, -445, -279, -445, 
 
 [node name="Миколаївська область" type="Area2D" parent="Map"]
 position = Vector2( -2358.09, 965.211 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Миколаївська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 14 )
-texture = ExtResource( 36 )
+texture = ExtResource( 41 )
 
 [node name="Border" type="Sprite" parent="Map/Миколаївська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 10 )
+texture = ExtResource( 22 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Миколаївська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -625,17 +624,17 @@ polygon = PoolVector2Array( -185, -430.4, -185, -428.9, -173, -415.8, -173, -410
 
 [node name="Одеська область" type="Area2D" parent="Map"]
 position = Vector2( -3055.52, 1284.56 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Одеська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 15 )
-texture = ExtResource( 44 )
+texture = ExtResource( 45 )
 
 [node name="Border" type="Sprite" parent="Map/Одеська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 34 )
+texture = ExtResource( 20 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Одеська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -643,17 +642,17 @@ polygon = PoolVector2Array( 116, -750.4, 116, -748.9, 141.9, -725, 144.6, -725, 
 
 [node name="Вінницька область" type="Area2D" parent="Map"]
 position = Vector2( -3353.97, 162.023 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Вінницька область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 16 )
-texture = ExtResource( 12 )
+texture = ExtResource( 42 )
 
 [node name="Border" type="Sprite" parent="Map/Вінницька область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 35 )
+texture = ExtResource( 11 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Вінницька область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -661,17 +660,17 @@ polygon = PoolVector2Array( 99, -445.9, 99, -430.3, 102.4, -420, 112.9, -409, 11
 
 [node name="Житомирська область" type="Area2D" parent="Map"]
 position = Vector2( -3420.79, -684.33 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Житомирська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 17 )
-texture = ExtResource( 6 )
+texture = ExtResource( 12 )
 
 [node name="Border" type="Sprite" parent="Map/Житомирська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 21 )
+texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Житомирська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -679,17 +678,17 @@ polygon = PoolVector2Array( -19, -533, -15, -530, -15, -526.7, -11, -521.7, -11,
 
 [node name="Рівненська область" type="Area2D" parent="Map"]
 position = Vector2( -4045.87, -922.709 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Рівненська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 18 )
-texture = ExtResource( 31 )
+texture = ExtResource( 34 )
 
 [node name="Border" type="Sprite" parent="Map/Рівненська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 40 )
+texture = ExtResource( 21 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Рівненська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -697,17 +696,17 @@ polygon = PoolVector2Array( -149, -473.1, -123.5, -459, -69, -459, -69, -457.4, 
 
 [node name="Хмельницька область" type="Area2D" parent="Map"]
 position = Vector2( -3913.44, -159.896 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Хмельницька область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 19 )
-texture = ExtResource( 9 )
+texture = ExtResource( 25 )
 
 [node name="Border" type="Sprite" parent="Map/Хмельницька область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 23 )
+texture = ExtResource( 38 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Хмельницька область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -715,17 +714,17 @@ polygon = PoolVector2Array( 86.6, -501, 95, -501, 95, -498.5, 100.1, -490, 100.8
 
 [node name="Волинська область" type="Area2D" parent="Map"]
 position = Vector2( -4528.16, -1006.25 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Волинська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 20 )
-texture = ExtResource( 28 )
+texture = ExtResource( 33 )
 
 [node name="Border" type="Sprite" parent="Map/Волинська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 43 )
+texture = ExtResource( 28 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Волинська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -733,17 +732,17 @@ polygon = PoolVector2Array( 177, -403.8, 181, -399.8, 181, -396.2, 180.3, -395.5
 
 [node name="Львівська область" type="Area2D" parent="Map"]
 position = Vector2( -4857.79, -302.44 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Львівська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 21 )
-texture = ExtResource( 32 )
+texture = ExtResource( 35 )
 
 [node name="Border" type="Sprite" parent="Map/Львівська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 11 )
+texture = ExtResource( 40 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Львівська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -751,17 +750,17 @@ polygon = PoolVector2Array( 91, -449.1, 118.6, -431, 123.1, -431, 169, -426.8, 1
 
 [node name="Тернопільська область" type="Area2D" parent="Map"]
 position = Vector2( -4389.51, -96.0778 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Тернопільська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 22 )
-texture = ExtResource( 41 )
+texture = ExtResource( 19 )
 
 [node name="Border" type="Sprite" parent="Map/Тернопільська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 14 )
+texture = ExtResource( 26 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Тернопільська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -769,17 +768,17 @@ polygon = PoolVector2Array( 211, -445.2, 224.4, -439, 249, -439, 249, -437, 253,
 
 [node name="Івавно-Франківська область" type="Area2D" parent="Map"]
 position = Vector2( -4722.65, 236.627 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Івавно-Франківська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 23 )
-texture = ExtResource( 37 )
+texture = ExtResource( 13 )
 
 [node name="Border" type="Sprite" parent="Map/Івавно-Франківська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 25 )
+texture = ExtResource( 9 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Івавно-Франківська область"]
 position = Vector2( -19.0571, -80.2325 )
@@ -787,17 +786,17 @@ polygon = PoolVector2Array( 39, -436.9, 39, -434.7, 50.9, -421, 53.5, -421, 60.5
 
 [node name="Закарпатська область" type="Area2D" parent="Map"]
 position = Vector2( -5156.09, 253.712 )
-script = ExtResource( 2 )
+script = ExtResource( 49 )
 
 [node name="Sprite" type="MeshInstance2D" parent="Map/Закарпатська область"]
 position = Vector2( -19.0571, -80.2325 )
 mesh = SubResource( 24 )
-texture = ExtResource( 33 )
+texture = ExtResource( 37 )
 
 [node name="Border" type="Sprite" parent="Map/Закарпатська область"]
 visible = false
 position = Vector2( -19.0571, -80.2325 )
-texture = ExtResource( 5 )
+texture = ExtResource( 24 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Закарпатська область"]
 position = Vector2( -19.0571, -80.2325 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/обводка 3.png-1c687d42e583aefd7662af9e0f7cd070.stex"
+path="res://.import/border 1.png-4e69dc2e2ccef130066b3723b4e05e8d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/map/3/обводка 3.png"
-dest_files=[ "res://.import/обводка 3.png-1c687d42e583aefd7662af9e0f7cd070.stex" ]
+source_file="res://Textures/map/1/border 1.png"
+dest_files=[ "res://.import/border 1.png-4e69dc2e2ccef130066b3723b4e05e8d.stex" ]
 
 [params]
 
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

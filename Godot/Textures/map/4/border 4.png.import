@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/обводка 10.png-d2d6a3a6da160f8bec2c9d8e19628cba.stex"
+path="res://.import/border 4.png-09fadc6c3597fc0e18ca354aeed0bb0f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/map/10/обводка 10.png"
-dest_files=[ "res://.import/обводка 10.png-d2d6a3a6da160f8bec2c9d8e19628cba.stex" ]
+source_file="res://Textures/map/4/border 4.png"
+dest_files=[ "res://.import/border 4.png-09fadc6c3597fc0e18ca354aeed0bb0f.stex" ]
 
 [params]
 
