@@ -4,9 +4,13 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="..\NativeLib\CommonLib.h" />
     <ClInclude Include="..\NativeLib\Oblast.h" />
+    <ClInclude Include="..\NativeLib\CameraController.h" />
+    <ClInclude Include="..\NativeLib\GameManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\NativeLib\NativeLib.cpp" />
     <ClCompile Include="..\NativeLib\Oblast.cpp" />
+    <ClCompile Include="..\NativeLib\CameraController.cpp" />
+    <ClCompile Include="..\NativeLib\GameManager.cpp" />
   </ItemGroup>
 </Project>

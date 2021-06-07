@@ -1,11 +1,17 @@
 #pragma once
 
 #include "CommonLib.h"
+#include "GameManager.h"
 #include <Area2D.hpp>
 #include <InputEventMouseButton.hpp>
 #include <GlobalConstants.hpp>
 #include <Sprite.hpp>
 #include <MeshInstance2D.hpp>
+#include <Texture.hpp>
+#include <CollisionPolygon2D.hpp>
+#include <SceneTree.hpp>
+
+class GameManager;
 
 class Oblast :
     public Area2D
@@ -17,12 +23,14 @@ public:
 	void _init();
 
 	void _ready();
-	void _input_event(Node* viewport, InputEventMouseButton* event, int shape_idx);
-	void changeColorTo(Color color, float force);
+	void _input_event(Node* viewport, InputEvent* event, int shape_idx);
+	void ChangeColorTo(Color color, float force);
+	Vector2 GetSize();
 
 private:
 	MeshInstance2D* mainSprite;
 	Sprite* border;
+	CollisionPolygon2D* collisionShape;
 
 	float colorChangeForce = 0;
 

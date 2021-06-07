@@ -14,20 +14,28 @@ void Oblast::_ready()
 {
 	mainSprite = cast_to<MeshInstance2D>(get_node("Sprite"));
 	border = cast_to<Sprite>(get_node("Border"));
+	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
 }
 
-void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
+void Oblast::_input_event(Node* viewport, InputEvent* event, int shape_idx)
 {
-	if (event->is_pressed() && event->get_button_index() == GlobalConstants::BUTTON_LEFT)
+	if (event->is_action_pressed("LeftMouseButton") && !get_tree()->is_input_handled())
 	{
 		//border->set_visible(!border->is_visible());
-		changeColorTo(blue, 0.1);
+		ChangeColorTo(blue, 0.1);
+		GameManager::GetSingleton()->SelectOblast(this);
+		get_tree()->set_input_as_handled();
 	}
 }
 
-void Oblast::changeColorTo(Color color, float force)
+void Oblast::ChangeColorTo(Color color, float force)
 {
 	if ((colorChangeForce += force) > 1)
 		colorChangeForce = 1;
 	mainSprite->set_self_modulate(def-(def-color)*colorChangeForce);
+}
+
+Vector2 Oblast::GetSize()
+{
+	return mainSprite->get_texture()->get_size() * mainSprite->get_global_scale();
 }

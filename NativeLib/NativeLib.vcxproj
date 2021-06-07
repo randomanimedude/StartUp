@@ -161,11 +161,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CameraController.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="NativeLib.cpp" />
     <ClCompile Include="Oblast.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CameraController.h" />
     <ClInclude Include="CommonLib.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="Oblast.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
