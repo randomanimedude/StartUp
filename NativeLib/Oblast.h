@@ -23,7 +23,7 @@ public:
 	void _init();
 
 	void _ready();
-	void _input_event(Node* viewport, InputEvent* event, int shape_idx);
+	void _input_event(Node* viewport, InputEventMouseButton* event, int shape_idx);
 	void ChangeColorTo(Color color, float force);
 	Vector2 GetSize();
 
