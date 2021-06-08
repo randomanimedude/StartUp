@@ -321,13 +321,16 @@
     <ClInclude Include="..\NativeLib\CommonLib.h" />
     <ClInclude Include="..\NativeLib\GameManager.h" />
     <ClInclude Include="..\NativeLib\Oblast.h" />
+    <ClInclude Include="..\NativeLib\ResetCameraButton.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\NativeLib\CameraController.cpp" />
+    <ClCompile Include="..\NativeLib\CommonLib.cpp" />
     <ClCompile Include="..\NativeLib\GameManager.cpp" />
     <ClCompile Include="..\NativeLib\NativeLib.cpp" />
     <ClCompile Include="..\NativeLib\Oblast.cpp" />
+    <ClCompile Include="..\NativeLib\ResetCameraButton.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

@@ -4,3 +4,5 @@
 
 using namespace godot;
 using namespace std;
+
+float lerp(float a, float b, float t);

@@ -6,11 +6,14 @@
     <ClInclude Include="..\NativeLib\Oblast.h" />
     <ClInclude Include="..\NativeLib\CameraController.h" />
     <ClInclude Include="..\NativeLib\GameManager.h" />
+    <ClInclude Include="..\NativeLib\ResetCameraButton.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\NativeLib\NativeLib.cpp" />
     <ClCompile Include="..\NativeLib\Oblast.cpp" />
     <ClCompile Include="..\NativeLib\CameraController.cpp" />
     <ClCompile Include="..\NativeLib\GameManager.cpp" />
+    <ClCompile Include="..\NativeLib\ResetCameraButton.cpp" />
+    <ClCompile Include="..\NativeLib\CommonLib.cpp" />
   </ItemGroup>
 </Project>
