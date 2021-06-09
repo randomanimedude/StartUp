@@ -18,7 +18,6 @@ surfaces/0 = {
 }
 
 [node name="Вінницька область" type="Area2D"]
-position = Vector2( -3353.97, 162.023 )
 script = ExtResource( 1 )
 
 [node name="Border" type="Sprite" parent="."]

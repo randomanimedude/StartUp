@@ -17,6 +17,10 @@ void Oblast::_ready()
 	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
 }
 
+void Oblast::_physics_process()
+{
+}
+
 void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
 {
 	if (event->is_pressed() && !get_tree()->is_input_handled())
@@ -38,4 +42,12 @@ void Oblast::ChangeColorTo(Color color, float force)
 Vector2 Oblast::GetSize()
 {
 	return mainSprite->get_texture()->get_size() * mainSprite->get_global_scale();
+}
+
+void Oblast::Hide()
+{
+}
+
+void Oblast::Show()
+{
 }

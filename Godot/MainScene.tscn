@@ -11,8 +11,6 @@ position = Vector2( 309.117, -70.6395 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-process_mode = 0
-smoothing_enabled = true
 script = ExtResource( 50 )
 
 [node name="UI" parent="." instance=ExtResource( 2 )]

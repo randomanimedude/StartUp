@@ -23,9 +23,12 @@ public:
 	void _init();
 
 	void _ready();
+	void _physics_process();
 	void _input_event(Node* viewport, InputEventMouseButton* event, int shape_idx);
 	void ChangeColorTo(Color color, float force);
 	Vector2 GetSize();
+	void Hide();
+	void Show();
 
 private:
 	MeshInstance2D* mainSprite;
