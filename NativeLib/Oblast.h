@@ -13,6 +13,8 @@
 
 class GameManager;
 
+enum OblastState {Visible, Hiden, Appearing, Hiding};
+
 class Oblast :
     public Area2D
 {
@@ -39,5 +41,7 @@ private:
 
 	Color def = Color(255, 255, 255, 255)/255.0;
 	Color blue = Color(97, 168, 239, 255)/255.0;
+
+	OblastState state = Visible;
 };
 
