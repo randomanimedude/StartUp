@@ -18,7 +18,6 @@ surfaces/0 = {
 }
 
 [node name="Львівська область" type="Area2D"]
-position = Vector2( -4857.79, -302.44 )
 script = ExtResource( 1 )
 
 [node name="Border" type="Sprite" parent="."]

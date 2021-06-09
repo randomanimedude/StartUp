@@ -18,7 +18,6 @@ surfaces/0 = {
 }
 
 [node name="Чернігівська область" type="Area2D"]
-position = Vector2( -2311.37, -1063.53 )
 script = ExtResource( 1 )
 
 [node name="Border" type="Sprite" parent="."]

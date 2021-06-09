@@ -18,7 +18,7 @@ public:
 	void _init();
 
 	void _ready();
-	void _physics_process(float delta);
+	void _process(float delta);
 	static CameraController* GetSingleton();
 	void ZoomCameraToOblast(Oblast* oblast);
 	void ZoomToDefault();

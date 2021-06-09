@@ -18,7 +18,6 @@ surfaces/0 = {
 }
 
 [node name="Миколаївська область" type="Area2D"]
-position = Vector2( -2358.09, 965.211 )
 script = ExtResource( 1 )
 
 [node name="Border" type="Sprite" parent="."]

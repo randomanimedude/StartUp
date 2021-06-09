@@ -18,7 +18,6 @@ surfaces/0 = {
 }
 
 [node name="Рівненська область" type="Area2D"]
-position = Vector2( -4045.87, -922.709 )
 script = ExtResource( 1 )
 
 [node name="Border" type="Sprite" parent="."]
