@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Кнопка.png-440515a84a79a19ace9e9465f213b453.stex"
+path="res://.import/button.png-66e4910aa7ad1e4257f938bf020a268c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/Кнопка.png"
-dest_files=[ "res://.import/Кнопка.png-440515a84a79a19ace9e9465f213b453.stex" ]
+source_file="res://Textures/UI/button.png"
+dest_files=[ "res://.import/button.png-66e4910aa7ad1e4257f938bf020a268c.stex" ]
 
 [params]
 
