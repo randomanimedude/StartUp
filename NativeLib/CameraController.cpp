@@ -13,7 +13,7 @@ void CameraController::_init()
 
 void CameraController::_ready()
 {
-	viewport = get_viewport();
+	screenSize = get_viewport()->get_visible_rect().size;//OS::get_singleton()->get_window_size();//get_viewport();
 	defaultOffset = get_offset();
 	defaultZoom = get_zoom();
 }
@@ -41,7 +41,7 @@ CameraController* CameraController::GetSingleton()
 
 void CameraController::ZoomCameraToOblast(Oblast* oblast)
 {
-	float scale = max<float>(oblast->GetSize().height / viewport->get_size().height, oblast->GetSize().width / viewport->get_size().width) * (1 + safeZone);
+	float scale = max<float>((float)oblast->GetSize().height / screenSize.height, (float)oblast->GetSize().width / screenSize.width) * (1.0 + safeZone);
 	newZoom = Vector2(scale, scale);
 	newOffset = oblast->get_global_position();
 

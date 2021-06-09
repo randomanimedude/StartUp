@@ -17,9 +17,9 @@ void Oblast::_ready()
 	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
 }
 
-void Oblast::_input_event(Node* viewport, InputEvent* event, int shape_idx)
+void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
 {
-	if (event->is_action_pressed("LeftMouseButton") && !get_tree()->is_input_handled())
+	if (event->is_pressed() && !get_tree()->is_input_handled())
 	{
 		//border->set_visible(!border->is_visible());
 		ChangeColorTo(blue, 0.1);
