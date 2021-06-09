@@ -1,18 +1,19 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://NativeLib/Scripts/ResetCameraButton.gdns" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Textures/UI/Кнопка.png" type="Texture" id=2]
 
 [node name="UI" type="CanvasLayer"]
 
 [node name="ResetCameraButton" type="TextureButton" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -113.486
-margin_top = 50.2354
-margin_right = -49.4862
-margin_bottom = 114.235
+margin_left = -113.0
+margin_top = 50.0
+margin_right = -39.0
+margin_bottom = 124.0
 texture_normal = ExtResource( 2 )
+expand = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
