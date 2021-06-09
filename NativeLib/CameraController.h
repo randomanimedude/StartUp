@@ -4,6 +4,7 @@
 #include <Camera2D.hpp>
 #include "Oblast.h"
 #include <Viewport.hpp>
+//#include <OS.hpp>
 
 class Oblast;
 
@@ -25,7 +26,7 @@ public:
 
 private:
 	static inline CameraController* instance;
-	Viewport* viewport;
+	Vector2 screenSize;
 	float safeZone = 0.1;
 	Vector2 newOffset;
 	Vector2 newZoom;
