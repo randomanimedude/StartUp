@@ -12,5 +12,6 @@ void ResetCameraButton::_init()
 
 void ResetCameraButton::_on_ResetCameraButton_pressed()
 {
-	CameraController::GetSingleton()->ZoomToDefault();
+	//CameraController::GetSingleton()->ZoomToDefault();
+	GameManager::GetSingleton()->UnselectOblast();
 }

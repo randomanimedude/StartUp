@@ -21,10 +21,14 @@ public:
 	void _ready();
 
 	void SelectOblast(Oblast* oblast);
+	void UnselectOblast();
+	Oblast* GetSelectedOblast() { return selectedOblast; }
 
 private:
 	static inline GameManager* instance;
 	CameraController* camera;
+	Oblast* oblasti[24];
+	Oblast* selectedOblast = nullptr;
 
 };
 

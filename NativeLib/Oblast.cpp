@@ -4,6 +4,7 @@ void Oblast::_register_methods()
 {
 	register_method("_input_event", &Oblast::_input_event);
 	register_method("_ready", &Oblast::_ready);
+	register_method("_physics_process", &Oblast::_physics_process);
 }
 
 void Oblast::_init()
@@ -12,6 +13,7 @@ void Oblast::_init()
 
 void Oblast::_ready()
 {
+	gameManager = GameManager::GetSingleton();
 	mainSprite = cast_to<MeshInstance2D>(get_node("Sprite"));
 	border = cast_to<Sprite>(get_node("Border"));
 	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
@@ -19,18 +21,25 @@ void Oblast::_ready()
 
 void Oblast::_physics_process()
 {
-	/*switch (state)
+	switch (state)
 	{
 	case Hiding:
 		mainSprite->set_self_modulate(Color(1, 1, 1, lerp(mainSprite->get_self_modulate().a, 0, transition_t)));
 		if (mainSprite->get_self_modulate().a < 0.01)
+		{
 			mainSprite->set_self_modulate(Color(1, 1, 1, 0));
+			state = Hidden;
+
+		}
 		break;
 	case Appearing:
 		mainSprite->set_self_modulate(Color(1, 1, 1, lerp(mainSprite->get_self_modulate().a, 1, transition_t)));
 		if (mainSprite->get_self_modulate().a > 0.99)
+		{
 			mainSprite->set_self_modulate(Color(1, 1, 1, 1));
-	}*/
+			state = Visible;
+		}
+	}
 }
 
 void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
@@ -38,9 +47,11 @@ void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shap
 	if (event->is_pressed() && !get_tree()->is_input_handled())
 	{
 		//border->set_visible(!border->is_visible());
-		ChangeColorTo(blue, 0.1);
+		//ChangeColorTo(blue, 0.1);
 		//Hide();
-		GameManager::GetSingleton()->SelectOblast(this);
+		if(gameManager->GetSelectedOblast()==nullptr)
+			gameManager->SelectOblast(this);
+
 		get_tree()->set_input_as_handled();
 	}
 }

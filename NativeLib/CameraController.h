@@ -4,6 +4,7 @@
 #include <Camera2D.hpp>
 #include "Oblast.h"
 #include <Viewport.hpp>
+#include "GameManager.h"
 //#include <OS.hpp>
 
 class Oblast;
