@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1.png-b3553b570cf19b5e43685fd0e49f88fd.stex"
+path="res://.import/4.png-258c54d647fef838b9e401ec59fc0cda.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Prefabs/Oblasti/1.png"
-dest_files=[ "res://.import/1.png-b3553b570cf19b5e43685fd0e49f88fd.stex" ]
+source_file="res://Textures/new map/16/4.png"
+dest_files=[ "res://.import/4.png-258c54d647fef838b9e401ec59fc0cda.stex" ]
 
 [params]
 
