@@ -13,6 +13,8 @@
 
 class GameManager;
 
+enum OblastState {Visible, Hidden, Appearing, Hiding};
+
 class Oblast :
     public Area2D
 {
@@ -34,10 +36,13 @@ private:
 	MeshInstance2D* mainSprite;
 	Sprite* border;
 	CollisionPolygon2D* collisionShape;
+	GameManager* gameManager;
 
 	float colorChangeForce = 0;
 
 	Color def = Color(255, 255, 255, 255)/255.0;
 	Color blue = Color(97, 168, 239, 255)/255.0;
+
+	OblastState state = Visible;
 };
 
