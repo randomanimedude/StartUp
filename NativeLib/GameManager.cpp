@@ -19,8 +19,9 @@ void GameManager::_ready()
 
 void GameManager::SelectOblast(Oblast* oblast)
 {
-    camera->ZoomCameraToOblast(oblast);
     selectedOblast = oblast;
+    camera->ZoomCameraToOblast(selectedOblast);
+    selectedOblast->ShowPieces();
     for (Oblast* region : oblasti)
     {
         if (region != selectedOblast)
@@ -31,9 +32,11 @@ void GameManager::SelectOblast(Oblast* oblast)
 void GameManager::UnselectOblast()
 {
     camera->ZoomToDefault();
-    selectedOblast = nullptr;
     for (Oblast* oblast : oblasti)
-        oblast->Show();
+        if(oblast!=selectedOblast)
+            oblast->Show();
+    selectedOblast->HidePieces();
+    selectedOblast = nullptr;
 }
 
 GameManager* GameManager::GetSingleton()

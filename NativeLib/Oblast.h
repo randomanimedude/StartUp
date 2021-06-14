@@ -2,6 +2,7 @@
 
 #include "CommonLib.h"
 #include "GameManager.h"
+#include "Piece.h"
 #include <Area2D.hpp>
 #include <InputEventMouseButton.hpp>
 #include <GlobalConstants.hpp>
@@ -10,10 +11,10 @@
 #include <Texture.hpp>
 #include <CollisionPolygon2D.hpp>
 #include <SceneTree.hpp>
+#include <vector>
 
 class GameManager;
-
-enum OblastState {Visible, Hidden, Appearing, Hiding};
+class Piece;
 
 class Oblast :
     public Area2D
@@ -31,18 +32,27 @@ public:
 	Vector2 GetSize();
 	void Hide();
 	void Show();
+	void ShowPieces();
+	void HidePieces();
+	void RegisterPiece(Piece* piece);
 
 private:
 	MeshInstance2D* mainSprite;
 	Sprite* border;
 	CollisionPolygon2D* collisionShape;
 	GameManager* gameManager;
+	Node2D* piecesCombined;
 
 	float colorChangeForce = 0;
 
 	Color def = Color(255, 255, 255, 255)/255.0;
 	Color blue = Color(97, 168, 239, 255)/255.0;
+	Color borderColor = Color(47, 220, 188, 255) / 255.0;
+	Color currentColor = def;
+	Color storedColor = def;
 
-	OblastState state = Visible;
+	State state = Visible;
+
+	vector<Piece*> pieces;
 };
 

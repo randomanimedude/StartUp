@@ -17,6 +17,9 @@ void Oblast::_ready()
 	mainSprite = cast_to<MeshInstance2D>(get_node("Sprite"));
 	border = cast_to<Sprite>(get_node("Border"));
 	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
+	piecesCombined = cast_to<Node2D>(get_node("Pieces"));
+
+	currentColor = get_self_modulate();
 }
 
 void Oblast::_physics_process()
@@ -24,22 +27,41 @@ void Oblast::_physics_process()
 	switch (state)
 	{
 	case Hiding:
-		mainSprite->set_self_modulate(Color(1, 1, 1, lerp(mainSprite->get_self_modulate().a, 0, transition_t)));
-		if (mainSprite->get_self_modulate().a < 0.01)
+		currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 0, transition_t));
+		if (currentColor.a < 0.01)
 		{
-			mainSprite->set_self_modulate(Color(1, 1, 1, 0));
+			currentColor=Color(1, 1, 1, 0);
 			state = Hidden;
-
+			mainSprite->set_visible(false);
 		}
 		break;
 	case Appearing:
-		mainSprite->set_self_modulate(Color(1, 1, 1, lerp(mainSprite->get_self_modulate().a, 1, transition_t)));
-		if (mainSprite->get_self_modulate().a > 0.99)
+		currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 1, transition_t));
+		if (currentColor.a > 0.99)
 		{
-			mainSprite->set_self_modulate(Color(1, 1, 1, 1));
+			currentColor=Color(1, 1, 1, 1);
 			state = Visible;
 		}
+		break;
+	case VisibleToBG:
+		currentColor = lerp(currentColor, borderColor, transition_t);
+		if ((currentColor.r - borderColor.r) * (currentColor.g - borderColor.g) * (currentColor.b - borderColor.b) < 0.01)
+		{
+			currentColor = borderColor;
+			state = BG;
+		}
+		break;
+	case BGToVisible:
+		currentColor = lerp(currentColor, storedColor, transition_t);
+		if ((currentColor.r - storedColor.r) * (currentColor.g - storedColor.g) * (currentColor.b - storedColor.b) < 0.01)
+		{
+			currentColor = storedColor;
+			state = Visible;
+			if (piecesCombined != nullptr)
+				piecesCombined->set_visible(false);
+		}
 	}
+	mainSprite->set_self_modulate(currentColor);
 }
 
 void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
@@ -60,7 +82,8 @@ void Oblast::ChangeColorTo(Color color, float force)
 {
 	if ((colorChangeForce += force) > 1)
 		colorChangeForce = 1;
-	mainSprite->set_self_modulate(def-(def-color)*colorChangeForce);
+	currentColor = def - (def - color) * colorChangeForce;
+	mainSprite->set_self_modulate(currentColor);
 }
 
 Vector2 Oblast::GetSize()
@@ -75,5 +98,28 @@ void Oblast::Hide()
 
 void Oblast::Show()
 {
+	mainSprite->set_visible(true);
 	state = Appearing;
+}
+
+void Oblast::ShowPieces()
+{
+	storedColor = currentColor;
+	state = VisibleToBG;
+	if(piecesCombined!=nullptr)
+		piecesCombined->set_visible(true);
+	for (Piece* piece : pieces)
+		piece->Show();
+}
+
+void Oblast::HidePieces()
+{
+	state = BGToVisible;
+	for (Piece* piece : pieces)
+		piece->Hide();
+}
+
+void Oblast::RegisterPiece(Piece* piece)
+{
+	pieces.push_back(piece);
 }
