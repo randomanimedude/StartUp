@@ -123,3 +123,5 @@ void Oblast::RegisterPiece(Piece* piece)
 {
 	pieces.push_back(piece);
 }
+
+

@@ -154,7 +154,7 @@
     <Link>
       <AdditionalLibraryDirectories>..\..\GodotBindings\lib;%(AdditionalLibraryDirectories);$(ToolchainPrebuiltPath)\lib\gcc\x86_64-linux-android\$(ToolchainFullVersionName);$(StlLibraryPath)</AdditionalLibraryDirectories>
       <IncrementalLink>false</IncrementalLink>
-      <AdditionalOptions>-lm -v %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PreBuildEvent>
       <Command>
@@ -175,7 +175,7 @@
     <Link>
       <AdditionalLibraryDirectories>..\..\GodotBindings\lib;%(AdditionalLibraryDirectories);$(ToolchainPrebuiltPath)\lib\gcc\x86_64-linux-android\$(ToolchainFullVersionName);$(StlLibraryPath)</AdditionalLibraryDirectories>
       <IncrementalLink>false</IncrementalLink>
-      <AdditionalOptions>-lm -v %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PreBuildEvent>
       <Command>
@@ -196,7 +196,7 @@
     <Link>
       <AdditionalLibraryDirectories>..\..\GodotBindings\lib;%(AdditionalLibraryDirectories);$(ToolchainPrebuiltPath)\lib\gcc\i686-linux-android\$(ToolchainFullVersionName);$(StlLibraryPath)</AdditionalLibraryDirectories>
       <IncrementalLink>false</IncrementalLink>
-      <AdditionalOptions>-lm -v %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PreBuildEvent>
       <Command>
@@ -217,7 +217,7 @@
     <Link>
       <AdditionalLibraryDirectories>..\..\GodotBindings\lib;%(AdditionalLibraryDirectories);$(ToolchainPrebuiltPath)\lib\gcc\i686-linux-android\$(ToolchainFullVersionName);$(StlLibraryPath)</AdditionalLibraryDirectories>
       <IncrementalLink>false</IncrementalLink>
-      <AdditionalOptions>-lm -v %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PreBuildEvent>
       <Command>
@@ -239,7 +239,7 @@
       <AdditionalLibraryDirectories>..\..\GodotBindings\lib;%(AdditionalLibraryDirectories);$(ToolchainPrebuiltPath)\lib\gcc\$(ToolchainName)\$(ToolchainFullVersionName);$(StlLibraryPath)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libgodot-cpp.android.debug.arm64v8.a</AdditionalDependencies>
       <IncrementalLink>false</IncrementalLink>
-      <AdditionalOptions>-lm -v %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PreBuildEvent>
       <Command>
@@ -261,7 +261,7 @@
       <AdditionalLibraryDirectories>..\..\GodotBindings\lib;%(AdditionalLibraryDirectories);$(ToolchainPrebuiltPath)\lib\gcc\$(ToolchainName)\$(ToolchainFullVersionName);$(StlLibraryPath)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libgodot-cpp.android.debug.arm64v8.a</AdditionalDependencies>
       <IncrementalLink>false</IncrementalLink>
-      <AdditionalOptions>-lm -v %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PreBuildEvent>
       <Command>
@@ -283,7 +283,7 @@
       <AdditionalLibraryDirectories>..\..\GodotBindings\lib;%(AdditionalLibraryDirectories);$(ToolchainPrebuiltPath)\lib\gcc\$(ToolchainName)\$(ToolchainFullVersionName)\$(PlatformShortName);$(StlLibraryPath)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libgodot-cpp.android.debug.armv7.a</AdditionalDependencies>
       <IncrementalLink>false</IncrementalLink>
-      <AdditionalOptions>-lm -v %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PreBuildEvent>
       <Command>
@@ -305,7 +305,7 @@
       <AdditionalLibraryDirectories>..\..\GodotBindings\lib;%(AdditionalLibraryDirectories);$(ToolchainPrebuiltPath)\lib\gcc\$(ToolchainName)\$(ToolchainFullVersionName)\$(PlatformShortName);$(StlLibraryPath)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libgodot-cpp.android.debug.armv7.a</AdditionalDependencies>
       <IncrementalLink>false</IncrementalLink>
-      <AdditionalOptions>-lm -v %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PreBuildEvent>
       <Command>
