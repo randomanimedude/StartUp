@@ -1,11 +1,14 @@
 #pragma once
 #include "CommonLib.h"
 #include "Oblast.h"
+#include "GameManager.h"
 #include <Area2D.hpp>
 #include <MeshInstance2D.hpp>
 #include <CollisionPolygon2D.hpp>
+#include <InputEventMouseButton.hpp>
 
 class Oblast;
+class GameManager;
 
 class Piece : public Area2D
 {
@@ -17,13 +20,16 @@ public:
 
 	void _ready();
 	void _physics_process();
+	void _input_event(Node* viewport, InputEventMouseButton* event, int shape_idx);
 	void Show();
 	void Hide();
+	void UpdateSituation();
 
 private:
 	MeshInstance2D* sprite;
 	CollisionPolygon2D* collider;
 	Oblast* oblast;
+	GameManager* gameManager;
 
 	State state = Hidden;
 

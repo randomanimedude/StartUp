@@ -35,6 +35,10 @@ public:
 	void ShowPieces();
 	void HidePieces();
 	void RegisterPiece(Piece* piece);
+	void UpdateSituation();
+	void SelectPiece(Piece* piece);
+	void UnselectPiece();
+	bool IsPieceSelected(Piece* piece);
 
 private:
 	MeshInstance2D* mainSprite;
@@ -42,6 +46,7 @@ private:
 	CollisionPolygon2D* collisionShape;
 	GameManager* gameManager;
 	Node2D* piecesCombined;
+	Piece* selectedPiece = nullptr;
 
 	float colorChangeForce = 0;
 

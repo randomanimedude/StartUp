@@ -49,6 +49,7 @@ void Oblast::_physics_process()
 		{
 			currentColor = borderColor;
 			state = BG;
+			gameManager->SetGameIsPlaying(true);
 		}
 		break;
 	case BGToVisible:
@@ -59,6 +60,7 @@ void Oblast::_physics_process()
 			state = Visible;
 			if (piecesCombined != nullptr)
 				piecesCombined->set_visible(false);
+			gameManager->SetGameIsPlaying(false);
 		}
 	}
 	mainSprite->set_self_modulate(currentColor);
@@ -66,7 +68,7 @@ void Oblast::_physics_process()
 
 void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
 {
-	if (event->is_pressed() && !get_tree()->is_input_handled())
+	if (event->is_pressed() && !get_tree()->is_input_handled() && !gameManager->IsGamePlaying())
 	{
 		//border->set_visible(!border->is_visible());
 		//ChangeColorTo(blue, 0.1);
@@ -122,6 +124,31 @@ void Oblast::HidePieces()
 void Oblast::RegisterPiece(Piece* piece)
 {
 	pieces.push_back(piece);
+}
+
+void Oblast::UpdateSituation()
+{
+}
+
+void Oblast::SelectPiece(Piece* piece)
+{
+	UnselectPiece();
+	selectedPiece = piece;
+	piece->set_scale(Vector2(1.012, 1.012));
+}
+
+void Oblast::UnselectPiece()
+{
+	if (selectedPiece != nullptr)
+	{
+		selectedPiece->set_scale(Vector2(1, 1));
+		selectedPiece = nullptr;
+	}
+}
+
+bool Oblast::IsPieceSelected(Piece* piece)
+{
+	return selectedPiece == piece;
 }
 
 

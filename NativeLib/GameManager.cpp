@@ -36,7 +36,13 @@ void GameManager::UnselectOblast()
         if(oblast!=selectedOblast)
             oblast->Show();
     selectedOblast->HidePieces();
+    selectedOblast->UnselectPiece();
     selectedOblast = nullptr;
+}
+
+void GameManager::SetGameIsPlaying(bool playing)
+{
+    gameIsPlaying = playing;
 }
 
 GameManager* GameManager::GetSingleton()
