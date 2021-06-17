@@ -49,3 +49,5 @@ void Piece::Show()
 void Piece::Hide()
 {
 }
+
+

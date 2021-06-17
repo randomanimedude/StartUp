@@ -19,7 +19,7 @@ public:
 	void _init();
 
 	void _ready();
-	void _process(float delta);
+	void _physics_process(float delta);
 	static CameraController* GetSingleton();
 	void ZoomCameraToOblast(Oblast* oblast);
 	void ZoomToDefault();
@@ -29,7 +29,7 @@ private:
 	static inline CameraController* instance;
 	Vector2 screenSize;
 	float safeZone = 0.1;
-	Vector2 newOffset;
+	Vector2 newPosition;
 	Vector2 newZoom;
 	Vector2 defaultOffset;
 	Vector2 defaultZoom;

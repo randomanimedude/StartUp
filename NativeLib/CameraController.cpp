@@ -3,7 +3,7 @@
 void CameraController::_register_methods()
 {
 	register_method("_ready", &CameraController::_ready);
-	register_method("_process", &CameraController::_process);
+	register_method("_process", &CameraController::_physics_process);
 }
 
 void CameraController::_init()
@@ -18,16 +18,16 @@ void CameraController::_ready()
 	defaultZoom = get_zoom();
 }
 
-void CameraController::_process(float delta)
+void CameraController::_physics_process(float delta)
 {
 	if (IsMoving())
 	{
-		float local_t = transition_t * 60 * delta;	
-		set_offset(Vector2(lerp(get_offset().x, newOffset.x, local_t), lerp(get_offset().y, newOffset.y, local_t)));
+		float local_t = transition_t;// *60 * delta;
+		set_position(Vector2(lerp(get_position().x, newPosition.x, local_t), lerp(get_position().y, newPosition.y, local_t)));
 		set_zoom(Vector2(lerp(get_zoom().x, newZoom.x, local_t), lerp(get_zoom().y, newZoom.y, local_t)));
-		if ((get_offset().distance_squared_to(newOffset) + get_zoom().distance_squared_to(newZoom)) < 0.01)
+		if ((get_position().distance_squared_to(newPosition) + get_zoom().distance_squared_to(newZoom)) < 0.01)
 		{
-			set_offset(newOffset);
+			set_position(newPosition);
 			set_zoom(newZoom);
 			moving = false;
 		}
@@ -43,7 +43,7 @@ void CameraController::ZoomCameraToOblast(Oblast* oblast)
 {
 	float scale = max<float>((float)oblast->GetSize().height / screenSize.height, (float)oblast->GetSize().width / screenSize.width) * (1.0 + safeZone);
 	newZoom = Vector2(scale, scale);
-	newOffset = oblast->get_global_position();
+	newPosition = oblast->get_global_position();
 
 	moving = true;
 }
@@ -51,7 +51,7 @@ void CameraController::ZoomCameraToOblast(Oblast* oblast)
 void CameraController::ZoomToDefault()
 {
 	newZoom = defaultZoom;
-	newOffset = defaultOffset;
+	newPosition = defaultOffset;
 
 	moving = true;
 }
