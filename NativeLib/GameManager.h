@@ -22,6 +22,8 @@ public:
 
 	void SelectOblast(Oblast* oblast);
 	void UnselectOblast();
+	bool IsGamePlaying() { return gameIsPlaying; }
+	void SetGameIsPlaying(bool playing);
 	Oblast* GetSelectedOblast() { return selectedOblast; }
 
 private:
@@ -29,6 +31,7 @@ private:
 	CameraController* camera;
 	Oblast* oblasti[24];
 	Oblast* selectedOblast = nullptr;
+	bool gameIsPlaying = false;
 
 };
 
