@@ -3,7 +3,6 @@
 [ext_resource path="res://NativeLib/Scripts/Oblast.gdns" type="Script" id=1]
 [ext_resource path="res://Textures/map/24/border 24.png" type="Texture" id=2]
 [ext_resource path="res://Textures/new map/24.png" type="Texture" id=3]
-
 [ext_resource path="res://Textures/new map/24/3.png" type="Texture" id=4]
 [ext_resource path="res://Textures/new map/24/7.png" type="Texture" id=5]
 [ext_resource path="res://Textures/new map/24/8.png" type="Texture" id=6]
