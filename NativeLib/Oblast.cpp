@@ -59,10 +59,11 @@ void Oblast::_physics_process()
 			currentColor = storedColor;
 			state = Visible;
 			if (piecesCombined != nullptr)
-				piecesCombined->set_visible(false);
+			{
+				piecesCombined->queue_free();
+				piecesCombined = nullptr;
+			}
 			gameManager->SetGameIsPlaying(false);
-			piecesCombined->queue_free();
-			piecesCombined = nullptr;
 		}
 	}
 	mainSprite->set_self_modulate(currentColor);
