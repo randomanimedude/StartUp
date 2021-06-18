@@ -164,6 +164,7 @@
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="CommonLib.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="LabelText.cpp" />
     <ClCompile Include="NativeLib.cpp" />
     <ClCompile Include="Oblast.cpp" />
     <ClCompile Include="Piece.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="CommonLib.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="LabelText.h" />
     <ClInclude Include="Oblast.h" />
     <ClInclude Include="Piece.h" />
     <ClInclude Include="ResetCameraButton.h" />
