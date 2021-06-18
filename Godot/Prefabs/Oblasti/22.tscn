@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://NativeLib/Scripts/Oblast.gdns" type="Script" id=1]
-[ext_resource path="res://Textures/map/22/border 22.png" type="Texture" id=2]
 [ext_resource path="res://Textures/new map/22.png" type="Texture" id=3]
 [ext_resource path="res://Textures/new map/22/2.png" type="Texture" id=4]
 [ext_resource path="res://Textures/new map/22/3.png" type="Texture" id=5]
@@ -132,10 +131,6 @@ surfaces/0 = {
 
 [node name="Тернопільська область" type="Area2D"]
 script = ExtResource( 1 )
-
-[node name="Border" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 2 )
 
 [node name="Sprite" type="MeshInstance2D" parent="."]
 mesh = SubResource( 1 )
