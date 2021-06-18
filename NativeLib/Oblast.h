@@ -12,6 +12,8 @@
 #include <CollisionPolygon2D.hpp>
 #include <SceneTree.hpp>
 #include <vector>
+#include <ResourceLoader.hpp>
+#include <PackedScene.hpp>
 
 class GameManager;
 class Piece;
@@ -45,8 +47,9 @@ private:
 	//Sprite* border;
 	CollisionPolygon2D* collisionShape;
 	GameManager* gameManager;
-	Node2D* piecesCombined;
+	Node2D* piecesCombined = nullptr;
 	Piece* selectedPiece = nullptr;
+	ResourceLoader* resourceLoader = ResourceLoader::get_singleton();
 
 	float colorChangeForce = 0;
 

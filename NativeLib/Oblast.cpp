@@ -17,7 +17,7 @@ void Oblast::_ready()
 	mainSprite = cast_to<MeshInstance2D>(get_node("Sprite"));
 	//border = cast_to<Sprite>(get_node("Border"));
 	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
-	piecesCombined = cast_to<Node2D>(get_node("Pieces"));
+	//piecesCombined = cast_to<Node2D>(get_node("Pieces"));
 
 	currentColor = get_self_modulate();
 }
@@ -61,6 +61,8 @@ void Oblast::_physics_process()
 			if (piecesCombined != nullptr)
 				piecesCombined->set_visible(false);
 			gameManager->SetGameIsPlaying(false);
+			piecesCombined->queue_free();
+			piecesCombined = nullptr;
 		}
 	}
 	mainSprite->set_self_modulate(currentColor);
@@ -106,6 +108,8 @@ void Oblast::Show()
 
 void Oblast::ShowPieces()
 {
+	Ref<PackedScene> temp = resourceLoader->load("res://Prefabs/Oblasti/" + get_name() + "/Pieces.tscn");
+	piecesCombined = cast_to<Node2D>(temp->instance());
 	storedColor = currentColor;
 	state = VisibleToBG;
 	if(piecesCombined!=nullptr)
