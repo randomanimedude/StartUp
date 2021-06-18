@@ -2,6 +2,7 @@
 #include "CommonLib.h"
 #include <TextureButton.hpp>
 #include "CameraController.h"
+#include <SceneTree.hpp>
 
 class ResetCameraButton :
     public TextureButton

@@ -15,7 +15,7 @@ void Oblast::_ready()
 {
 	gameManager = GameManager::GetSingleton();
 	mainSprite = cast_to<MeshInstance2D>(get_node("Sprite"));
-	border = cast_to<Sprite>(get_node("Border"));
+	//border = cast_to<Sprite>(get_node("Border"));
 	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
 	piecesCombined = cast_to<Node2D>(get_node("Pieces"));
 

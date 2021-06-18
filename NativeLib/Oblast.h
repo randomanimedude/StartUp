@@ -42,7 +42,7 @@ public:
 
 private:
 	MeshInstance2D* mainSprite;
-	Sprite* border;
+	//Sprite* border;
 	CollisionPolygon2D* collisionShape;
 	GameManager* gameManager;
 	Node2D* piecesCombined;
