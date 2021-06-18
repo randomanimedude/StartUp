@@ -1,7 +1,6 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://NativeLib/Scripts/Oblast.gdns" type="Script" id=1]
-[ext_resource path="res://Textures/map/1/border 1.png" type="Texture" id=2]
 [ext_resource path="res://Textures/new map/1.png" type="Texture" id=3]
 [ext_resource path="res://Textures/new map/1/8.png" type="Texture" id=4]
 [ext_resource path="res://Textures/new map/1/12.png" type="Texture" id=5]
@@ -191,10 +190,6 @@ script = ExtResource( 1 )
 [node name="Sprite" type="MeshInstance2D" parent="."]
 mesh = SubResource( 1 )
 texture = ExtResource( 3 )
-
-[node name="Border" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
