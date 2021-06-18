@@ -110,6 +110,7 @@ void Oblast::ShowPieces()
 {
 	Ref<PackedScene> temp = resourceLoader->load("res://Prefabs/Oblasti/" + get_name() + "/Pieces.tscn");
 	piecesCombined = cast_to<Node2D>(temp->instance());
+	add_child(piecesCombined);
 	storedColor = currentColor;
 	state = VisibleToBG;
 	if(piecesCombined!=nullptr)
@@ -154,5 +155,3 @@ bool Oblast::IsPieceSelected(Piece* piece)
 {
 	return selectedPiece == piece;
 }
-
-

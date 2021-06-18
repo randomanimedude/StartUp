@@ -320,6 +320,7 @@
     <ClInclude Include="..\NativeLib\CameraController.h" />
     <ClInclude Include="..\NativeLib\CommonLib.h" />
     <ClInclude Include="..\NativeLib\GameManager.h" />
+    <ClInclude Include="..\NativeLib\LabelText.h" />
     <ClInclude Include="..\NativeLib\Oblast.h" />
     <ClInclude Include="..\NativeLib\Piece.h" />
     <ClInclude Include="..\NativeLib\ResetCameraButton.h" />
@@ -329,6 +330,7 @@
     <ClCompile Include="..\NativeLib\CameraController.cpp" />
     <ClCompile Include="..\NativeLib\CommonLib.cpp" />
     <ClCompile Include="..\NativeLib\GameManager.cpp" />
+    <ClCompile Include="..\NativeLib\LabelText.cpp" />
     <ClCompile Include="..\NativeLib\NativeLib.cpp" />
     <ClCompile Include="..\NativeLib\Oblast.cpp" />
     <ClCompile Include="..\NativeLib\Piece.cpp" />
