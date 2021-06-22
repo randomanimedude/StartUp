@@ -5,6 +5,9 @@ void Piece::_register_methods()
 	register_method("_ready", &Piece::_ready);
 	register_method("_physics_process", &Piece::_physics_process);
 	register_method("_input_event", &Piece::_input_event);
+
+	register_property("money_to_unlock", &Piece::moneyToUnlock, 10);
+	register_property("start_as_player", &Piece::startAsPlayer, false);
 }
 
 void Piece::_init()
@@ -13,11 +16,17 @@ void Piece::_init()
 
 void Piece::_ready()
 {
+	text = cast_to<LabelText>(get_node("SmartLabel"));
 	collider = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
 	sprite = cast_to<MeshInstance2D>(get_node("Sprite"));
 	oblast = cast_to<Oblast>(get_node("../.."));
 	oblast->RegisterPiece(this);
 	gameManager = GameManager::GetSingleton();
+
+	if (startAsPlayer)
+	{
+
+	}
 }
 
 void Piece::_physics_process()
