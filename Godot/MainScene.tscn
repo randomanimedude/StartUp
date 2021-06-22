@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Prefabs/Map.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Prefabs/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/UI/UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://NativeLib/Scripts/CameraController.gdns" type="Script" id=50]
 
 [node name="Node2D" type="Node2D"]
