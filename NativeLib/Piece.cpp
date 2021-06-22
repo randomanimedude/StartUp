@@ -25,7 +25,18 @@ void Piece::_ready()
 
 	if (startAsPlayer)
 	{
+		//_owner = gameManager->player;
+		text->SetValue(money);
+	}
+	else
+	{
+		text->SetValue(moneyToUnlock);
+	}
 
+	if (_owner != nullptr)
+	{
+		//currentColor = _owner->ownerColor;
+		//currentColor.a = 0;
 	}
 }
 
@@ -55,7 +66,7 @@ void Piece::_physics_process()
 
 		}
 	}
-	sprite->set_modulate(currentColor);
+	sprite->set_self_modulate(currentColor);
 }
 
 void Piece::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
@@ -81,6 +92,11 @@ void Piece::Hide()
 
 void Piece::UpdateSituation()
 {
+}
+
+void Piece::AddMoney(int amount)
+{
+	money += amount;
 }
 
 

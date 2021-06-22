@@ -4,6 +4,7 @@
 #include <Node.hpp>
 #include "CameraController.h"
 #include "Oblast.h"
+#include "PieceOwner.h"
 
 class Oblast;
 class CameraController;
@@ -25,6 +26,8 @@ public:
 	bool IsGamePlaying() { return gameIsPlaying; }
 	void SetGameIsPlaying(bool playing);
 	Oblast* GetSelectedOblast() { return selectedOblast; }
+
+	//Player player;
 
 private:
 	static inline GameManager* instance;
