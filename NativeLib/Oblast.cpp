@@ -15,9 +15,7 @@ void Oblast::_ready()
 {
 	gameManager = GameManager::GetSingleton();
 	mainSprite = cast_to<MeshInstance2D>(get_node("Sprite"));
-	//border = cast_to<Sprite>(get_node("Border"));
 	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
-	//piecesCombined = cast_to<Node2D>(get_node("Pieces"));
 
 	currentColor = get_self_modulate();
 }
@@ -50,6 +48,7 @@ void Oblast::_physics_process()
 			currentColor = borderColor;
 			state = BG;
 			gameManager->SetGameIsPlaying(true);
+			ResetCameraButton::GetSingleton()->SetEnabled(true);
 		}
 		break;
 	case BGToVisible:
@@ -62,6 +61,7 @@ void Oblast::_physics_process()
 			{
 				piecesCombined->queue_free();
 				piecesCombined = nullptr;
+				//ResetCameraButton::GetSingleton()->set_visible(false);
 			}
 			gameManager->SetGameIsPlaying(false);
 		}

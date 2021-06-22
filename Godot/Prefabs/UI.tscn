@@ -7,6 +7,7 @@
 [node name="UI" type="CanvasLayer"]
 
 [node name="ResetCameraButton" type="TextureButton" parent="."]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -140.0

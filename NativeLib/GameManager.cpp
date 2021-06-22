@@ -27,6 +27,7 @@ void GameManager::SelectOblast(Oblast* oblast)
         if (region != selectedOblast)
             region->Hide();
     }
+    //ResetCameraButton::GetSingleton()->set_visible(false);
 }
 
 void GameManager::UnselectOblast()
@@ -38,6 +39,7 @@ void GameManager::UnselectOblast()
     selectedOblast->HidePieces();
     selectedOblast->UnselectPiece();
     selectedOblast = nullptr;
+    ResetCameraButton::GetSingleton()->SetEnabled(false);
 }
 
 void GameManager::SetGameIsPlaying(bool playing)

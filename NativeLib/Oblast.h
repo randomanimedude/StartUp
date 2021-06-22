@@ -14,6 +14,7 @@
 #include <vector>
 #include <ResourceLoader.hpp>
 #include <PackedScene.hpp>
+#include "ResetCameraButton.h"
 
 class GameManager;
 class Piece;
