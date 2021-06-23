@@ -32,12 +32,6 @@ void Piece::_ready()
 	{
 		//text->SetValue(moneyToUnlock);
 	}
-
-	if (_owner != nullptr)
-	{
-		//currentColor = _owner->ownerColor;
-		//currentColor.a = 0;
-	}
 }
 
 void Piece::_physics_process()

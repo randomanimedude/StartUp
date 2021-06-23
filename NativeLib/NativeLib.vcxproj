@@ -168,7 +168,6 @@
     <ClCompile Include="NativeLib.cpp" />
     <ClCompile Include="Oblast.cpp" />
     <ClCompile Include="Piece.cpp" />
-    <ClCompile Include="PieceOwner.cpp" />
     <ClCompile Include="ResetCameraButton.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -178,7 +177,6 @@
     <ClInclude Include="LabelText.h" />
     <ClInclude Include="Oblast.h" />
     <ClInclude Include="Piece.h" />
-    <ClInclude Include="PieceOwner.h" />
     <ClInclude Include="ResetCameraButton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

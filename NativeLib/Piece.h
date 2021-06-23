@@ -1,7 +1,6 @@
 #pragma once
 #include "CommonLib.h"
 #include "Oblast.h"
-#include "PieceOwner.h"
 #include "GameManager.h"
 #include <Area2D.hpp>
 #include <MeshInstance2D.hpp>
@@ -39,7 +38,6 @@ private:
 	Oblast* oblast;
 	GameManager* gameManager;
 	LabelText* text;
-	//PieceOwner* _owner = nullptr;
 
 	State state = Hidden;
 
