@@ -26,11 +26,11 @@ void Piece::_ready()
 	if (startAsPlayer)
 	{
 		//_owner = gameManager->player;
-		text->SetValue(money);
+		//text->SetValue(money);
 	}
 	else
 	{
-		text->SetValue(moneyToUnlock);
+		//text->SetValue(moneyToUnlock);
 	}
 
 	if (_owner != nullptr)
