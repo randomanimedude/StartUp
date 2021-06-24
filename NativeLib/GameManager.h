@@ -24,6 +24,7 @@ public:
 	void UnselectOblast();
 	bool IsGamePlaying() { return gameIsPlaying; }
 	void SetGameIsPlaying(bool playing);
+	void CheckIfOblastIsCompleted();
 	Oblast* GetSelectedOblast() { return selectedOblast; }
 
 private:

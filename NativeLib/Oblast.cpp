@@ -15,9 +15,7 @@ void Oblast::_ready()
 {
 	gameManager = GameManager::GetSingleton();
 	mainSprite = cast_to<MeshInstance2D>(get_node("Sprite"));
-	//border = cast_to<Sprite>(get_node("Border"));
 	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
-	//piecesCombined = cast_to<Node2D>(get_node("Pieces"));
 
 	currentColor = get_self_modulate();
 }
@@ -50,6 +48,7 @@ void Oblast::_physics_process()
 			currentColor = borderColor;
 			state = BG;
 			gameManager->SetGameIsPlaying(true);
+			ResetCameraButton::GetSingleton()->SetEnabled(true);
 		}
 		break;
 	case BGToVisible:
@@ -62,8 +61,9 @@ void Oblast::_physics_process()
 			{
 				piecesCombined->queue_free();
 				piecesCombined = nullptr;
+				//ResetCameraButton::GetSingleton()->set_visible(false);
+				//gameManager->SetGameIsPlaying(false);
 			}
-			gameManager->SetGameIsPlaying(false);
 		}
 	}
 	mainSprite->set_self_modulate(currentColor);
@@ -152,7 +152,25 @@ void Oblast::UnselectPiece()
 	}
 }
 
-bool Oblast::IsPieceSelected(Piece* piece)
+bool Oblast::IsCompleted()
 {
-	return selectedPiece == piece;
+	int controlledByPlayer = 0;
+	int controlledByBot = 0;
+	for (Piece* piece : pieces)
+	{
+		switch (piece->owner)
+		{
+		case PieceOwner::PlayerAsOwner:
+			++controlledByPlayer;
+			break;
+		case PieceOwner::BotAsOwner:
+			++controlledByBot;
+		}
+	}
+	return !(pieces.size() - controlledByPlayer);
+}
+
+Piece* Oblast::GetSelectedPiece()
+{
+	return selectedPiece;
 }

@@ -323,6 +323,7 @@
     <ClInclude Include="..\NativeLib\LabelText.h" />
     <ClInclude Include="..\NativeLib\Oblast.h" />
     <ClInclude Include="..\NativeLib\Piece.h" />
+    <ClInclude Include="..\NativeLib\Player.h" />
     <ClInclude Include="..\NativeLib\ResetCameraButton.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
@@ -334,6 +335,7 @@
     <ClCompile Include="..\NativeLib\NativeLib.cpp" />
     <ClCompile Include="..\NativeLib\Oblast.cpp" />
     <ClCompile Include="..\NativeLib\Piece.cpp" />
+    <ClCompile Include="..\NativeLib\Player.cpp" />
     <ClCompile Include="..\NativeLib\ResetCameraButton.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
