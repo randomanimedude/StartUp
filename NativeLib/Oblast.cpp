@@ -62,8 +62,8 @@ void Oblast::_physics_process()
 				piecesCombined->queue_free();
 				piecesCombined = nullptr;
 				//ResetCameraButton::GetSingleton()->set_visible(false);
+				//gameManager->SetGameIsPlaying(false);
 			}
-			gameManager->SetGameIsPlaying(false);
 		}
 	}
 	mainSprite->set_self_modulate(currentColor);
@@ -152,7 +152,25 @@ void Oblast::UnselectPiece()
 	}
 }
 
-bool Oblast::IsPieceSelected(Piece* piece)
+bool Oblast::IsCompleted()
 {
-	return selectedPiece == piece;
+	int controlledByPlayer = 0;
+	int controlledByBot = 0;
+	for (Piece* piece : pieces)
+	{
+		switch (piece->owner)
+		{
+		case PieceOwner::PlayerAsOwner:
+			++controlledByPlayer;
+			break;
+		case PieceOwner::BotAsOwner:
+			++controlledByBot;
+		}
+	}
+	return !(pieces.size() - controlledByPlayer);
+}
+
+Piece* Oblast::GetSelectedPiece()
+{
+	return selectedPiece;
 }

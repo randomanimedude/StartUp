@@ -41,7 +41,9 @@ public:
 	void UpdateSituation();
 	void SelectPiece(Piece* piece);
 	void UnselectPiece();
-	bool IsPieceSelected(Piece* piece);
+	bool IsCompleted();
+	Piece* GetSelectedPiece();
+
 
 private:
 	MeshInstance2D* mainSprite;
