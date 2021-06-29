@@ -8,6 +8,8 @@
     <ClInclude Include="..\NativeLib\Oblast.h" />
     <ClInclude Include="..\NativeLib\ResetCameraButton.h" />
     <ClInclude Include="..\NativeLib\Piece.h" />
+    <ClInclude Include="..\NativeLib\LabelText.h" />
+    <ClInclude Include="..\NativeLib\Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\NativeLib\CameraController.cpp" />
@@ -17,5 +19,7 @@
     <ClCompile Include="..\NativeLib\Oblast.cpp" />
     <ClCompile Include="..\NativeLib\ResetCameraButton.cpp" />
     <ClCompile Include="..\NativeLib\Piece.cpp" />
+    <ClCompile Include="..\NativeLib\LabelText.cpp" />
+    <ClCompile Include="..\NativeLib\Player.cpp" />
   </ItemGroup>
 </Project>

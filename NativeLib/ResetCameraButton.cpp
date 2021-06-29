@@ -8,10 +8,22 @@ void ResetCameraButton::_register_methods()
 void ResetCameraButton::_init()
 {
 	connect("pressed", this, "_on_ResetCameraButton_pressed");
+	instance = this;
 }
 
 void ResetCameraButton::_on_ResetCameraButton_pressed()
 {
-	//CameraController::GetSingleton()->ZoomToDefault();
-	GameManager::GetSingleton()->UnselectOblast();
+	if(enabled)
+		GameManager::GetSingleton()->UnselectOblast();
+}
+
+ResetCameraButton* ResetCameraButton::GetSingleton()
+{
+	return instance;
+}
+
+void ResetCameraButton::SetEnabled(bool state )
+{
+	enabled = state;
+	set_visible(enabled);
 }

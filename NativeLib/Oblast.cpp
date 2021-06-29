@@ -15,9 +15,7 @@ void Oblast::_ready()
 {
 	gameManager = GameManager::GetSingleton();
 	mainSprite = cast_to<MeshInstance2D>(get_node("Sprite"));
-	border = cast_to<Sprite>(get_node("Border"));
 	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
-	piecesCombined = cast_to<Node2D>(get_node("Pieces"));
 
 	currentColor = get_self_modulate();
 }
@@ -50,6 +48,7 @@ void Oblast::_physics_process()
 			currentColor = borderColor;
 			state = BG;
 			gameManager->SetGameIsPlaying(true);
+			ResetCameraButton::GetSingleton()->SetEnabled(true);
 		}
 		break;
 	case BGToVisible:
@@ -59,8 +58,12 @@ void Oblast::_physics_process()
 			currentColor = storedColor;
 			state = Visible;
 			if (piecesCombined != nullptr)
-				piecesCombined->set_visible(false);
-			gameManager->SetGameIsPlaying(false);
+			{
+				piecesCombined->queue_free();
+				piecesCombined = nullptr;
+				//ResetCameraButton::GetSingleton()->set_visible(false);
+				//gameManager->SetGameIsPlaying(false);
+			}
 		}
 	}
 	mainSprite->set_self_modulate(currentColor);
@@ -106,6 +109,9 @@ void Oblast::Show()
 
 void Oblast::ShowPieces()
 {
+	Ref<PackedScene> temp = resourceLoader->load("res://Prefabs/Oblasti/" + get_name() + "/Pieces.tscn");
+	piecesCombined = cast_to<Node2D>(temp->instance());
+	add_child(piecesCombined);
 	storedColor = currentColor;
 	state = VisibleToBG;
 	if(piecesCombined!=nullptr)
@@ -146,9 +152,25 @@ void Oblast::UnselectPiece()
 	}
 }
 
-bool Oblast::IsPieceSelected(Piece* piece)
+bool Oblast::IsCompleted()
 {
-	return selectedPiece == piece;
+	int controlledByPlayer = 0;
+	int controlledByBot = 0;
+	for (Piece* piece : pieces)
+	{
+		switch (piece->owner)
+		{
+		case PieceOwner::PlayerAsOwner:
+			++controlledByPlayer;
+			break;
+		case PieceOwner::BotAsOwner:
+			++controlledByBot;
+		}
+	}
+	return !(pieces.size() - controlledByPlayer);
 }
 
-
+Piece* Oblast::GetSelectedPiece()
+{
+	return selectedPiece;
+}

@@ -4,6 +4,8 @@
 #include "CameraController.h"
 #include "ResetCameraButton.h"
 #include "Piece.h"
+#include "LabelText.h"
+#include "Player.h"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options * o) {
 	Godot::gdnative_init(o);
@@ -21,4 +23,6 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
 	register_class<CameraController>();
 	register_class<ResetCameraButton>();
 	register_class<Piece>();
+	register_class<LabelText>();
+	register_class<Player>();
 }

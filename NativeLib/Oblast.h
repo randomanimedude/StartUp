@@ -12,6 +12,9 @@
 #include <CollisionPolygon2D.hpp>
 #include <SceneTree.hpp>
 #include <vector>
+#include <ResourceLoader.hpp>
+#include <PackedScene.hpp>
+#include "ResetCameraButton.h"
 
 class GameManager;
 class Piece;
@@ -38,15 +41,18 @@ public:
 	void UpdateSituation();
 	void SelectPiece(Piece* piece);
 	void UnselectPiece();
-	bool IsPieceSelected(Piece* piece);
+	bool IsCompleted();
+	Piece* GetSelectedPiece();
+
 
 private:
 	MeshInstance2D* mainSprite;
-	Sprite* border;
+	//Sprite* border;
 	CollisionPolygon2D* collisionShape;
 	GameManager* gameManager;
-	Node2D* piecesCombined;
+	Node2D* piecesCombined = nullptr;
 	Piece* selectedPiece = nullptr;
+	ResourceLoader* resourceLoader = ResourceLoader::get_singleton();
 
 	float colorChangeForce = 0;
 
