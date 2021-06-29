@@ -8,10 +8,7 @@ void MainCurrency::_register_methods()
 void MainCurrency::_init()
 {
 	CurrentValue = DataLoader::GetSingleton()-> ReturnMainCurrency();
-
-	AddValue(11);
 	CounterUpdate();
-
 }
 
 void MainCurrency::CounterUpdate()

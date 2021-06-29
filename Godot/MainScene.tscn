@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Prefabs/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/UI/MainCurrency.tscn" type="PackedScene" id=3]
 [ext_resource path="res://NativeLib/Scripts/CameraController.gdns" type="Script" id=50]
 
 [node name="Node2D" type="Node2D"]
@@ -14,3 +15,23 @@ current = true
 script = ExtResource( 50 )
 
 [node name="UI" parent="." instance=ExtResource( 2 )]
+
+[node name="MainCurrency" parent="." instance=ExtResource( 3 )]
+margin_left = 395.499
+margin_top = -290.699
+margin_right = 499.499
+margin_bottom = -228.699
+text = "0"
+align = 1
+valign = 1
+percent_visible = -1.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 325.396
+margin_top = -268.021
+margin_right = 448.396
+margin_bottom = -229.021
+text = "main currency"
+__meta__ = {
+"_edit_use_anchors_": false
+}
