@@ -7,7 +7,9 @@ void Piece::_register_methods()
 	register_method("_input_event", &Piece::_input_event);
 
 	register_property("money_to_conquer", &Piece::moneyToConquer, 10);
-	register_property("start_as_player", &Piece::startAsPlayer, false);
+	register_property("start_as_player", &Piece::start_as_player, false);
+	register_property("start_as_bot", &Piece::start_as_bot, false);
+	register_property("bot_number", &Piece::bot_number, 1);
 }
 
 void Piece::_init()
@@ -22,12 +24,20 @@ void Piece::_ready()
 	oblast = cast_to<Oblast>(get_node("../.."));
 	oblast->RegisterPiece(this);
 	gameManager = GameManager::GetSingleton();
+	player = Player::GetSingleton();
 
-	if (startAsPlayer)
+	if (start_as_player)
 	{
 		text->SetValue(money);
-		currentColor = Player::GetSingleton()->playerColor;
+		currentColor = Player::GetSingleton()->color;
 		owner = PieceOwner::PlayerAsOwner;
+	}
+	else if (start_as_bot)
+	{
+		text->SetValue(money);
+		botOwner = cast_to<Bot>(get_node(NodePath((String)"../Bot" + String::num(bot_number))));
+		currentColor = botOwner->color;
+		owner = PieceOwner::BotAsOwner;
 	}
 	else
 	{
@@ -63,10 +73,14 @@ void Piece::_physics_process(float delta)
 			switch (owner)
 			{
 			case PlayerAsOwner:
+				//currentColor = player->color;
 				timeSinceLastEarning += delta;
-				Player::GetSingleton()->EarnMoneyAtPiece(this, timeSinceLastEarning);
+				player->EarnMoneyAtPiece(this, timeSinceLastEarning);
 				break;
 			case BotAsOwner:
+				//currentColor = botOwner->color;
+				timeSinceLastEarning += delta;
+				botOwner->EarnMoneyAtPiece(this, timeSinceLastEarning);
 				break;
 			case None:
 				break;
@@ -83,6 +97,7 @@ void Piece::_input_event(Node* viewport, InputEventMouseButton* event, int shape
 	if (event->is_pressed() && !get_tree()->is_input_handled())
 	{
 		Piece* selectedPiece = oblast->GetSelectedPiece();
+		cout << owner << endl;
 		switch (owner)
 		{
 		case PlayerAsOwner:
@@ -181,5 +196,10 @@ void Piece::Conquer(int money, Piece* conqueror)
 void Piece::UpdateConquerProgressColor()
 {
 	if (tryingToConquer == PieceOwner::PlayerAsOwner)
-		currentColor = lerp(defaultColor, Player::GetSingleton()->playerColor, (float)conquerProgress / moneyToConquer);
+		currentColor = lerp(defaultColor, Player::GetSingleton()->color, (float)conquerProgress / moneyToConquer);
+}
+
+int Piece::GetPriceToConquer()
+{
+	return money + moneyToConquer;
 }

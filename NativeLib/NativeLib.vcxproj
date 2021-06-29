@@ -161,6 +161,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bot.cpp" />
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="CommonLib.cpp" />
     <ClCompile Include="DataLoader.cpp" />
@@ -174,6 +175,7 @@
     <ClCompile Include="ResetCameraButton.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bot.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="CommonLib.h" />
     <ClInclude Include="DataLoader.h" />

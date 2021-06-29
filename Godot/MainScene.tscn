@@ -24,7 +24,6 @@ margin_bottom = -228.699
 text = "0"
 align = 1
 valign = 1
-percent_visible = -1.0
 
 [node name="Label" type="Label" parent="."]
 margin_left = 325.396

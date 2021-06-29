@@ -8,7 +8,9 @@
 #include <InputEventMouseButton.hpp>
 #include "LabelText.h"
 #include "Player.h"
+#include "Bot.h"
 
+class Bot;
 class Player;
 class Oblast;
 class GameManager;
@@ -18,7 +20,9 @@ class Piece : public Area2D
 	GODOT_CLASS(Piece, Area2D);
 
 	int moneyToConquer = 10;
-	bool startAsPlayer = false;
+	bool start_as_player = false;
+	bool start_as_bot = false;
+	int bot_number = 1;
 
 public:
 	static void _register_methods();
@@ -31,10 +35,13 @@ public:
 	void Hide();
 	void UpdateSituation();
 	void AddMoney(int amount);
+	int GetMoney() { return money; }
 	void TransferMoneyTo(Piece* piece);
 	void Conquer(int money, Piece* conqueror);
 	void UpdateConquerProgressColor();
+	int GetPriceToConquer();
 	PieceOwner owner;
+	Bot* botOwner = nullptr;
 
 private:
 	MeshInstance2D* sprite;
@@ -42,6 +49,7 @@ private:
 	Oblast* oblast;
 	GameManager* gameManager;
 	LabelText* text;
+	Player* player = nullptr;
 
 	State state = Hidden;
 
