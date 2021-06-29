@@ -16,6 +16,7 @@ config/icon="res://Textures/UI/icon.png"
 
 [autoload]
 
+DataLoader="*res://NativeLib/Scripts/DataLoader.gdns"
 GameManager="*res://NativeLib/Scripts/GameManager.gdns"
 Player="*res://NativeLib/Scripts/Player.gdns"
 

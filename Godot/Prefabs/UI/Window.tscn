@@ -32,7 +32,6 @@ margin_right = 445.069
 margin_bottom = 201.734
 custom_fonts/font = SubResource( 1 )
 text = "Welcome"
-percent_visible = -0.142857
 __meta__ = {
 "_edit_use_anchors_": false
 }
