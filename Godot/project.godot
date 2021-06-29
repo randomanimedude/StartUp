@@ -11,11 +11,12 @@ config_version=4
 [application]
 
 config/name="StartUp"
-run/main_scene="res://Prefabs/UI/Window.tscn"
+run/main_scene="res://MainScene.tscn"
 config/icon="res://Textures/UI/icon.png"
 
 [autoload]
 
+DataLoader="*res://NativeLib/Scripts/DataLoader.gdns"
 GameManager="*res://NativeLib/Scripts/GameManager.gdns"
 Player="*res://NativeLib/Scripts/Player.gdns"
 

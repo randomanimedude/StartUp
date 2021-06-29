@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://NativeLib/Scripts/MainCurrency.gdns" type="Script" id=1]
+
+[node name="MainCurrency" type="Label"]
+anchor_left = 0.197
+anchor_top = 0.146
+anchor_right = 0.312
+anchor_bottom = 0.276
+margin_left = 0.271988
+margin_top = -0.229965
+margin_right = -0.488007
+margin_bottom = -0.229965
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

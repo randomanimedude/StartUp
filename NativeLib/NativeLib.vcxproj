@@ -163,8 +163,10 @@
   <ItemGroup>
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="CommonLib.cpp" />
+    <ClCompile Include="DataLoader.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="LabelText.cpp" />
+    <ClCompile Include="MainCurrency.cpp" />
     <ClCompile Include="NativeLib.cpp" />
     <ClCompile Include="Oblast.cpp" />
     <ClCompile Include="Piece.cpp" />
@@ -174,8 +176,10 @@
   <ItemGroup>
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="CommonLib.h" />
+    <ClInclude Include="DataLoader.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="LabelText.h" />
+    <ClInclude Include="MainCurrency.h" />
     <ClInclude Include="Oblast.h" />
     <ClInclude Include="Piece.h" />
     <ClInclude Include="Player.h" />
