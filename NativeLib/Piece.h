@@ -39,7 +39,7 @@ public:
 	void TransferMoneyTo(Piece* piece);
 	void Conquer(int moneyCome, Piece* conqueror);
 	void UpdateConquerProgressColor();
-	int GetPriceToConquer();
+	int GetPriceToConquer(Bot* bot);
 	PieceOwner owner;
 	Bot* botOwner = nullptr;
 	Bot* botConqueror = nullptr;

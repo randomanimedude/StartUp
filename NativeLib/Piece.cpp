@@ -183,6 +183,8 @@ void Piece::Conquer(int moneyCome, Piece* conqueror)
 			if (moneyToConquer == conquerProgress)
 			{
 				owner = tryingToConquer;
+				if (owner == BotAsOwner)
+					botOwner = botConqueror;
 				tryingToConquer = PieceOwner::None;
 				botConqueror = nullptr;
 				AddMoney(moneyCome);
@@ -249,7 +251,23 @@ void Piece::UpdateConquerProgressColor()
 	}
 }
 
-int Piece::GetPriceToConquer()
+int Piece::GetPriceToConquer(Bot* bot)
 {
-	return money + moneyToConquer;
+	int price = INT_MAX;
+	switch (owner)
+	{
+	case PlayerAsOwner:
+		price = conquerProgress + money;
+		break;
+	case BotAsOwner:
+		if(botOwner!=bot)
+			price = conquerProgress + money;
+		break;
+	case None:
+		if (tryingToConquer == BotAsOwner && botConqueror == bot)
+			price = moneyToConquer - conquerProgress;
+		else
+			price = moneyToConquer + conquerProgress;
+	}
+	return price;
 }

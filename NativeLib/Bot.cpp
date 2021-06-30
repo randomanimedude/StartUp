@@ -28,19 +28,16 @@ void Bot::_physics_process(float delta)
 	if (timePassed > update_t)
 	{
 		DoStuff();
-		timePassed -= delta;
+		timePassed -= update_t;
 	}
 }
 
 void Bot::DoStuff()
 {
-	if (BestPiece()->GetPriceToConquer() < TotalMoney())
+	if (BestPiece()->GetPriceToConquer(this) < TotalMoney())
 		for (Piece* piece : oblast->GetPieces())
 			if (piece->owner == PieceOwner::BotAsOwner && piece->botOwner == this)
-			{
 				piece->TransferMoneyTo(BestPiece());
-				break;
-			}
 }
 
 void Bot::EarnMoneyAtPiece(Piece* piece, float& timePassed)
@@ -56,9 +53,9 @@ Piece* Bot::BestPiece()
 	int price = 999999;
 	for (Piece* piece : oblast->GetPieces())
 	{
-		if ((piece->owner != PieceOwner::BotAsOwner || piece->botOwner != this)&&piece->GetPriceToConquer()<price)
+		if ((piece->owner != PieceOwner::BotAsOwner || piece->botOwner != this) && piece->GetPriceToConquer(this) < price)
 		{
-			price = piece->GetPriceToConquer();
+			price = piece->GetPriceToConquer(this);
 			bestPiece = piece;
 		}
 	}
