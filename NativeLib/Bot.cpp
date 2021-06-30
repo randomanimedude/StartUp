@@ -3,6 +3,7 @@
 void Bot::_register_methods()
 {
 	register_method("_physics_process", &Bot::_physics_process);
+	register_method("_ready", &Bot::_ready);
 
 	register_property("color_r", &Bot::color_r, 255);
 	register_property("color_g", &Bot::color_g, 255);
@@ -13,12 +14,12 @@ void Bot::_register_methods()
 
 void Bot::_init()
 {
-	color = Color(color_r, color_g, color_b) / 255.0;
 }
 
 void Bot::_ready()
 {
-	oblast = cast_to<Oblast>(get_node(".."));
+	color = Color(color_r, color_g, color_b, 255) / 255.0;
+	oblast = cast_to<Oblast>(get_node("../.."));
 }
 
 void Bot::_physics_process(float delta)
@@ -33,10 +34,13 @@ void Bot::_physics_process(float delta)
 
 void Bot::DoStuff()
 {
-	//if (BestPiece()->GetPriceToConquer() < TotalMoney())
-	//	for (Piece* piece : oblast->GetPieces())
-	//		if (piece->owner == PieceOwner::BotAsOwner && piece->botOwner == this)
-	//			BestPiece()->Conquer(piece->GetMoney(), piece);
+	if (BestPiece()->GetPriceToConquer() < TotalMoney())
+		for (Piece* piece : oblast->GetPieces())
+			if (piece->owner == PieceOwner::BotAsOwner && piece->botOwner == this)
+			{
+				piece->TransferMoneyTo(BestPiece());
+				break;
+			}
 }
 
 void Bot::EarnMoneyAtPiece(Piece* piece, float& timePassed)

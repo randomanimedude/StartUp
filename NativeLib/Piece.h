@@ -37,11 +37,12 @@ public:
 	void AddMoney(int amount);
 	int GetMoney() { return money; }
 	void TransferMoneyTo(Piece* piece);
-	void Conquer(int money, Piece* conqueror);
+	void Conquer(int moneyCome, Piece* conqueror);
 	void UpdateConquerProgressColor();
 	int GetPriceToConquer();
 	PieceOwner owner;
 	Bot* botOwner = nullptr;
+	Bot* botConqueror = nullptr;
 
 private:
 	MeshInstance2D* sprite;

@@ -31,6 +31,7 @@ void Piece::_ready()
 		text->SetValue(money);
 		currentColor = Player::GetSingleton()->color;
 		owner = PieceOwner::PlayerAsOwner;
+		conquerProgress = moneyToConquer;
 	}
 	else if (start_as_bot)
 	{
@@ -38,6 +39,7 @@ void Piece::_ready()
 		botOwner = cast_to<Bot>(get_node(NodePath((String)"../Bot" + String::num(bot_number))));
 		currentColor = botOwner->color;
 		owner = PieceOwner::BotAsOwner;
+		conquerProgress = moneyToConquer;
 	}
 	else
 	{
@@ -97,7 +99,6 @@ void Piece::_input_event(Node* viewport, InputEventMouseButton* event, int shape
 	if (event->is_pressed() && !get_tree()->is_input_handled())
 	{
 		Piece* selectedPiece = oblast->GetSelectedPiece();
-		cout << owner << endl;
 		switch (owner)
 		{
 		case PlayerAsOwner:
@@ -111,6 +112,8 @@ void Piece::_input_event(Node* viewport, InputEventMouseButton* event, int shape
 				oblast->SelectPiece(this);
 			break;
 		case BotAsOwner:
+			if (selectedPiece != nullptr)
+				selectedPiece->TransferMoneyTo(this);
 			break;
 		case None:
 			if (selectedPiece != nullptr)
@@ -141,6 +144,10 @@ void Piece::UpdateSituation()
 
 void Piece::AddMoney(int amount)
 {
+	int t = min(amount, moneyToConquer - conquerProgress);
+	amount -= t;
+	conquerProgress += t;
+	UpdateConquerProgressColor();
 	money += amount;
 	text->SetValue(money);
 }
@@ -149,54 +156,97 @@ void Piece::TransferMoneyTo(Piece* piece)
 {
 	if (money > 0)
 	{
-		if (piece->owner == this->owner)
+		if (piece->owner == this->owner && (this->owner==PlayerAsOwner  || piece->botOwner == this->botOwner))
 			piece->AddMoney(money);
 		else
 			piece->Conquer(money, this);
 		money = 0;
 	}
-	oblast->UnselectPiece();
+	if(this->owner==PlayerAsOwner)
+		oblast->UnselectPiece();
 }
 
-void Piece::Conquer(int money, Piece* conqueror)
+void Piece::Conquer(int moneyCome, Piece* conqueror)
 {
-	if (owner == PieceOwner::None)
+	if (owner == PieceOwner::None)					//neutral area
 	{
 		if (tryingToConquer == conqueror->owner || tryingToConquer == PieceOwner::None)		//continue old conquer
 		{
-			int dif = min(moneyToConquer - conquerProgress, money);
+			int dif = min(moneyToConquer - conquerProgress, moneyCome);
 			conquerProgress += dif;
-			money -= dif;
+			moneyCome -= dif;
 			tryingToConquer = conqueror->owner;
+			if (tryingToConquer == BotAsOwner)
+				botConqueror = conqueror->botOwner;
 			text->SetValue(moneyToConquer - conquerProgress);
 			UpdateConquerProgressColor();
 			if (moneyToConquer == conquerProgress)
 			{
 				owner = tryingToConquer;
 				tryingToConquer = PieceOwner::None;
-				AddMoney(money);
+				botConqueror = nullptr;
+				AddMoney(moneyCome);
 			}
 			GameManager::GetSingleton()->CheckIfOblastIsCompleted();
 		}
 		else																				//stop someone else's conquer
 		{
-			int dif = min(conquerProgress, money);
+			int dif = min(conquerProgress, moneyCome);
 			conquerProgress -= dif;
-			money -= dif;
+			moneyCome -= dif;
 			text->SetValue(moneyToConquer - conquerProgress);
 			UpdateConquerProgressColor();
 			if (conquerProgress == 0)
 				tryingToConquer = PieceOwner::None;
-			if (money > 0)
-				Conquer(money, conqueror);
+			if (moneyCome > 0)
+				Conquer(moneyCome, conqueror);
+		}
+	}
+	else															//controlled area
+	{
+		int dif = min(moneyCome, money);
+		money -= dif;
+		moneyCome -= dif;
+		if (moneyCome > money)
+		{
+			dif = min(moneyCome, conquerProgress);
+			moneyCome -= dif;
+			conquerProgress -= dif;
+			UpdateConquerProgressColor();
+			if (conquerProgress == 0)
+			{
+				owner = None;
+				botOwner = nullptr;
+				if (moneyCome > 0)
+					Conquer(moneyCome, conqueror);
+			}
 		}
 	}
 }
 
 void Piece::UpdateConquerProgressColor()
 {
-	if (tryingToConquer == PieceOwner::PlayerAsOwner)
-		currentColor = lerp(defaultColor, Player::GetSingleton()->color, (float)conquerProgress / moneyToConquer);
+	switch (owner)
+	{
+	case PlayerAsOwner:
+		currentColor = lerp(defaultColor, player->color, (float)conquerProgress / moneyToConquer);
+		break;
+	case BotAsOwner:
+		currentColor = lerp(defaultColor, botOwner->color, (float)conquerProgress / moneyToConquer);
+		break;
+	case None:
+		switch (tryingToConquer)
+		{
+		case PlayerAsOwner:
+			currentColor = lerp(defaultColor, player->color, (float)conquerProgress / moneyToConquer);
+			break;
+		case BotAsOwner:
+			currentColor = lerp(defaultColor, botConqueror->color, (float)conquerProgress / moneyToConquer);
+			break;
+		case None:
+			currentColor = defaultColor;
+		}
+	}
 }
 
 int Piece::GetPriceToConquer()
