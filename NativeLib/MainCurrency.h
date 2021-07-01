@@ -12,16 +12,20 @@ class MainCurrency :
 public:
 	static void _register_methods();
 	void _init();
+	void _ready();
+
+	static MainCurrency* GetSingleton();
 
 	void AddValue(int Value);
 	bool SubtractValue(int Value);
+	void CounterUpdate();
 
 	int ReturnValue();
 
 private:
-	void CounterUpdate();
-
 	int CurrentValue = 0;
+
+	static inline MainCurrency* instance;
 };
 
 

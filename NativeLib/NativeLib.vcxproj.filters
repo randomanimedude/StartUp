@@ -52,6 +52,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="FlyingMoney.cpp">
+	      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="LookButton.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -90,6 +93,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="FlyingMoney.h">
+	      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LookButton.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

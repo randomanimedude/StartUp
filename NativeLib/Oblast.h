@@ -69,8 +69,8 @@ private:
 
 	vector<Piece*> pieces;
 
+public:
 	bool IsOpen;
-
 	int LevelNumber;
 };
 
