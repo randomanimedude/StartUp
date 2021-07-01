@@ -12,6 +12,8 @@ void GameManager::_init()
 
 void GameManager::_ready()
 {
+    flyingMoney = ResourceLoader::get_singleton()->load("res://Prefabs/FlyingMoney.tscn");
+
     camera = CameraController::GetSingleton();
     for (int i = 0; i < 24; ++i)
         oblasti[i] = cast_to<Oblast>(get_node(NodePath((String)"/root/Node2D/Map/" + String::num(i + 1))));

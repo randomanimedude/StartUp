@@ -154,30 +154,35 @@ void Piece::AddMoney(int amount)
 
 void Piece::TransferMoneyTo(Piece* piece)
 {
+
 	if (money > 0)
 	{
-		if (piece->owner == this->owner && (this->owner==PlayerAsOwner  || piece->botOwner == this->botOwner))
-			piece->AddMoney(money);
-		else
-			piece->Conquer(money, this);
+		FlyingMoney* flyingMoney = cast_to<FlyingMoney>(GameManager::GetSingleton()->flyingMoney->instance());
+		get_parent()->add_child(flyingMoney);
+		flyingMoney->SetCourse(this, piece, money, owner, botOwner);
+
+		//if (piece->owner == this->owner && (this->owner==PlayerAsOwner  || piece->botOwner == this->botOwner))
+		//	piece->AddMoney(money);
+		//else
+		//	piece->Conquer(money, this);
 		money = 0;
 	}
 	if(this->owner==PlayerAsOwner)
 		oblast->UnselectPiece();
 }
 
-void Piece::Conquer(int moneyCome, Piece* conqueror)
+void Piece::Conquer(int moneyCome, PieceOwner conquerorOwner, Bot* conquerorBotOwner)
 {
 	if (owner == PieceOwner::None)					//neutral area
 	{
-		if (tryingToConquer == conqueror->owner || tryingToConquer == PieceOwner::None)		//continue old conquer
+		if (tryingToConquer == conquerorOwner || tryingToConquer == PieceOwner::None)		//continue old conquer
 		{
 			int dif = min(moneyToConquer - conquerProgress, moneyCome);
 			conquerProgress += dif;
 			moneyCome -= dif;
-			tryingToConquer = conqueror->owner;
+			tryingToConquer = conquerorOwner;
 			if (tryingToConquer == BotAsOwner)
-				botConqueror = conqueror->botOwner;
+				botConqueror = conquerorBotOwner;
 			text->SetValue(moneyToConquer - conquerProgress);
 			UpdateConquerProgressColor();
 			if (moneyToConquer == conquerProgress)
@@ -199,9 +204,11 @@ void Piece::Conquer(int moneyCome, Piece* conqueror)
 			text->SetValue(moneyToConquer - conquerProgress);
 			UpdateConquerProgressColor();
 			if (conquerProgress == 0)
+			{
 				tryingToConquer = PieceOwner::None;
+			}
 			if (moneyCome > 0)
-				Conquer(moneyCome, conqueror);
+				Conquer(moneyCome, conquerorOwner, conquerorBotOwner);
 		}
 	}
 	else															//controlled area
@@ -217,10 +224,12 @@ void Piece::Conquer(int moneyCome, Piece* conqueror)
 			UpdateConquerProgressColor();
 			if (conquerProgress == 0)
 			{
+				if (oblast->GetSelectedPiece() == this)
+					oblast->UnselectPiece();
 				owner = None;
 				botOwner = nullptr;
 				if (moneyCome > 0)
-					Conquer(moneyCome, conqueror);
+					Conquer(moneyCome, conquerorOwner, conquerorBotOwner);
 			}
 		}
 	}
@@ -269,6 +278,5 @@ int Piece::GetPriceToConquer(Bot* bot)
 		else
 			price = moneyToConquer + conquerProgress;
 	}
-	cout << get_name().alloc_c_string() << '\t' << price << endl;
 	return price;
 }

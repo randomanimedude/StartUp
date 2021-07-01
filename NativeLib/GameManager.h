@@ -4,6 +4,7 @@
 #include <Node.hpp>
 #include "CameraController.h"
 #include "Oblast.h"
+#include <ResourceLoader.hpp>
 
 class Oblast;
 class CameraController;
@@ -26,6 +27,8 @@ public:
 	void SetGameIsPlaying(bool playing);
 	void CheckIfOblastIsCompleted();
 	Oblast* GetSelectedOblast() { return selectedOblast; }
+
+	Ref<PackedScene> flyingMoney;
 
 private:
 	static inline GameManager* instance;

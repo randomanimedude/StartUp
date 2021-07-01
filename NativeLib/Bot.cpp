@@ -34,12 +34,11 @@ void Bot::_physics_process(float delta)
 
 void Bot::DoStuff()
 {
-	if (BestPiece()->GetPriceToConquer(this) < TotalMoney())
+	Piece* bestPiece = BestPiece();
+	if (bestPiece != nullptr && bestPiece->GetPriceToConquer(this) < TotalMoney())
 	{
-		for (Piece* piece : oblast->GetPieces())
-			if (piece->owner == PieceOwner::BotAsOwner && piece->botOwner == this)
-				piece->TransferMoneyTo(BestPiece());
-		cout << endl;
+		for (Piece* piece : MyPieces())
+			piece->TransferMoneyTo(bestPiece);
 	}
 }
 
@@ -74,11 +73,11 @@ int Bot::TotalMoney()
 	return money;
 }
 
-//vector<Piece*> Bot::MyPieces()
-//{
-//	vector<Piece*> pieces;
-//	for (Piece* piece : oblast->GetPieces())
-//		if (piece->owner == PieceOwner::BotAsOwner && piece->botOwner == this)
-//			pieces.push_back(piece);
-//	return pieces;
-//}
+vector<Piece*> Bot::MyPieces()
+{
+	vector<Piece*> pieces;
+	for (Piece* piece : oblast->GetPieces())
+		if (piece->owner == PieceOwner::BotAsOwner && piece->botOwner == this)
+			pieces.push_back(piece);
+	return pieces;
+}

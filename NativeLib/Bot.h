@@ -32,7 +32,7 @@ public:
 private:
 	Piece* BestPiece();
 	int TotalMoney();
-	//vector<Piece*> MyPieces();
+	vector<Piece*> MyPieces();
 
 	Oblast* oblast;
 

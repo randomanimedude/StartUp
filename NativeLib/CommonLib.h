@@ -11,6 +11,7 @@ enum PieceOwner { PlayerAsOwner, BotAsOwner, None };
 
 float lerp(float a, float b, float t);
 Color lerp(Color a, Color b, float t);
+Vector2 lerp(Vector2 a, Vector2 b, float t);
 
 float const transition_t = 0.2;
 

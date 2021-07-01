@@ -9,7 +9,9 @@
 #include "LabelText.h"
 #include "Player.h"
 #include "Bot.h"
+#include "FlyingMoney.h"
 
+class FlyingMoney;
 class Bot;
 class Player;
 class Oblast;
@@ -37,7 +39,7 @@ public:
 	void AddMoney(int amount);
 	int GetMoney() { return money; }
 	void TransferMoneyTo(Piece* piece);
-	void Conquer(int moneyCome, Piece* conqueror);
+	void Conquer(int moneyCome, PieceOwner conquerorOwner, Bot* conquerorBotOwner);
 	void UpdateConquerProgressColor();
 	int GetPriceToConquer(Bot* bot);
 	PieceOwner owner;
