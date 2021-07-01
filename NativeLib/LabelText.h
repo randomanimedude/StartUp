@@ -1,5 +1,6 @@
 #pragma once
 #include <Label.hpp>
+
 #include "CommonLib.h"
 
 class LabelText :

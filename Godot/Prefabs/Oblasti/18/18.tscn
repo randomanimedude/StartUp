@@ -18,6 +18,7 @@ surfaces/0 = {
 
 [node name="Рівненська область" type="Area2D"]
 script = ExtResource( 1 )
+LevelNumber = 18
 
 [node name="Sprite" type="MeshInstance2D" parent="."]
 mesh = SubResource( 1 )

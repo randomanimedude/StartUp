@@ -18,7 +18,7 @@ public:
     void EarnMoneyAtPiece(Piece* piece, float &timePassed);
 
     static Player* GetSingleton();
-    Color const playerColor = Color(97, 168, 239, 255) / 255.0;
+    Color const color = Color(97, 168, 239, 255) / 255.0;
 
 private:
     static inline Player* instance;

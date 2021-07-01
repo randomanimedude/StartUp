@@ -5,6 +5,8 @@ void Oblast::_register_methods()
 	register_method("_input_event", &Oblast::_input_event);
 	register_method("_ready", &Oblast::_ready);
 	register_method("_physics_process", &Oblast::_physics_process);
+
+	register_property("LevelNumber", &Oblast::LevelNumber, 1);
 }
 
 void Oblast::_init()
@@ -18,6 +20,10 @@ void Oblast::_ready()
 	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
 
 	currentColor = get_self_modulate();
+
+	IsOpen = DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber);
+	if (!IsOpen)
+		ChangeColorTo(Color(0, 0, 0, 1), 1);
 }
 
 void Oblast::_physics_process()
@@ -37,7 +43,10 @@ void Oblast::_physics_process()
 		currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 1, transition_t));
 		if (currentColor.a > 0.99)
 		{
-			currentColor=Color(1, 1, 1, 1);
+			if (!IsOpen)
+				currentColor = Color(0, 0, 0, 1);
+			else
+				currentColor = Color(1, 1, 1, 1);
 			state = Visible;
 		}
 		break;
@@ -71,7 +80,7 @@ void Oblast::_physics_process()
 
 void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
 {
-	if (event->is_pressed() && !get_tree()->is_input_handled() && !gameManager->IsGamePlaying())
+	if (event->is_pressed() && !get_tree()->is_input_handled() && !gameManager->IsGamePlaying() && IsOpen)
 	{
 		//border->set_visible(!border->is_visible());
 		//ChangeColorTo(blue, 0.1);
@@ -85,10 +94,11 @@ void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shap
 
 void Oblast::ChangeColorTo(Color color, float force)
 {
-	if ((colorChangeForce += force) > 1)
-		colorChangeForce = 1;
-	currentColor = def - (def - color) * colorChangeForce;
-	mainSprite->set_self_modulate(currentColor);
+		if ((colorChangeForce += force) > 1)
+			colorChangeForce = 1;
+		currentColor = def - (def - color) * colorChangeForce;
+		mainSprite->set_self_modulate(currentColor);
+	
 }
 
 Vector2 Oblast::GetSize()
