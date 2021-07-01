@@ -12,7 +12,13 @@ void DataLoader::_init()
 
 	Ref<File> file = File::_new();
 	if (file->file_exists(ProgressFile))
-		LoadGameCurrencyData();
+	{
+		LoadGameCurrency();
+		LoadLevelsProgres();
+		//ResetLevelsProgresAvailability();
+	}
+	else
+		ResetLevelsProgresAvailability();
 }
 
 void DataLoader::_process(float delta)
@@ -30,7 +36,11 @@ DataLoader* DataLoader::GetSingleton()
 	return instance;
 }
 
-void DataLoader::LoadGameCurrencyData()
+//
+//Game currency
+//
+
+void DataLoader::LoadGameCurrency()
 {
 	Ref<File> file = File::_new();
 	if (file->file_exists(ProgressFile))
@@ -42,7 +52,7 @@ void DataLoader::LoadGameCurrencyData()
 	}
 }
 
-void DataLoader::SaveGameCurrencyData()
+void DataLoader::SaveGameCurrency()
 {
 	Ref<File> file = File::_new();
 	file->open(ProgressFile, file->WRITE);
@@ -57,5 +67,56 @@ void DataLoader::SaveGameCurrencyData()
 void DataLoader::UpdateMainCurrency(int value)
 {
 	MainCurrency = value;
-	SaveGameCurrencyData();
+	SaveGameCurrency();
+}
+
+//
+//Levels progres
+//
+
+void DataLoader::LoadLevelsProgres()
+{
+	Ref<File> file = File::_new();
+	if (file->file_exists(ProgressFile))
+	{
+		file->open(ProgressFile, file->READ);
+		//load and parse json string
+		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
+		for (int i = 0; i < 24; i++)
+			LevelsProgres[i] = rez[(String)"Level#" + String::num_int64(i)];
+	}
+}
+
+void DataLoader::SaveLevelsProgres()
+{
+	Ref<File> file = File::_new();
+	file->open(ProgressFile, file->WRITE);
+
+	//create dictionary with data and save it as json
+	Dictionary dict;
+	for (int i = 0; i < 24; i++)
+		dict[(String)"Level#" + String::num_int64(i)] = LevelsProgres[i];
+	file->store_string(dict.to_json());
+	file->close();
+}
+
+void DataLoader::ResetLevelsProgresAvailability()
+{
+	for (int i = 0; i < 23; i++)
+		LevelsProgres[i] = false;
+
+	LevelsProgres[23] = true;
+
+	SaveLevelsProgres();
+}
+
+bool DataLoader::ReturnLevelStatus(int Number)
+{
+	return LevelsProgres[Number - 1];
+}
+
+void DataLoader::OpenLevel(int Number)
+{
+	LevelsProgres[Number - 1] = true;
+	SaveLevelsProgres();
 }

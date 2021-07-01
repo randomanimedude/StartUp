@@ -1,8 +1,5 @@
 #pragma once
 
-#include "CommonLib.h"
-#include "GameManager.h"
-#include "Piece.h"
 #include <Area2D.hpp>
 #include <InputEventMouseButton.hpp>
 #include <GlobalConstants.hpp>
@@ -14,7 +11,12 @@
 #include <vector>
 #include <ResourceLoader.hpp>
 #include <PackedScene.hpp>
+
 #include "ResetCameraButton.h"
+#include "CommonLib.h"
+#include "GameManager.h"
+#include "Piece.h"
+#include "DataLoader.h"
 
 class GameManager;
 class Piece;
@@ -66,5 +68,9 @@ private:
 	State state = Visible;
 
 	vector<Piece*> pieces;
+
+	bool IsOpen;
+
+	int LevelNumber;
 };
 
