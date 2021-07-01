@@ -2,13 +2,24 @@
 
 void MainCurrency::_register_methods()
 {
-
+	register_method("_ready", &MainCurrency::_ready);
 }
 
 void MainCurrency::_init()
 {
-	CurrentValue = DataLoader::GetSingleton()-> ReturnMainCurrency();
+	instance = this;
+}
+
+void MainCurrency::_ready() 
+{
+	CurrentValue = DataLoader::GetSingleton()->ReturnMainCurrency();
+	AddValue(1000);
 	CounterUpdate();
+}
+
+MainCurrency* MainCurrency::GetSingleton()
+{
+	return instance;
 }
 
 void MainCurrency::CounterUpdate()
@@ -21,9 +32,9 @@ void MainCurrency::AddValue(int Value)
 {
 	CurrentValue += Value;
 
-	DataLoader::GetSingleton()->UpdateMainCurrency(CurrentValue);
-
 	CounterUpdate();
+
+	DataLoader::GetSingleton()->UpdateMainCurrency(CurrentValue);
 }
 
 bool MainCurrency::SubtractValue(int Value)

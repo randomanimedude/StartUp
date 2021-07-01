@@ -8,7 +8,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
-position = Vector2( 309.117, -70.6395 )
+position = Vector2( 309.514, -70.8379 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

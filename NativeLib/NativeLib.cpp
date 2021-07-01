@@ -9,6 +9,7 @@
 #include "DataLoader.h"
 #include "MainCurrency.h"
 #include "Bot.h"
+#include "LookButton.h"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options * o) {
 	Godot::gdnative_init(o);
@@ -31,4 +32,6 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
 	register_class<DataLoader>();
 	register_class<MainCurrency>();
 	register_class<Bot>();
+	register_class<LookButton>();
+
 }

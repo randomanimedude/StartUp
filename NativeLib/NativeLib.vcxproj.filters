@@ -51,6 +51,9 @@
     <ClCompile Include="Bot.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="LookButton.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonLib.h">
@@ -84,6 +87,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Bot.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LookButton.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
