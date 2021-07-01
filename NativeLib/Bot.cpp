@@ -35,9 +35,12 @@ void Bot::_physics_process(float delta)
 void Bot::DoStuff()
 {
 	if (BestPiece()->GetPriceToConquer(this) < TotalMoney())
+	{
 		for (Piece* piece : oblast->GetPieces())
 			if (piece->owner == PieceOwner::BotAsOwner && piece->botOwner == this)
 				piece->TransferMoneyTo(BestPiece());
+		cout << endl;
+	}
 }
 
 void Bot::EarnMoneyAtPiece(Piece* piece, float& timePassed)

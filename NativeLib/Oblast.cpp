@@ -31,28 +31,32 @@ void Oblast::_physics_process()
 	switch (state)
 	{
 	case Hiding:
-		currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 0, transition_t));
+		//currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 0, transition_t));
+		currentColor.a = lerp(currentColor.a, 0, transition_t);
 		if (currentColor.a < 0.01)
 		{
-			currentColor=Color(1, 1, 1, 0);
+			//currentColor=Color(1, 1, 1, 0);
+			currentColor.a = 0;
 			state = Hidden;
 			mainSprite->set_visible(false);
 		}
 		break;
 	case Appearing:
-		currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 1, transition_t));
+		//currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 1, transition_t));
+		currentColor.a = lerp(currentColor.a, 1, transition_t);
 		if (currentColor.a > 0.99)
 		{
-			if (!IsOpen)
+		/*	if (!IsOpen)
 				currentColor = Color(0, 0, 0, 1);
 			else
-				currentColor = Color(1, 1, 1, 1);
+				currentColor = Color(1, 1, 1, 1);*/
+			currentColor.a = 1;
 			state = Visible;
 		}
 		break;
 	case VisibleToBG:
 		currentColor = lerp(currentColor, borderColor, transition_t);
-		if ((currentColor.r - borderColor.r) * (currentColor.g - borderColor.g) * (currentColor.b - borderColor.b) < 0.01)
+		if (abs(currentColor.r - borderColor.r) * abs(currentColor.g - borderColor.g) * abs(currentColor.b - borderColor.b) < 0.000000000001)
 		{
 			currentColor = borderColor;
 			state = BG;
@@ -62,7 +66,7 @@ void Oblast::_physics_process()
 		break;
 	case BGToVisible:
 		currentColor = lerp(currentColor, storedColor, transition_t);
-		if ((currentColor.r - storedColor.r) * (currentColor.g - storedColor.g) * (currentColor.b - storedColor.b) < 0.01)
+		if (abs(currentColor.r - storedColor.r) * abs(currentColor.g - storedColor.g) * abs(currentColor.b - storedColor.b) < 0.000000000001)
 		{
 			currentColor = storedColor;
 			state = Visible;
@@ -98,7 +102,6 @@ void Oblast::ChangeColorTo(Color color, float force)
 			colorChangeForce = 1;
 		currentColor = def - (def - color) * colorChangeForce;
 		mainSprite->set_self_modulate(currentColor);
-	
 }
 
 Vector2 Oblast::GetSize()

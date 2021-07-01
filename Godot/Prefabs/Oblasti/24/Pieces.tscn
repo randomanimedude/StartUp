@@ -122,6 +122,7 @@ surfaces/0 = {
 script = ExtResource( 11 )
 color_g = 0
 color_b = 0
+time_to_make_money = 0.5
 
 [node name="1" type="Area2D" parent="."]
 script = ExtResource( 1 )

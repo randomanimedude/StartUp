@@ -269,5 +269,6 @@ int Piece::GetPriceToConquer(Bot* bot)
 		else
 			price = moneyToConquer + conquerProgress;
 	}
+	cout << get_name().alloc_c_string() << '\t' << price << endl;
 	return price;
 }
