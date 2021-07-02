@@ -11,12 +11,14 @@
 #include <vector>
 #include <ResourceLoader.hpp>
 #include <PackedScene.hpp>
+#include <Button.hpp>
 
 #include "ResetCameraButton.h"
 #include "CommonLib.h"
 #include "GameManager.h"
 #include "Piece.h"
 #include "DataLoader.h"
+#include "MainCurrency.h"
 
 class GameManager;
 class Piece;
@@ -47,6 +49,10 @@ public:
 	vector<Piece*> GetPieces() { return pieces; }
 	Piece* GetSelectedPiece();
 
+	//Look button
+	void _on_Button_Pressed();
+
+
 
 private:
 	MeshInstance2D* mainSprite;
@@ -69,8 +75,11 @@ private:
 
 	vector<Piece*> pieces;
 
+	Button* button;
+	int MainCurrency;
 public:
 	bool IsOpen;
 	int LevelNumber;
+	int LevelPrice;
 };
 

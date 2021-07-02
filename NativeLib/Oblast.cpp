@@ -5,8 +5,10 @@ void Oblast::_register_methods()
 	register_method("_input_event", &Oblast::_input_event);
 	register_method("_ready", &Oblast::_ready);
 	register_method("_physics_process", &Oblast::_physics_process);
+	register_method("_on_Button_Pressed", &Oblast::_on_Button_Pressed);
 
 	register_property("LevelNumber", &Oblast::LevelNumber, 1);
+	register_property("LevelPrice", &Oblast::LevelPrice, 1);
 }
 
 void Oblast::_init()
@@ -22,8 +24,24 @@ void Oblast::_ready()
 	currentColor = get_self_modulate();
 
 	IsOpen = DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber);
-	if (!IsOpen)
+	if (!IsOpen && LevelNumber != 24)
 		ChangeColorTo(Color(0, 0, 0, 1), 1);
+
+	if (LevelNumber != 24)
+	{
+		button = Node::cast_to<Button>(get_node("LookButton"));
+
+		MainCurrency = MainCurrency::GetSingleton()->ReturnValue();
+
+		if (MainCurrency > 0 && MainCurrency >= LevelPrice)
+			button->set_disabled(false);
+
+		else if (MainCurrency > 0 && MainCurrency < LevelPrice)
+			button->set_disabled(true);
+
+		if (DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber))
+			button->set_visible(false);
+	}
 }
 
 void Oblast::_physics_process()
@@ -186,4 +204,15 @@ bool Oblast::IsCompleted()
 Piece* Oblast::GetSelectedPiece()
 {
 	return selectedPiece;
+}
+
+void Oblast::_on_Button_Pressed()
+{
+	MainCurrency::GetSingleton()->SubtractValue(LevelPrice);
+	DataLoader::GetSingleton()->OpenLevel(LevelNumber);
+	DataLoader::GetSingleton()->OpenLevel(LevelNumber);
+	button->set_visible(false);
+	IsOpen = true;
+	ChangeColorTo(Color(1, 1, 1, 1), 1);
+
 }

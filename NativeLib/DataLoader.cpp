@@ -84,7 +84,6 @@ void DataLoader::LoadLevelsProgres()
 		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
 		for (int i = 0; i < 24; i++)
 			LevelsProgres[i] = rez[(String)"Level#" + String::num_int64(i)];
-		LevelsProgres[23] = true;
 	}
 }
 
