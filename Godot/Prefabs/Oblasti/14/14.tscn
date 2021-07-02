@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://NativeLib/Scripts/Oblast.gdns" type="Script" id=1]
-[ext_resource path="res://Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/UI/LookButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Textures/new map/14.png" type="Texture" id=3]
+
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {

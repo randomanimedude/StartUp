@@ -6,6 +6,9 @@
 [ext_resource path="res://NativeLib/Scripts/CameraController.gdns" type="Script" id=50]
 
 [node name="Node2D" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ -252.088 ]
+}
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
 position = Vector2( 309.514, -70.8379 )
@@ -26,10 +29,10 @@ align = 1
 valign = 1
 
 [node name="Label" type="Label" parent="."]
-margin_left = 325.396
-margin_top = -268.021
-margin_right = 448.396
-margin_bottom = -229.021
+margin_left = 336.003
+margin_top = -266.607
+margin_right = 459.003
+margin_bottom = -227.607
 text = "main currency"
 __meta__ = {
 "_edit_use_anchors_": false

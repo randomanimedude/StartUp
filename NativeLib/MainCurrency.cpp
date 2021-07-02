@@ -12,8 +12,7 @@ void MainCurrency::_init()
 
 void MainCurrency::_ready() 
 {
-	CurrentValue = DataLoader::GetSingleton()->ReturnMainCurrency();
-	AddValue(1000);
+	//AddValue(1000);
 	CounterUpdate();
 }
 
@@ -26,6 +25,8 @@ void MainCurrency::CounterUpdate()
 {
 	String str = String::num(CurrentValue);
 	set_text(str);
+
+	DataLoader::GetSingleton()->UpdateMainCurrency(CurrentValue);
 }
 
 void MainCurrency::AddValue(int Value)
@@ -33,25 +34,22 @@ void MainCurrency::AddValue(int Value)
 	CurrentValue += Value;
 
 	CounterUpdate();
-
-	DataLoader::GetSingleton()->UpdateMainCurrency(CurrentValue);
 }
 
-bool MainCurrency::SubtractValue(int Value)
+void MainCurrency::SubtractValue(int Value)
 {
-	if (CurrentValue - Value < 0)
-		return false;
-
 	CurrentValue -= Value;
 
 	CounterUpdate();
-
-	DataLoader::GetSingleton()->UpdateMainCurrency(CurrentValue);
-
-	return true;
 }
 
 int MainCurrency::ReturnValue()
 {
 	return CurrentValue;
+}
+
+void MainCurrency::SetValue(int value)
+{
+	CurrentValue = value;
+	CounterUpdate();
 }
