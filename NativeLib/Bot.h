@@ -29,6 +29,8 @@ public:
 
 	Color color;
 
+	float money_speed = 1;
+
 private:
 	Piece* BestPiece();
 	int TotalMoney();

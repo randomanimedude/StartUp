@@ -33,7 +33,7 @@ private:
 
 	Bot* botOwner;
 
-	float speed = 0.01;
+	float speed;
 	float progress = 0;
 
 	PieceOwner owner;

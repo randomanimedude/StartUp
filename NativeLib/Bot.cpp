@@ -10,6 +10,7 @@ void Bot::_register_methods()
 	register_property("color_b", &Bot::color_b, 255);
 	register_property("update_t", &Bot::update_t, 2.0f);
 	register_property("time_to_make_money", &Bot::time_to_make_money, 1.0f);
+	register_property("money_speed", &Bot::money_speed, 1.0f);
 }
 
 void Bot::_init()
