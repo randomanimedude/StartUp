@@ -61,7 +61,7 @@ void Piece::_physics_process(float delta)
 			currentColor.a = 0;
 			state = Hidden;
 
-			if (get_name().find("1")==0)
+			if (get_name().find_last("1")==0)
 				get_parent()->queue_free();
 		}
 		break;

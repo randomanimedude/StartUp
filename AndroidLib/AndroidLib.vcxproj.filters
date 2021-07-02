@@ -13,6 +13,7 @@
     <ClInclude Include="..\NativeLib\Bot.h" />
     <ClInclude Include="..\NativeLib\DataLoader.h" />
     <ClInclude Include="..\NativeLib\MainCurrency.h" />
+    <ClInclude Include="..\NativeLib\FlyingMoney.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\NativeLib\CameraController.cpp" />
@@ -27,5 +28,6 @@
     <ClCompile Include="..\NativeLib\Bot.cpp" />
     <ClCompile Include="..\NativeLib\DataLoader.cpp" />
     <ClCompile Include="..\NativeLib\MainCurrency.cpp" />
+    <ClCompile Include="..\NativeLib\FlyingMoney.cpp" />
   </ItemGroup>
 </Project>

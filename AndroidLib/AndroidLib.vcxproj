@@ -321,6 +321,7 @@
     <ClInclude Include="..\NativeLib\CameraController.h" />
     <ClInclude Include="..\NativeLib\CommonLib.h" />
     <ClInclude Include="..\NativeLib\DataLoader.h" />
+    <ClInclude Include="..\NativeLib\FlyingMoney.h" />
     <ClInclude Include="..\NativeLib\GameManager.h" />
     <ClInclude Include="..\NativeLib\LabelText.h" />
     <ClInclude Include="..\NativeLib\MainCurrency.h" />
@@ -335,6 +336,7 @@
     <ClCompile Include="..\NativeLib\CameraController.cpp" />
     <ClCompile Include="..\NativeLib\CommonLib.cpp" />
     <ClCompile Include="..\NativeLib\DataLoader.cpp" />
+    <ClCompile Include="..\NativeLib\FlyingMoney.cpp" />
     <ClCompile Include="..\NativeLib\GameManager.cpp" />
     <ClCompile Include="..\NativeLib\LabelText.cpp" />
     <ClCompile Include="..\NativeLib\MainCurrency.cpp" />
