@@ -17,8 +17,9 @@ public:
 	static MainCurrency* GetSingleton();
 
 	void AddValue(int Value);
-	bool SubtractValue(int Value);
+	void SubtractValue(int Value);
 	void CounterUpdate();
+	void SetValue(int value);
 
 	int ReturnValue();
 

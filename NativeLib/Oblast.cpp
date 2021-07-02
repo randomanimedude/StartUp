@@ -7,8 +7,8 @@ void Oblast::_register_methods()
 	register_method("_physics_process", &Oblast::_physics_process);
 	register_method("_on_Button_Pressed", &Oblast::_on_Button_Pressed);
 
-	register_property("LevelNumber", &Oblast::LevelNumber, 1);
-	register_property("LevelPrice", &Oblast::LevelPrice, 1);
+	register_property("LevelNumber", &Oblast::LevelNumber, -1);
+	register_property("LevelPrice", &Oblast::LevelPrice, -1);
 }
 
 void Oblast::_init()
@@ -210,9 +210,7 @@ void Oblast::_on_Button_Pressed()
 {
 	MainCurrency::GetSingleton()->SubtractValue(LevelPrice);
 	DataLoader::GetSingleton()->OpenLevel(LevelNumber);
-	DataLoader::GetSingleton()->OpenLevel(LevelNumber);
 	button->set_visible(false);
 	IsOpen = true;
 	ChangeColorTo(Color(1, 1, 1, 1), 1);
-
 }

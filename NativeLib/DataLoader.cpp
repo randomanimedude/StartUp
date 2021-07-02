@@ -3,32 +3,31 @@
 void DataLoader::_register_methods()
 {
 	register_method("_ready", &DataLoader::_ready);
-	register_method("_process", &DataLoader::_process);
 }
 
 void DataLoader::_init()
 {
 	instance = this;
-
-	Ref<File> file = File::_new();
-	if (file->file_exists(ProgressFile))
-	{
-		LoadGameCurrency();
-		LoadLevelsProgres();
-		//ResetLevelsProgresAvailability();
-	}
-	else
-		ResetLevelsProgresAvailability();
-}
-
-void DataLoader::_process(float delta)
-{
-
 }
 
 void DataLoader::_ready()
 {
-	
+	Ref<File> file = File::_new();
+
+	//Main currency
+	if (file->file_exists(Currency))
+		LoadGameCurrency();
+	else
+		MainCurrency = 0;
+
+	//Levels status
+	if (file->file_exists(LevelsStatus))
+		LoadLevelsProgres();
+	else
+		ResetLevelsProgresAvailability();
+
+	MainCurrency::GetSingleton()->SetValue(MainCurrency);
+
 }
 
 DataLoader* DataLoader::GetSingleton()
@@ -43,23 +42,23 @@ DataLoader* DataLoader::GetSingleton()
 void DataLoader::LoadGameCurrency()
 {
 	Ref<File> file = File::_new();
-	if (file->file_exists(ProgressFile))
+	if (file->file_exists(Currency))
 	{
-		file->open(ProgressFile, file->READ);
+		file->open(Currency, file->READ);
 		//load and parse json string
 		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
-		MainCurrency = rez[(String)"MainCurrency#"];
+		MainCurrency = rez[(String)"MainCurrency"];
 	}
 }
 
 void DataLoader::SaveGameCurrency()
 {
 	Ref<File> file = File::_new();
-	file->open(ProgressFile, file->WRITE);
+	file->open(Currency, file->WRITE);
 
 	//create dictionary with data and save it as json
 	Dictionary dict;
-	dict[(String)"MainCurrency#"] = MainCurrency;
+	dict[(String)"MainCurrency"] = MainCurrency;
 	file->store_string(dict.to_json());
 	file->close();
 }
@@ -77,9 +76,9 @@ void DataLoader::UpdateMainCurrency(int value)
 void DataLoader::LoadLevelsProgres()
 {
 	Ref<File> file = File::_new();
-	if (file->file_exists(ProgressFile))
+	if (file->file_exists(LevelsStatus))
 	{
-		file->open(ProgressFile, file->READ);
+		file->open(LevelsStatus, file->READ);
 		//load and parse json string
 		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
 		for (int i = 0; i < 24; i++)
@@ -90,7 +89,7 @@ void DataLoader::LoadLevelsProgres()
 void DataLoader::SaveLevelsProgres()
 {
 	Ref<File> file = File::_new();
-	file->open(ProgressFile, file->WRITE);
+	file->open(LevelsStatus, file->WRITE);
 
 	//create dictionary with data and save it as json
 	Dictionary dict;
@@ -102,7 +101,7 @@ void DataLoader::SaveLevelsProgres()
 
 void DataLoader::ResetLevelsProgresAvailability()
 {
-	for (int i = 0; i < 23; i++)
+	for (int i = 0; i < 24; i++)
 		LevelsProgres[i] = false;
 
 	LevelsProgres[23] = true;

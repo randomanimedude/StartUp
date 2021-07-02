@@ -7,6 +7,7 @@
 #include <Variant.hpp>
 
 #include "CommonLib.h"
+#include "MainCurrency.h"
 
 class DataLoader : public Node
 {
@@ -16,7 +17,6 @@ public:
 	static void _register_methods();
 	void _init();
 	void _ready();
-	void _process(float delta);
 
 	static DataLoader* GetSingleton();
 
@@ -34,7 +34,8 @@ public:
 	void OpenLevel(int Number);
 
 private:
-	const String ProgressFile = "user://progress.save";
+	const String Currency = "user://Currency.save";
+	const String LevelsStatus = "user://LevelsStatus.save";
 
 	static inline DataLoader* instance;
 	int MainCurrency = 0;
