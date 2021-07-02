@@ -21,7 +21,7 @@ void GameManager::_ready()
 
 void GameManager::SelectOblast(Oblast* oblast)
 {
-    if (!camera->IsMoving())
+    if (selectedOblast == nullptr && !camera->IsMoving())
     {
         selectedOblast = oblast;
         camera->ZoomCameraToOblast(selectedOblast);
@@ -36,15 +36,19 @@ void GameManager::SelectOblast(Oblast* oblast)
 
 void GameManager::UnselectOblast()
 {
-    camera->ZoomToDefault();
-    for (Oblast* oblast : oblasti)
-        if(oblast!=selectedOblast)
-            oblast->Show();
-    selectedOblast->HidePieces();
-    selectedOblast->UnselectPiece();
-    selectedOblast = nullptr;
-    ResetCameraButton::GetSingleton()->SetEnabled(false);
-    SetGameIsPlaying(false);
+    if (selectedOblast != nullptr && !camera->IsMoving())
+    {
+        camera->ZoomToDefault();
+        for (Oblast* oblast : oblasti)
+            if (oblast != selectedOblast)
+                oblast->Show();
+
+        selectedOblast->HidePieces();
+        selectedOblast->UnselectPiece();
+        selectedOblast = nullptr;
+        ResetCameraButton::GetSingleton()->SetEnabled(false);
+        SetGameIsPlaying(false);
+    }
 }
 
 void GameManager::SetGameIsPlaying(bool playing)

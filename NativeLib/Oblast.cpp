@@ -88,13 +88,16 @@ void Oblast::_physics_process()
 		{
 			currentColor = storedColor;
 			state = Visible;
-			if (piecesCombined != nullptr)
-			{
-				piecesCombined->queue_free();
-				piecesCombined = nullptr;
-				//ResetCameraButton::GetSingleton()->set_visible(false);
-				//gameManager->SetGameIsPlaying(false);
-			}
+			//if (piecesCombined != nullptr)
+			//{
+			//	piecesCombined->queue_free();
+			//	cout << ((String)get_path()).alloc_c_string() << "\tdelete" << endl;
+			//	piecesCombined = nullptr;
+			//	//ResetCameraButton::GetSingleton()->set_visible(false);
+			//	//gameManager->SetGameIsPlaying(false);
+			//}
+			piecesCombined = nullptr;
+			pieces.clear();
 		}
 	}
 	mainSprite->set_self_modulate(currentColor);

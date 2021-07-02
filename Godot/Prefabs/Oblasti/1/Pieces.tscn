@@ -175,7 +175,6 @@ surfaces/0 = {
 
 [node name="1" type="Area2D" parent="."]
 script = ExtResource( 14 )
-start_as_player = true
 
 [node name="Sprite" type="MeshInstance2D" parent="1"]
 mesh = SubResource( 1 )

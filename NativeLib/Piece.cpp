@@ -47,6 +47,7 @@ void Piece::_ready()
 		currentColor = defaultColor;
 		owner = PieceOwner::None;
 	}
+	currentColor.a = 0;
 }
 
 void Piece::_physics_process(float delta)
@@ -59,6 +60,9 @@ void Piece::_physics_process(float delta)
 		{
 			currentColor.a = 0;
 			state = Hidden;
+
+			if (get_name().find("1")==0)
+				get_parent()->queue_free();
 		}
 		break;
 	case Appearing:
@@ -134,6 +138,7 @@ void Piece::Show()
 
 void Piece::Hide()
 {
+	text->set_visible(false);
 	currentColor.a = 1;
 	state = Hiding;
 }
