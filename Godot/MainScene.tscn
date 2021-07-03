@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Prefabs/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/UI/MainCurrency.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Textures/UI/Font/FRIZQT__.TTF" type="DynamicFontData" id=4]
+[ext_resource path="res://Textures/uniq.png" type="Texture" id=5]
 [ext_resource path="res://NativeLib/Scripts/CameraController.gdns" type="Script" id=50]
 
+[sub_resource type="DynamicFont" id=1]
+size = 25
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
 [node name="Node2D" type="Node2D"]
-__meta__ = {
-"_edit_horizontal_guides_": [ -252.088 ]
-}
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
 position = Vector2( 309.514, -70.8379 )
@@ -20,20 +25,15 @@ script = ExtResource( 50 )
 [node name="UI" parent="." instance=ExtResource( 2 )]
 
 [node name="MainCurrency" parent="." instance=ExtResource( 3 )]
-margin_left = 395.499
-margin_top = -290.699
-margin_right = 499.499
-margin_bottom = -228.699
+margin_left = 401.936
+margin_top = -276.992
+margin_right = 489.936
+margin_bottom = -242.992
+custom_fonts/font = SubResource( 1 )
 text = "0"
-align = 1
 valign = 1
 
-[node name="Label" type="Label" parent="."]
-margin_left = 336.003
-margin_top = -266.607
-margin_right = 459.003
-margin_bottom = -227.607
-text = "main currency"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 386.795, -260.582 )
+scale = Vector2( 0.0412262, 0.0464488 )
+texture = ExtResource( 5 )

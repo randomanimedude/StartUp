@@ -1,11 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://NativeLib/Scripts/FlyingMoney.gdns" type="Script" id=1]
 [ext_resource path="res://Textures/case.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Case/icon_case.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Case/border_case_case.png" type="Texture" id=4]
+[ext_resource path="res://Textures/Case/back_case.png" type="Texture" id=5]
 
 [node name="FlyingMoney" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
+
+[node name="Back case" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 5 )
+
+[node name="Border" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+
+[node name="Icon case" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )

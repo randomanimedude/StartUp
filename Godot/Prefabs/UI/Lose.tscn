@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Textures/UI/Font/FRIZQT__.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Textures/UI/universal window.png" type="Texture" id=2]
+[ext_resource path="res://Textures/UI/ok.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.3, 0.2 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Sprite"]
+margin_left = -115.829
+margin_top = -38.5404
+margin_right = 142.171
+margin_bottom = 76.4596
+custom_fonts/font = SubResource( 1 )
+text = "You lose"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 76.0101
+margin_top = 17.9294
+margin_right = 92.0101
+margin_bottom = 32.9294
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
