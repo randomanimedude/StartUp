@@ -20,9 +20,9 @@ public:
     static Player* GetSingleton();
     Color const color = Color(97, 168, 239, 255) / 255.0;
 
-    float money_speed = 1;
+    float money_speed = 1.0f;
+    float time_to_make_money = 1.0f;
 private:
     static inline Player* instance;
-    float timeToMakeMoney = 1;
 };
 

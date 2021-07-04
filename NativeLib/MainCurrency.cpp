@@ -38,8 +38,9 @@ void MainCurrency::AddValue(int Value)
 
 void MainCurrency::SubtractValue(int Value)
 {
+	cout << CurrentValue << '-' << Value << '=';
 	CurrentValue -= Value;
-
+	cout << CurrentValue << endl;
 	CounterUpdate();
 }
 

@@ -14,6 +14,7 @@ public:
 
 	void SetValue(int Value);
 	void SetValue(String Value);
+	void SetValue(float Value);
 
 	int ReturnValue();
 };
