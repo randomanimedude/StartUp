@@ -49,6 +49,7 @@ void FlyingMoney::SetCourse(Piece* from, Piece* to, int amount, PieceOwner owner
 	this->botOwner = botOwner;
 
 	speed = (owner == PlayerAsOwner ? Player::GetSingleton()->money_speed : botOwner->money_speed) / fromPos.distance_to(toPos);
+	cast_to<MeshInstance2D>(get_node("BackCase"))->set_self_modulate(owner == PlayerAsOwner ? Player::GetSingleton()->color : botOwner->color);
 
 	proceed = true;
 }
