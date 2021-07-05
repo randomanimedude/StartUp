@@ -11,7 +11,6 @@
 #include <vector>
 #include <ResourceLoader.hpp>
 #include <PackedScene.hpp>
-#include <Button.hpp>
 
 #include "ResetCameraButton.h"
 #include "CommonLib.h"
@@ -49,11 +48,6 @@ public:
 	vector<Piece*> GetPieces() { return pieces; }
 	Piece* GetSelectedPiece();
 
-	//Look button
-	void _on_Button_Pressed();
-
-
-
 private:
 	MeshInstance2D* mainSprite;
 	//Sprite* border;
@@ -75,8 +69,8 @@ private:
 
 	vector<Piece*> pieces;
 
-	Button* button;
 	int MainCurrency;
+	Sprite* Lock;
 public:
 	bool IsOpen;
 	int LevelNumber;

@@ -5,7 +5,6 @@ void Oblast::_register_methods()
 	register_method("_input_event", &Oblast::_input_event);
 	register_method("_ready", &Oblast::_ready);
 	register_method("_physics_process", &Oblast::_physics_process);
-	register_method("_on_Button_Pressed", &Oblast::_on_Button_Pressed);
 
 	register_property("LevelNumber", &Oblast::LevelNumber, -1);
 	register_property("LevelPrice", &Oblast::LevelPrice, -1);
@@ -21,27 +20,14 @@ void Oblast::_ready()
 	mainSprite = cast_to<MeshInstance2D>(get_node("Sprite"));
 	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
 
+	if (LevelNumber == 23)
+	Lock = Node::cast_to<Sprite>(get_node("Lock"));
+
 	currentColor = get_self_modulate();
 
 	IsOpen = DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber);
 	if (!IsOpen && LevelNumber != 24)
-		ChangeColorTo(Color(0, 0, 0, 1), 1);
-
-	if (LevelNumber != 24)
-	{
-		button = Node::cast_to<Button>(get_node("LookButton"));
-
-		MainCurrency = MainCurrency::GetSingleton()->ReturnValue();
-
-		if (MainCurrency > 0 && MainCurrency >= LevelPrice)
-			button->set_disabled(false);
-
-		else if (MainCurrency > 0 && MainCurrency < LevelPrice)
-			button->set_disabled(true);
-
-		if (DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber))
-			button->set_visible(false);
-	}
+		ChangeColorTo(Color(128, 128, 128, 255)/255, 1);
 }
 
 void Oblast::_physics_process()
@@ -57,6 +43,9 @@ void Oblast::_physics_process()
 			currentColor.a = 0;
 			state = Hidden;
 			mainSprite->set_visible(false);
+
+			if (LevelNumber == 23)
+				Lock->set_visible(false);
 		}
 		break;
 	case Appearing:
@@ -70,6 +59,9 @@ void Oblast::_physics_process()
 				currentColor = Color(1, 1, 1, 1);*/
 			currentColor.a = 1;
 			state = Visible;
+
+			if (LevelNumber == 23)
+				Lock->set_visible(true);
 		}
 		break;
 	case VisibleToBG:
@@ -204,13 +196,4 @@ bool Oblast::IsCompleted()
 Piece* Oblast::GetSelectedPiece()
 {
 	return selectedPiece;
-}
-
-void Oblast::_on_Button_Pressed()
-{
-	MainCurrency::GetSingleton()->SubtractValue(LevelPrice);
-	DataLoader::GetSingleton()->OpenLevel(LevelNumber);
-	button->set_visible(false);
-	IsOpen = true;
-	ChangeColorTo(Color(1, 1, 1, 1), 1);
 }
