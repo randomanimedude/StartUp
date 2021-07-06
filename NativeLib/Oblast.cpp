@@ -5,7 +5,6 @@ void Oblast::_register_methods()
 	register_method("_input_event", &Oblast::_input_event);
 	register_method("_ready", &Oblast::_ready);
 	register_method("_physics_process", &Oblast::_physics_process);
-	register_method("_on_Button_Pressed", &Oblast::_on_Button_Pressed);
 
 	register_property("LevelNumber", &Oblast::LevelNumber, -1);
 	register_property("LevelPrice", &Oblast::LevelPrice, -1);
@@ -18,30 +17,23 @@ void Oblast::_init()
 void Oblast::_ready()
 {
 	gameManager = GameManager::GetSingleton();
-	mainSprite = cast_to<MeshInstance2D>(get_node("Sprite"));
-	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
+	mainSprite = Node::cast_to<MeshInstance2D>(get_node("Sprite"));
+	collisionShape = Node::cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
+
+	if (LevelNumber != 24)
+	{
+		LockAnimation = Node::cast_to<AnimationPlayer>(get_node("Lock/AnimationPlayer"));
+		LockSprite = Node::cast_to<Sprite>(get_node("Lock/Sprite"));
+		LockSprite->set_self_modulate(Color(1, 1, 1, 1));
+		if (IsOpen)
+			LockSprite->set_visible(false);
+	}
 
 	currentColor = get_self_modulate();
 
 	IsOpen = DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber);
 	if (!IsOpen && LevelNumber != 24)
-		ChangeColorTo(Color(0, 0, 0, 1), 1);
-
-	if (LevelNumber != 24)
-	{
-		button = Node::cast_to<Button>(get_node("LookButton"));
-
-		MainCurrency = MainCurrency::GetSingleton()->ReturnValue();
-
-		if (MainCurrency > 0 && MainCurrency >= LevelPrice)
-			button->set_disabled(false);
-
-		else if (MainCurrency > 0 && MainCurrency < LevelPrice)
-			button->set_disabled(true);
-
-		if (DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber))
-			button->set_visible(false);
-	}
+		ChangeColorTo(Color(128, 128, 128, 255)/255, 1);
 }
 
 void Oblast::_physics_process()
@@ -49,6 +41,8 @@ void Oblast::_physics_process()
 	switch (state)
 	{
 	case Hiding:
+		if (LevelNumber != 24)
+		LockAnimation->play((String)"Hide");
 		//currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 0, transition_t));
 		currentColor.a = lerp(currentColor.a, 0, transition_t);
 		if (currentColor.a < 0.01)
@@ -60,6 +54,8 @@ void Oblast::_physics_process()
 		}
 		break;
 	case Appearing:
+		if (LevelNumber != 24)
+		LockAnimation->play((String)"Appearance");
 		//currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 1, transition_t));
 		currentColor.a = lerp(currentColor.a, 1, transition_t);
 		if (currentColor.a > 0.99)
@@ -110,6 +106,7 @@ void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shap
 		//border->set_visible(!border->is_visible());
 		//ChangeColorTo(blue, 0.1);
 		//Hide();
+
 		if(gameManager->GetSelectedOblast()==nullptr)
 			gameManager->SelectOblast(this);
 
@@ -207,13 +204,4 @@ bool Oblast::IsCompleted()
 Piece* Oblast::GetSelectedPiece()
 {
 	return selectedPiece;
-}
-
-void Oblast::_on_Button_Pressed()
-{
-	MainCurrency::GetSingleton()->SubtractValue(LevelPrice);
-	DataLoader::GetSingleton()->OpenLevel(LevelNumber);
-	button->set_visible(false);
-	IsOpen = true;
-	ChangeColorTo(Color(1, 1, 1, 1), 1);
 }

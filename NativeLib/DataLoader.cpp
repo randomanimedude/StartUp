@@ -23,6 +23,7 @@ void DataLoader::_ready()
 	//Levels status
 	if (file->file_exists(LevelsStatus))
 		LoadLevelsProgres();
+//	ResetLevelsProgresAvailability();
 	else
 		ResetLevelsProgresAvailability();
 
