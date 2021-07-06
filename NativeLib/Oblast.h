@@ -11,6 +11,7 @@
 #include <vector>
 #include <ResourceLoader.hpp>
 #include <PackedScene.hpp>
+#include <AnimationPlayer.hpp>
 
 #include "ResetCameraButton.h"
 #include "CommonLib.h"
@@ -70,7 +71,8 @@ private:
 	vector<Piece*> pieces;
 
 	int MainCurrency;
-	Sprite* Lock;
+	AnimationPlayer* LockAnimation;
+	Sprite* LockSprite;
 public:
 	bool IsOpen;
 	int LevelNumber;

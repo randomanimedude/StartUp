@@ -17,11 +17,17 @@ void Oblast::_init()
 void Oblast::_ready()
 {
 	gameManager = GameManager::GetSingleton();
-	mainSprite = cast_to<MeshInstance2D>(get_node("Sprite"));
-	collisionShape = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
+	mainSprite = Node::cast_to<MeshInstance2D>(get_node("Sprite"));
+	collisionShape = Node::cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
 
-	if (LevelNumber == 23)
-	Lock = Node::cast_to<Sprite>(get_node("Lock"));
+	if (LevelNumber != 24)
+	{
+		LockAnimation = Node::cast_to<AnimationPlayer>(get_node("Lock/AnimationPlayer"));
+		LockSprite = Node::cast_to<Sprite>(get_node("Lock/Sprite"));
+		LockSprite->set_self_modulate(Color(1, 1, 1, 1));
+		if (IsOpen)
+			LockSprite->set_visible(false);
+	}
 
 	currentColor = get_self_modulate();
 
@@ -35,6 +41,8 @@ void Oblast::_physics_process()
 	switch (state)
 	{
 	case Hiding:
+		if (LevelNumber != 24)
+		LockAnimation->play((String)"Hide");
 		//currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 0, transition_t));
 		currentColor.a = lerp(currentColor.a, 0, transition_t);
 		if (currentColor.a < 0.01)
@@ -43,12 +51,11 @@ void Oblast::_physics_process()
 			currentColor.a = 0;
 			state = Hidden;
 			mainSprite->set_visible(false);
-
-			if (LevelNumber == 23)
-				Lock->set_visible(false);
 		}
 		break;
 	case Appearing:
+		if (LevelNumber != 24)
+		LockAnimation->play((String)"Appearance");
 		//currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 1, transition_t));
 		currentColor.a = lerp(currentColor.a, 1, transition_t);
 		if (currentColor.a > 0.99)
@@ -59,9 +66,6 @@ void Oblast::_physics_process()
 				currentColor = Color(1, 1, 1, 1);*/
 			currentColor.a = 1;
 			state = Visible;
-
-			if (LevelNumber == 23)
-				Lock->set_visible(true);
 		}
 		break;
 	case VisibleToBG:
@@ -99,6 +103,7 @@ void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shap
 		//border->set_visible(!border->is_visible());
 		//ChangeColorTo(blue, 0.1);
 		//Hide();
+
 		if(gameManager->GetSelectedOblast()==nullptr)
 			gameManager->SelectOblast(this);
 

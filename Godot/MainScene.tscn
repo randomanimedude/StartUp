@@ -16,7 +16,7 @@ font_data = ExtResource( 4 )
 [node name="Node2D" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
-position = Vector2( 309.514, -70.8379 )
+position = Vector2( 308.884, -70.5229 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
