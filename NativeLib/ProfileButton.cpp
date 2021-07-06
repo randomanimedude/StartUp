@@ -12,6 +12,9 @@ void ProfileButton::_init()
 
 void ProfileButton::_on_ProfileButton_pressed()
 {
-	Node2D* upgradeMenu = cast_to<Node2D>(get_node("../UpgradeMenu"));
-	upgradeMenu->set_visible(!upgradeMenu->is_visible());
+	if (!GameManager::GetSingleton()->tutorialWindowIsOpen)
+	{
+		Node2D* upgradeMenu = cast_to<Node2D>(get_node("../UpgradeMenu"));
+		upgradeMenu->set_visible(!upgradeMenu->is_visible());
+	}
 }

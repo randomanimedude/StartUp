@@ -29,6 +29,12 @@ void DataLoader::_ready()
 
 	MainCurrency::GetSingleton()->SetValue(MainCurrency);
 
+
+	//Tutorial
+	if (file->file_exists(TutorialStatus))
+		LoadTutorialProgres();
+	else
+		ResetTutorialProgress();
 }
 
 DataLoader* DataLoader::GetSingleton()
@@ -119,4 +125,51 @@ void DataLoader::OpenLevel(int Number)
 {
 	LevelsProgres[Number - 1] = true;
 	SaveLevelsProgres();
+}
+
+//
+//Tutorial progres
+//
+
+void DataLoader::LoadTutorialProgres()
+{
+	Ref<File> file = File::_new();
+	if (file->file_exists(TutorialStatus))
+	{
+		file->open(TutorialStatus, file->READ);
+
+		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
+		for (int i = 0; i < 3; ++i)
+			tutorialProgress[i] = rez[(String)"Tutorial" + String::num_int64(i)];
+	}
+}
+
+void DataLoader::SaveTutorialProgres()
+{
+	Ref<File> file = File::_new();
+	file->open(TutorialStatus, file->WRITE);
+
+	Dictionary dict;
+	for (int i = 0; i < 3; i++)
+		dict[(String)"Tutorial" + String::num_int64(i)] = tutorialProgress[i];
+	file->store_string(dict.to_json());
+	file->close();
+}
+
+void DataLoader::ResetTutorialProgress()
+{
+	for (bool& tutorial : tutorialProgress)
+		tutorial = false;
+	SaveTutorialProgres();
+}
+
+bool DataLoader::IsTutorialStepCompleted(int step)
+{
+	return (step<3 && step>-1) ? tutorialProgress[step] : false;
+}
+
+void DataLoader::CompleteTutorialStep(int step)
+{
+	if (step<3 && step>-1)
+		tutorialProgress[step] = true;
 }

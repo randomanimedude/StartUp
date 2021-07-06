@@ -37,6 +37,18 @@ void Oblast::_ready()
 		else
 			LockSprite->set_visible(false);
 	}
+	else if (!DataLoader::GetSingleton()->IsTutorialStepCompleted(0))
+	{
+		cast_to<Node2D>(get_node("../../UI/Tutorial1/Tutorial1"))->set_visible(true);
+		gameManager->tutorialWindowIsOpen = true;
+	}
+
+	currentColor = get_self_modulate();
+
+	IsOpen = DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber);
+	if (!IsOpen && LevelNumber != 24)
+		ChangeColorTo(Color(128, 128, 128, 255)/255, 1);
+
 }
 
 void Oblast::_physics_process()
@@ -75,26 +87,34 @@ void Oblast::_physics_process()
 		currentColor = lerp(currentColor, borderColor, transition_t);
 		if (abs(currentColor.r - borderColor.r) * abs(currentColor.g - borderColor.g) * abs(currentColor.b - borderColor.b) < 0.000000000001)
 		{
-			currentColor = borderColor;
-			state = BG;
-			gameManager->SetGameIsPlaying(true);
-			ResetCameraButton::GetSingleton()->SetEnabled(true);
+			if (!DataLoader::GetSingleton()->IsTutorialStepCompleted(1))
+			{
+				cast_to<Node2D>(get_node("../../UI/Tutorial2/Tutorial2"))->set_visible(true);
+				gameManager->tutorialWindowIsOpen = true;
+			}
+
+			if (!gameManager->tutorialWindowIsOpen)
+			{
+				currentColor = borderColor;
+				state = BG;
+				gameManager->SetGameIsPlaying(true);
+				ResetCameraButton::GetSingleton()->SetEnabled(true);
+			}
 		}
 		break;
 	case BGToVisible:
 		currentColor = lerp(currentColor, storedColor, transition_t);
 		if (abs(currentColor.r - storedColor.r) * abs(currentColor.g - storedColor.g) * abs(currentColor.b - storedColor.b) < 0.000000000001)
 		{
+			if (!DataLoader::GetSingleton()->IsTutorialStepCompleted(2))
+			{
+				cast_to<Node2D>(get_node("../../UI/Tutorial3/Tutorial3"))->set_visible(true);
+				gameManager->tutorialWindowIsOpen = true;
+				DataLoader::GetSingleton()->SaveLevelsProgres();
+			}
+
 			currentColor = storedColor;
 			state = Visible;
-			//if (piecesCombined != nullptr)
-			//{
-			//	piecesCombined->queue_free();
-			//	cout << ((String)get_path()).alloc_c_string() << "\tdelete" << endl;
-			//	piecesCombined = nullptr;
-			//	//ResetCameraButton::GetSingleton()->set_visible(false);
-			//	//gameManager->SetGameIsPlaying(false);
-			//}
 			piecesCombined = nullptr;
 			pieces.clear();
 		}
@@ -104,7 +124,8 @@ void Oblast::_physics_process()
 
 void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
 {
-	if (event->is_pressed() && !get_tree()->is_input_handled() && !gameManager->IsGamePlaying() && IsOpen)
+	if (event->is_pressed() && !get_tree()->is_input_handled() &&
+		!gameManager->IsGamePlaying() && IsOpen && !gameManager->tutorialWindowIsOpen)
 	{
 		//border->set_visible(!border->is_visible());
 		//ChangeColorTo(blue, 0.1);
@@ -209,11 +230,6 @@ bool Oblast::IsCompleted()
 Piece* Oblast::GetSelectedPiece()
 {
 	return selectedPiece;
-}
-
-Oblast* Oblast::GetSingleton()
-{
-	return instance;
 }
 
 void Oblast::Open()

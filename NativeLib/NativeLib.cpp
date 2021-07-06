@@ -13,6 +13,7 @@
 #include "UpgradeButton.h"
 #include "ProfileButton.h"
 #include "LevelPurchase.h"
+#include "TutorialWindow.h"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options * o) {
 	Godot::gdnative_init(o);
@@ -39,4 +40,5 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
 	register_class<UpgradeButton>();
 	register_class<ProfileButton>();
 	register_class <LevelPurchase>();
+	register_class<TutorialWindow>();
 }
