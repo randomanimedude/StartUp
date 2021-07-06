@@ -1,5 +1,6 @@
 #pragma once
 #include "CommonLib.h"
+#include "GameManager.h"
 #include <TextureButton.hpp>
 #include <Node2D.hpp>
 

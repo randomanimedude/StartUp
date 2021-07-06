@@ -33,12 +33,21 @@ public:
 	bool ReturnLevelStatus(int Number);
 	void OpenLevel(int Number);
 
+	//Tutorial progress
+	void LoadTutorialProgres();
+	void SaveTutorialProgres();
+	void ResetTutorialProgress();
+	bool IsTutorialStepCompleted(int step);
+	void CompleteTutorialStep(int step);
+
 private:
 	const String Currency = "user://Currency.save";
 	const String LevelsStatus = "user://LevelsStatus.save";
+	const String TutorialStatus = "user://Tutorial.save";
 
 	static inline DataLoader* instance;
 	int MainCurrency = 0;
 
 	bool LevelsProgres[24];
+	bool tutorialProgress[3];
 };

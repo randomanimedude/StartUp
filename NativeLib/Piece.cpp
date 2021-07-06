@@ -100,7 +100,8 @@ void Piece::_physics_process(float delta)
 
 void Piece::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
 {
-	if (event->is_pressed() && !get_tree()->is_input_handled())
+	if (event->is_pressed() && !get_tree()->is_input_handled() &&
+		!gameManager->tutorialWindowIsOpen && !gameManager->tutorialWindowIsOpen)
 	{
 		Piece* selectedPiece = oblast->GetSelectedPiece();
 		switch (owner)

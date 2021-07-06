@@ -73,6 +73,7 @@ private:
 	int MainCurrency;
 	AnimationPlayer* LockAnimation;
 	Sprite* LockSprite;
+
 public:
 	bool IsOpen;
 	int LevelNumber;

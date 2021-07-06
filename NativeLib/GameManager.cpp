@@ -59,7 +59,9 @@ void GameManager::SetGameIsPlaying(bool playing)
 void GameManager::CheckIfOblastIsCompleted()
 {
     if (selectedOblast != nullptr && selectedOblast->IsCompleted())
+    {
         UnselectOblast();
+    }
 }
 
 GameManager* GameManager::GetSingleton()
