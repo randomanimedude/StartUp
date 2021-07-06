@@ -88,6 +88,7 @@ __meta__ = {
 [node name="Tutorial2" parent="Tutorial2" instance=ExtResource( 7 )]
 visible = false
 scale = Vector2( 3, 3 )
+tutorial_step = null
 
 [node name="Tutorial3" type="Control" parent="."]
 anchor_left = 0.5

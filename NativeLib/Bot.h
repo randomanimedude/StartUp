@@ -32,9 +32,12 @@ public:
 	float money_speed = 1;
 
 private:
-	Piece* BestPiece();
+	vector<Piece*> BestPieces();
 	int TotalMoney();
 	vector<Piece*> MyPieces();
+	vector<Piece*> ClosestPiecesByNumber(vector<Piece*> pieces);
+	Piece* ClosestPieceByLableTransform(vector<Piece*> pieces);
+	Piece* ClosestPieceByLableTransform(vector<Piece*> pieces, Piece* from);
 
 	Oblast* oblast;
 

@@ -35,12 +35,48 @@ void Bot::_physics_process(float delta)
 
 void Bot::DoStuff()
 {
-	Piece* bestPiece = BestPiece();
-	if (bestPiece != nullptr && bestPiece->GetPriceToConquer(this) < TotalMoney())
-	{
-		for (Piece* piece : MyPieces())
-			piece->TransferMoneyTo(bestPiece);
-	}
+	////all-in atack to closest among best piece by number 
+	//vector<Piece*> closestPieces = ClosestPiecesByNumber(BestPieces());
+	//cout << closestPieces.size() << endl;
+	//if (closestPieces.size() > 0)
+	//{
+	//	Piece* ataka = closestPieces[rand() % closestPieces.size()];
+	//	if (ataka->GetPriceToConquer(this) < TotalMoney())
+	//		for (Piece* piece : MyPieces())
+	//			piece->TransferMoneyTo(ataka);
+	//}
+
+
+	////all-in atack to closest among best piece by position
+	//Piece* closest = ClosestPieceByLableTransform(BestPieces());
+	//if (closest != nullptr)
+	//{
+	//	if (closest->GetPriceToConquer(this) < TotalMoney())
+	//		for (Piece* piece : MyPieces())
+	//			piece->TransferMoneyTo(closest);
+	//}
+
+
+
+	//vector<Piece*> myPieces = MyPieces();
+	//Piece* closest = ClosestPieceByLableTransform(BestPieces());
+	//if (closest != nullptr)
+	//{
+	//	for (int i = 0; i < myPieces.size(); )
+	//		if (closest->GetPriceToConquer(this) > myPieces[0]->GetMoney())
+	//			myPieces.erase(myPieces.begin() + i);
+	//		else
+	//			++i;
+	//	if (myPieces.size() > 0)
+	//		myPieces[rand() % myPieces.size()]->TransferMoneyTo(closest);
+	//}
+
+	//vector<Piece*> myPieces = MyPieces();
+	//for (Piece* piece : myPieces)
+	//{
+	//	Piece* closest = ClosestPieceByLableTransform(BestPieces(), piece);
+	//}
+
 }
 
 void Bot::EarnMoneyAtPiece(Piece* piece, float& timePassed)
@@ -50,19 +86,25 @@ void Bot::EarnMoneyAtPiece(Piece* piece, float& timePassed)
 	timePassed -= time_to_make_money * earnings;
 }
 
-Piece* Bot::BestPiece()
+vector<Piece*> Bot::BestPieces()
 {
-	Piece* bestPiece = nullptr;
-	int price = 999999;
+	vector<Piece*> bestPieces;
+	int price = INT_MAX;
 	for (Piece* piece : oblast->GetPieces())
 	{
-		if ((piece->owner != PieceOwner::BotAsOwner || piece->botOwner != this) && piece->GetPriceToConquer(this) < price)
+		if ((piece->owner != PieceOwner::BotAsOwner || piece->botOwner != this))
 		{
-			price = piece->GetPriceToConquer(this);
-			bestPiece = piece;
+			if (piece->GetPriceToConquer(this) < price)
+			{
+				bestPieces.clear();
+				bestPieces.push_back(piece);
+				price = piece->GetPriceToConquer(this);
+			}
+			else if(piece->GetPriceToConquer(this) == price)
+				bestPieces.push_back(piece);
 		}
 	}
-	return bestPiece;
+	return bestPieces;
 }
 
 int Bot::TotalMoney()
@@ -81,4 +123,68 @@ vector<Piece*> Bot::MyPieces()
 		if (piece->owner == PieceOwner::BotAsOwner && piece->botOwner == this)
 			pieces.push_back(piece);
 	return pieces;
+}
+
+vector<Piece*> Bot::ClosestPiecesByNumber(vector<Piece*> pieces)
+{
+	vector<Piece*> myPieces = MyPieces();
+	vector<Piece*> closest;
+	int minDif = INT_MAX;
+	int difSum = 0;
+	for (Piece* piece : pieces)
+	{
+		int pieceNum = piece->get_name().to_int();
+		for (Piece* mine : myPieces)
+			difSum += abs(mine->get_name().to_int() - pieceNum);
+		if (difSum < minDif)
+		{
+			minDif = difSum;
+			difSum = 0;
+			closest.clear();
+			closest.push_back(piece);
+		}
+		else if(difSum==minDif)
+			closest.push_back(piece);
+	}
+	return closest;
+
+
+}
+
+Piece* Bot::ClosestPieceByLableTransform(vector<Piece*> pieces)
+{
+	vector<Piece*> myPieces = MyPieces();
+	Piece* closest = nullptr;
+	int minDif = INT_MAX;
+	int difSum = 0;
+	for (Piece* piece : pieces)
+	{
+		for (Piece* mine : myPieces)
+			difSum += cast_to<LabelText>(piece->get_node("SmartLabel"))->get_global_position().distance_to(cast_to<LabelText>(mine->get_node("SmartLabel"))->get_global_position());
+		if (difSum < minDif)
+		{
+			minDif = difSum;
+			difSum = 0;
+			closest = piece;
+		}
+	}
+	return closest;
+}
+
+Piece* Bot::ClosestPieceByLableTransform(vector<Piece*> pieces, Piece* from)
+{
+	Piece* closest = nullptr;
+	int minDif = INT_MAX;
+	int difSum = 0;
+	for (Piece* piece : pieces)
+	{
+		difSum += cast_to<LabelText>(piece->get_node("SmartLabel"))->get_global_position().distance_to(cast_to<LabelText>(from->get_node("SmartLabel"))->get_global_position());
+		if (difSum < minDif)
+		{
+			minDif = difSum;
+			difSum = 0;
+			closest = piece;
+		}
+	}
+	return closest;
 }
