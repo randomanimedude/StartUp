@@ -49,6 +49,7 @@ public:
 	void SelectPiece(Piece* piece);
 	void UnselectPiece();
 	bool IsCompleted();
+	void Open();
 	vector<Piece*> GetPieces() { return pieces; }
 	Piece* GetSelectedPiece();
 

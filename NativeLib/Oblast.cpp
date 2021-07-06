@@ -215,3 +215,10 @@ Oblast* Oblast::GetSingleton()
 {
 	return instance;
 }
+
+void Oblast::Open()
+{
+	LockSprite->set_visible(false);
+	ChangeColorTo(Color(1,1,1,1),1);
+	IsOpen = true;
+}

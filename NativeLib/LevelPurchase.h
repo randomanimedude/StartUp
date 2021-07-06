@@ -8,6 +8,7 @@
 #include "LabelText.h"
 #include "MainCurrency.h"
 #include "DataLoader.h"
+#include "Oblast.h"
 
 class LevelPurchase :
 	public Node2D
@@ -30,6 +31,7 @@ private:
 	LabelText* MoneyTransferSpeed;
 	LabelText* TimeToProfit;
 	Button* BuyButton;
+	Oblast* oblast;
 
 	int MainCurrency;
 	int LevelNumber;
