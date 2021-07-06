@@ -168,6 +168,7 @@
     <ClCompile Include="FlyingMoney.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="LabelText.cpp" />
+    <ClCompile Include="LevelPurchase.cpp" />
     <ClCompile Include="MainCurrency.cpp" />
     <ClCompile Include="NativeLib.cpp" />
     <ClCompile Include="Oblast.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="FlyingMoney.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="LabelText.h" />
+    <ClInclude Include="LevelPurchase.h" />
     <ClInclude Include="MainCurrency.h" />
     <ClInclude Include="Oblast.h" />
     <ClInclude Include="Piece.h" />

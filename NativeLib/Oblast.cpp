@@ -20,20 +20,23 @@ void Oblast::_ready()
 	mainSprite = Node::cast_to<MeshInstance2D>(get_node("Sprite"));
 	collisionShape = Node::cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
 
+	currentColor = get_self_modulate();
+
+	IsOpen = DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber);
+
+	if (!IsOpen && LevelNumber != 24)
+		ChangeColorTo(Color(128, 128, 128, 255)/255, 1);
+
 	if (LevelNumber != 24)
 	{
 		LockAnimation = Node::cast_to<AnimationPlayer>(get_node("Lock/AnimationPlayer"));
 		LockSprite = Node::cast_to<Sprite>(get_node("Lock/Sprite"));
-		LockSprite->set_self_modulate(Color(1, 1, 1, 1));
-		if (IsOpen)
+		if (!IsOpen)
+			LockSprite->set_self_modulate(Color(1, 1, 1, 1));
+
+		else
 			LockSprite->set_visible(false);
 	}
-
-	currentColor = get_self_modulate();
-
-	IsOpen = DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber);
-	if (!IsOpen && LevelNumber != 24)
-		ChangeColorTo(Color(128, 128, 128, 255)/255, 1);
 }
 
 void Oblast::_physics_process()
@@ -41,7 +44,7 @@ void Oblast::_physics_process()
 	switch (state)
 	{
 	case Hiding:
-		if (LevelNumber != 24)
+		if (LevelNumber != 24 && !IsOpen)
 		LockAnimation->play((String)"Hide");
 		//currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 0, transition_t));
 		currentColor.a = lerp(currentColor.a, 0, transition_t);
@@ -54,7 +57,7 @@ void Oblast::_physics_process()
 		}
 		break;
 	case Appearing:
-		if (LevelNumber != 24)
+		if (LevelNumber != 24 && !IsOpen)
 		LockAnimation->play((String)"Appearance");
 		//currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 1, transition_t));
 		currentColor.a = lerp(currentColor.a, 1, transition_t);
@@ -106,12 +109,14 @@ void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shap
 		//border->set_visible(!border->is_visible());
 		//ChangeColorTo(blue, 0.1);
 		//Hide();
-
-		if(gameManager->GetSelectedOblast()==nullptr)
+		if (gameManager->GetSelectedOblast() == nullptr)
 			gameManager->SelectOblast(this);
 
 		get_tree()->set_input_as_handled();
 	}
+
+	else if (event->is_pressed() /*&& !get_tree()->is_input_handled()*/ && !IsOpen)
+		LevelPurchase::GetSingleton()->ShowLevelInfo(LevelNumber, LevelPrice, 1, 1);
 }
 
 void Oblast::ChangeColorTo(Color color, float force)
@@ -204,4 +209,9 @@ bool Oblast::IsCompleted()
 Piece* Oblast::GetSelectedPiece()
 {
 	return selectedPiece;
+}
+
+Oblast* Oblast::GetSingleton()
+{
+	return instance;
 }

@@ -19,6 +19,7 @@
 #include "Piece.h"
 #include "DataLoader.h"
 #include "MainCurrency.h"
+#include "LevelPurchase.h"
 
 class GameManager;
 class Piece;
@@ -31,6 +32,8 @@ class Oblast :
 public:
 	static void _register_methods();
 	void _init();
+
+	static Oblast* GetSingleton();
 
 	void _ready();
 	void _physics_process();
@@ -73,6 +76,7 @@ private:
 	int MainCurrency;
 	AnimationPlayer* LockAnimation;
 	Sprite* LockSprite;
+	static inline Oblast* instance;
 public:
 	bool IsOpen;
 	int LevelNumber;
