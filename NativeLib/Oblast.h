@@ -50,7 +50,6 @@ public:
 	void UnselectPiece();
 	bool IsCompleted();
 	void Open();
-	void Close();
 	vector<Piece*> GetPieces() { return pieces; }
 	Piece* GetSelectedPiece();
 

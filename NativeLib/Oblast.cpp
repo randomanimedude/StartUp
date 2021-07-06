@@ -222,10 +222,3 @@ void Oblast::Open()
 	ChangeColorTo(Color(1,1,1,1),1);
 	IsOpen = true;
 }
-
-void Oblast::Close()
-{
-	LockSprite->set_visible(true);
-	ChangeColorTo(Color(128, 128, 128, 255)/255, 1);
-	IsOpen = false;
-}
