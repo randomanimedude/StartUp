@@ -169,6 +169,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="LabelText.cpp" />
     <ClCompile Include="MainCurrency.cpp" />
+    <ClCompile Include="Music.cpp" />
     <ClCompile Include="NativeLib.cpp" />
     <ClCompile Include="Oblast.cpp" />
     <ClCompile Include="Piece.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="LabelText.h" />
     <ClInclude Include="MainCurrency.h" />
+    <ClInclude Include="Music.h" />
     <ClInclude Include="Oblast.h" />
     <ClInclude Include="Piece.h" />
     <ClInclude Include="Player.h" />
