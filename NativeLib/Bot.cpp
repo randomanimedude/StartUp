@@ -160,7 +160,7 @@ Piece* Bot::ClosestPieceByLableTransform(vector<Piece*> pieces)
 	for (Piece* piece : pieces)
 	{
 		for (Piece* mine : myPieces)
-			difSum += cast_to<LabelText>(piece->get_node("SmartLabel"))->get_global_position().distance_to(cast_to<LabelText>(mine->get_node("SmartLabel"))->get_global_position());
+			difSum += cast_to<SmartLabel>(piece->get_node("SmartLabel"))->get_global_position().distance_to(cast_to<SmartLabel>(mine->get_node("SmartLabel"))->get_global_position());
 		if (difSum < minDif)
 		{
 			minDif = difSum;
@@ -178,7 +178,7 @@ Piece* Bot::ClosestPieceByLableTransform(vector<Piece*> pieces, Piece* from)
 	int difSum = 0;
 	for (Piece* piece : pieces)
 	{
-		difSum += cast_to<LabelText>(piece->get_node("SmartLabel"))->get_global_position().distance_to(cast_to<LabelText>(from->get_node("SmartLabel"))->get_global_position());
+		difSum += cast_to<SmartLabel>(piece->get_node("SmartLabel"))->get_global_position().distance_to(cast_to<SmartLabel>(from->get_node("SmartLabel"))->get_global_position());
 		if (difSum < minDif)
 		{
 			minDif = difSum;

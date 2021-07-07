@@ -82,7 +82,7 @@
       <Filter>Исходные файлы\Game logic</Filter>
     </ClCompile>
     <ClCompile Include="TutorialWindow.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -132,7 +132,7 @@
       <Filter>Файлы заголовков\UI</Filter>
     </ClInclude>
     <ClInclude Include="TutorialWindow.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

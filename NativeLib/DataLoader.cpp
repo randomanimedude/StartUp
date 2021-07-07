@@ -27,16 +27,12 @@ void DataLoader::_ready()
 		ResetLevelsProgresAvailability();
 
 	MainCurrency::GetSingleton()->SetValue(MainCurrency);
-<<<<<<< HEAD
-=======
-
 
 	//Tutorial
 	if (file->file_exists(TutorialStatus))
 		LoadTutorialProgres();
 	else
 		ResetTutorialProgress();
->>>>>>> 95b0211d338ede7339146f78cbd6cb08f78b747e
 }
 
 DataLoader* DataLoader::GetSingleton()
@@ -48,9 +44,6 @@ DataLoader* DataLoader::GetSingleton()
 //Game currency
 //
 
-/// <summary>
-/// Takes the value of the main currency from the file
-/// </summary>
 void DataLoader::LoadGameCurrency()
 {
 	Ref<File> file = File::_new();
@@ -63,9 +56,6 @@ void DataLoader::LoadGameCurrency()
 	}
 }
 
-/// <summary>
-/// Writes the value of the main currency to a file
-/// </summary>
 void DataLoader::SaveGameCurrency()
 {
 	Ref<File> file = File::_new();
@@ -78,9 +68,6 @@ void DataLoader::SaveGameCurrency()
 	file->close();
 }
 
-/// <summary>
-/// Update and write to the file the value of the main currency
-/// </summary>
 void DataLoader::UpdateMainCurrency(int value)
 {
 	MainCurrency = value;
@@ -91,9 +78,6 @@ void DataLoader::UpdateMainCurrency(int value)
 //Levels progres
 //
 
-/// <summary>
-/// Read progress from file
-/// </summary>
 void DataLoader::LoadLevelsProgres()
 {
 	Ref<File> file = File::_new();
@@ -107,9 +91,6 @@ void DataLoader::LoadLevelsProgres()
 	}
 }
 
-/// <summary>
-/// Record progress to a file
-/// </summary>
 void DataLoader::SaveLevelsProgres()
 {
 	Ref<File> file = File::_new();
@@ -123,9 +104,6 @@ void DataLoader::SaveLevelsProgres()
 	file->close();
 }
 
-/// <summary>
-/// Resetting progress
-/// </summary>
 void DataLoader::ResetLevelsProgresAvailability()
 {
 	for (int i = 0; i < 24; i++)

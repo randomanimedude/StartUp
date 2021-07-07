@@ -26,9 +26,6 @@ LevelPurchase* LevelPurchase::GetSingleton()
 	return instance;
 }
 
-/// <summary>
-/// the function assigns a level characteristic to the window and displays this window
-/// </summary>
 void LevelPurchase::ShowLevelInfo(int LevelNumber, int LevelCost, int BotMoneyTransferSpeed, int BotTimeToProfit)
 {
 	oblast = cast_to<Oblast>(get_node(NodePath((String)"/root/Node2D/Map/" + String::num(LevelNumber))));
