@@ -29,7 +29,7 @@ public:
 	//Levels progres
 	void LoadLevelsProgres();
 	void SaveLevelsProgres();
-	void ResetLevelsProgresAvailability();
+	void ResetLevelsProgres();
 	bool ReturnLevelStatus(int Number);
 	void OpenLevel(int Number);
 

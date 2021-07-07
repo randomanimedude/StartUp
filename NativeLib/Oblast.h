@@ -50,6 +50,7 @@ public:
 
 	bool IsCompleted();
 	void Open();
+	void Close();
 
 	Vector2 GetSize();
 	vector<Piece*> GetPieces() { return pieces; }

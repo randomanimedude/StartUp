@@ -84,6 +84,9 @@
     <ClCompile Include="TutorialWindow.cpp">
       <Filter>Исходные файлы\UI</Filter>
     </ClCompile>
+    <ClCompile Include="ResetButtons.cpp">
+      <Filter>Исходные файлы\Game logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonLib.h">
@@ -133,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="TutorialWindow.h">
       <Filter>Файлы заголовков\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ResetButtons.h">
+      <Filter>Файлы заголовков\Game logic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
