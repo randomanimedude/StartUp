@@ -87,6 +87,9 @@
     <ClCompile Include="UpgradeButton.cpp">
       <Filter>Исходные файлы\Game logic</Filter>
     </ClCompile>
+    <ClCompile Include="Music.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonLib.h">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="UpgradeButton.h">
       <Filter>Файлы заголовков\Game logic</Filter>
+	</ClInclude>
+    <ClInclude Include="Music.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
