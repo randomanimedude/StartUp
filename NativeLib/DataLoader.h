@@ -30,8 +30,10 @@ public:
 	void LoadLevelsProgres();
 	void SaveLevelsProgres();
 	void ResetLevelsProgres();
-	bool ReturnLevelStatus(int Number);
+	int ReturnLevelStatus(int Number);
 	void OpenLevel(int Number);
+	void CompleteLevel(int Number);
+	void CloseLevel(int Number);
 
 	//Tutorial progress
 	void LoadTutorialProgres();
@@ -42,12 +44,17 @@ public:
 
 private:
 	const String Currency = "user://Currency.save";
-	const String LevelsStatus = "user://LevelsStatus.save";
+	const String LevelsStatusPath = "user://LevelsStatus.save";
 	const String TutorialStatus = "user://Tutorial.save";
 
-	static inline DataLoader* instance;
 	int MainCurrency = 0;
 
-	bool LevelsProgres[24];
+	//0 - the level is closed
+	//1 - the level is open
+	//2 - the level is complete
+	int LevelsStatus[24];
+
 	bool tutorialProgress[3];
+
+	static inline DataLoader* instance;
 };

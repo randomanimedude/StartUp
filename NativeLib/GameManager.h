@@ -5,6 +5,7 @@
 #include "CommonLib.h"
 #include "CameraController.h"
 #include "Oblast.h"
+#include "DataLoader.h"
 
 
 class Oblast;

@@ -42,10 +42,10 @@ __meta__ = {
 [node name="ProfileButton" type="TextureButton" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -123.389
-margin_top = 38.2861
-margin_right = -49.389
-margin_bottom = 112.286
+margin_left = -132.913
+margin_top = 168.453
+margin_right = -58.9134
+margin_bottom = 242.453
 texture_normal = ExtResource( 5 )
 expand = true
 script = ExtResource( 6 )

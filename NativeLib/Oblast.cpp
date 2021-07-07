@@ -24,31 +24,28 @@ void Oblast::_ready()
 
 	IsOpen = DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber);
 
-	if (!IsOpen && LevelNumber != 24)
-		ChangeColorTo(Color(128, 128, 128, 255)/255, 1);
+	if (IsOpen == 2)
+		set_self_modulate(blue);
 
-	if (LevelNumber != 24)
+	LockAnimation = Node::cast_to<AnimationPlayer>(get_node("Lock/AnimationPlayer"));
+	LockSprite = Node::cast_to<Sprite>(get_node("Lock/Sprite"));
+
+	if (IsOpen == 0)
 	{
-		LockAnimation = Node::cast_to<AnimationPlayer>(get_node("Lock/AnimationPlayer"));
-		LockSprite = Node::cast_to<Sprite>(get_node("Lock/Sprite"));
-		if (!IsOpen)
-			LockSprite->set_self_modulate(Color(1, 1, 1, 1));
-
-		else
-			LockSprite->set_visible(false);
+		set_self_modulate(gray);
+		LockSprite->set_visible(true);
 	}
-	else if (!DataLoader::GetSingleton()->IsTutorialStepCompleted(0))
+
+	else
+		LockSprite->set_visible(false);
+
+	if (!DataLoader::GetSingleton()->IsTutorialStepCompleted(0))
 	{
 		cast_to<Node2D>(get_node("../../UI/Tutorial1/Tutorial1"))->set_visible(true);
 		gameManager->tutorialWindowIsOpen = true;
 	}
 
 	currentColor = get_self_modulate();
-
-	IsOpen = DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber);
-	if (!IsOpen && LevelNumber != 24)
-		ChangeColorTo(Color(128, 128, 128, 255)/255, 1);
-
 }
 
 void Oblast::_physics_process()
@@ -56,29 +53,28 @@ void Oblast::_physics_process()
 	switch (state)
 	{
 	case Hiding:
-		if (LevelNumber != 24 && !IsOpen)
-		LockAnimation->play((String)"Hide");
-		//currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 0, transition_t));
+
+		if (IsOpen == 0)
+			LockAnimation->play((String)"Hide");
+
 		currentColor.a = lerp(currentColor.a, 0, transition_t);
+
 		if (currentColor.a < 0.01)
 		{
-			//currentColor=Color(1, 1, 1, 0);
 			currentColor.a = 0;
 			state = Hidden;
 			mainSprite->set_visible(false);
 		}
 		break;
 	case Appearing:
-		if (LevelNumber != 24 && !IsOpen)
-		LockAnimation->play((String)"Appearance");
-		//currentColor = Color(currentColor.r, currentColor.g, currentColor.b, lerp(currentColor.a, 1, transition_t));
+
+		if (IsOpen == 0)
+			LockAnimation->play((String)"Appearance");
+
 		currentColor.a = lerp(currentColor.a, 1, transition_t);
+
 		if (currentColor.a > 0.99)
 		{
-		/*	if (!IsOpen)
-				currentColor = Color(0, 0, 0, 1);
-			else
-				currentColor = Color(1, 1, 1, 1);*/
 			currentColor.a = 1;
 			state = Visible;
 		}
@@ -125,18 +121,15 @@ void Oblast::_physics_process()
 void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
 {
 	if (event->is_pressed() && !get_tree()->is_input_handled() &&
-		!gameManager->IsGamePlaying() && IsOpen && !gameManager->tutorialWindowIsOpen)
+		!gameManager->IsGamePlaying() && IsOpen == 1 && !gameManager->tutorialWindowIsOpen)
 	{
-		//border->set_visible(!border->is_visible());
-		//ChangeColorTo(blue, 0.1);
-		//Hide();
 		if (gameManager->GetSelectedOblast() == nullptr)
 			gameManager->SelectOblast(this);
 
 		get_tree()->set_input_as_handled();
 	}
 
-	else if (event->is_pressed() /*&& !get_tree()->is_input_handled()*/ && !IsOpen)
+	else if (event->is_pressed() && IsOpen == 0)
 		LevelPurchase::GetSingleton()->ShowLevelInfo(LevelNumber, LevelPrice, 1, 1);
 }
 
@@ -220,11 +213,21 @@ bool Oblast::IsCompleted()
 		case PieceOwner::PlayerAsOwner:
 			++controlledByPlayer;
 			break;
+
 		case PieceOwner::BotAsOwner:
 			++controlledByBot;
 		}
 	}
-	return !(pieces.size() - controlledByPlayer);
+
+
+	bool toReturn = !(pieces.size() - controlledByPlayer);
+
+	if (toReturn)
+	{
+		storedColor = blue;
+		Complete();
+	}
+	return toReturn;
 }
 
 Piece* Oblast::GetSelectedPiece()
@@ -236,12 +239,24 @@ void Oblast::Open()
 {
 	LockSprite->set_visible(false);
 	ChangeColorTo(Color(1,1,1,1),1);
-	IsOpen = true;
+	IsOpen = 1;
+	
+	DataLoader::GetSingleton()->OpenLevel(LevelNumber);
 }
 
 void Oblast::Close()
 {
 	LockSprite->set_visible(true);
-	ChangeColorTo(Color(128, 128, 128, 255)/255, 1);
-	IsOpen = false;
+	ChangeColorTo(gray,1);
+	IsOpen = 0;
+
+	DataLoader::GetSingleton()->CloseLevel(LevelNumber);
+}
+
+void Oblast::Complete()
+{
+	ChangeColorTo(blue, 1);
+	IsOpen = 2;
+
+	DataLoader::GetSingleton()->CompleteLevel(LevelNumber);
 }

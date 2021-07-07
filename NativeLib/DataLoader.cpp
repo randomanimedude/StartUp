@@ -21,7 +21,7 @@ void DataLoader::_ready()
 		MainCurrency = 0;
 
 	//Levels status
-	if (file->file_exists(LevelsStatus))
+	if (file->file_exists(LevelsStatusPath))
 		LoadLevelsProgres();
 	else
 		ResetLevelsProgres();
@@ -33,6 +33,8 @@ void DataLoader::_ready()
 		LoadTutorialProgres();
 	else
 		ResetTutorialProgress();
+
+	//ResetLevelsProgres();
 }
 
 DataLoader* DataLoader::GetSingleton()
@@ -81,25 +83,27 @@ void DataLoader::UpdateMainCurrency(int value)
 void DataLoader::LoadLevelsProgres()
 {
 	Ref<File> file = File::_new();
-	if (file->file_exists(LevelsStatus))
+
+	if (file->file_exists(LevelsStatusPath))
 	{
-		file->open(LevelsStatus, file->READ);
+		file->open(LevelsStatusPath, file->READ);
 		//load and parse json string
 		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
 		for (int i = 0; i < 24; i++)
-			LevelsProgres[i] = rez[(String)"Level#" + String::num_int64(i)];
+			LevelsStatus[i] = rez[(String)"Level#" + String::num_int64(i)];
 	}
 }
 
 void DataLoader::SaveLevelsProgres()
 {
 	Ref<File> file = File::_new();
-	file->open(LevelsStatus, file->WRITE);
+
+	file->open(LevelsStatusPath, file->WRITE);
 
 	//create dictionary with data and save it as json
 	Dictionary dict;
 	for (int i = 0; i < 24; i++)
-		dict[(String)"Level#" + String::num_int64(i)] = LevelsProgres[i];
+		dict[(String)"Level#" + String::num_int64(i)] = LevelsStatus[i];
 	file->store_string(dict.to_json());
 	file->close();
 }
@@ -107,21 +111,35 @@ void DataLoader::SaveLevelsProgres()
 void DataLoader::ResetLevelsProgres()
 {
 	for (int i = 0; i < 24; i++)
-		LevelsProgres[i] = false;
+		LevelsStatus[i] = 0;
 
-	LevelsProgres[23] = true;
+	LevelsStatus[23] = 1;
 
 	SaveLevelsProgres();
 }
 
-bool DataLoader::ReturnLevelStatus(int Number)
+int DataLoader::ReturnLevelStatus(int Number)
 {
-	return LevelsProgres[Number - 1];
+	LoadLevelsProgres();
+
+	return LevelsStatus[Number - 1];
 }
 
 void DataLoader::OpenLevel(int Number)
 {
-	LevelsProgres[Number - 1] = true;
+	LevelsStatus[Number - 1] = 1;
+	SaveLevelsProgres();
+}
+
+void DataLoader::CompleteLevel(int Number)
+{
+	LevelsStatus[Number - 1] = 2;
+	SaveLevelsProgres();
+}
+
+void DataLoader::CloseLevel(int Number)
+{
+	LevelsStatus[Number - 1] = 0;
 	SaveLevelsProgres();
 }
 

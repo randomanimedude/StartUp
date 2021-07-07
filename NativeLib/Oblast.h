@@ -51,10 +51,19 @@ public:
 	bool IsCompleted();
 	void Open();
 	void Close();
+	void Complete();
 
 	Vector2 GetSize();
 	vector<Piece*> GetPieces() { return pieces; }
 	Piece* GetSelectedPiece();
+
+	//0 - the level is closed
+	//1 - the level is open
+	//2 - the level is complete
+	int IsOpen = -1;
+
+	int LevelNumber;
+	int LevelPrice;
 
 private:
 	MeshInstance2D* mainSprite;
@@ -69,6 +78,8 @@ private:
 
 	Color def = Color(255, 255, 255, 255)/255.0;
 	Color blue = Color(97, 168, 239, 255)/255.0;
+	Color gray = Color(128, 128, 128, 255) / 255.0;
+
 	Color borderColor = Color(47, 220, 188, 255) / 255.0;
 	Color currentColor = def;
 	Color storedColor = def;
@@ -80,10 +91,5 @@ private:
 	int MainCurrency;
 	AnimationPlayer* LockAnimation;
 	Sprite* LockSprite;
-
-public:
-	bool IsOpen;
-	int LevelNumber;
-	int LevelPrice;
 };
 
