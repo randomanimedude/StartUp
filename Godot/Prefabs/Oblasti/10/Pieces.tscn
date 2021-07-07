@@ -147,10 +147,7 @@ surfaces/0 = {
 
 [node name="1" type="Area2D" parent="."]
 script = ExtResource( 12 )
-money_to_conquer = null
 start_as_player = true
-start_as_bot = null
-bot_number = null
 
 [node name="Sprite" type="MeshInstance2D" parent="1"]
 mesh = SubResource( 1 )
@@ -167,10 +164,6 @@ margin_bottom = -324.228
 
 [node name="2" type="Area2D" parent="."]
 script = ExtResource( 12 )
-money_to_conquer = null
-start_as_player = null
-start_as_bot = null
-bot_number = null
 
 [node name="Sprite" type="MeshInstance2D" parent="2"]
 mesh = SubResource( 2 )
@@ -187,10 +180,6 @@ margin_bottom = -189.299
 
 [node name="3" type="Area2D" parent="."]
 script = ExtResource( 12 )
-money_to_conquer = null
-start_as_player = null
-start_as_bot = null
-bot_number = null
 
 [node name="Sprite" type="MeshInstance2D" parent="3"]
 mesh = SubResource( 3 )
@@ -207,10 +196,6 @@ margin_bottom = -127.391
 
 [node name="4" type="Area2D" parent="."]
 script = ExtResource( 12 )
-money_to_conquer = null
-start_as_player = null
-start_as_bot = null
-bot_number = null
 
 [node name="Sprite" type="MeshInstance2D" parent="4"]
 mesh = SubResource( 4 )
@@ -227,10 +212,6 @@ margin_bottom = 63.0978
 
 [node name="5" type="Area2D" parent="."]
 script = ExtResource( 12 )
-money_to_conquer = null
-start_as_player = null
-start_as_bot = null
-bot_number = null
 
 [node name="Sprite" type="MeshInstance2D" parent="5"]
 mesh = SubResource( 5 )
@@ -247,10 +228,6 @@ margin_bottom = 56.748
 
 [node name="6" type="Area2D" parent="."]
 script = ExtResource( 12 )
-money_to_conquer = null
-start_as_player = null
-start_as_bot = null
-bot_number = null
 
 [node name="Sprite" type="MeshInstance2D" parent="6"]
 mesh = SubResource( 6 )
@@ -267,10 +244,6 @@ margin_bottom = 53.5732
 
 [node name="7" type="Area2D" parent="."]
 script = ExtResource( 12 )
-money_to_conquer = null
-start_as_player = null
-start_as_bot = null
-bot_number = null
 
 [node name="Sprite" type="MeshInstance2D" parent="7"]
 mesh = SubResource( 7 )
@@ -287,10 +260,6 @@ margin_bottom = 226.6
 
 [node name="8" type="Area2D" parent="."]
 script = ExtResource( 12 )
-money_to_conquer = null
-start_as_player = null
-start_as_bot = null
-bot_number = null
 
 [node name="Sprite" type="MeshInstance2D" parent="8"]
 mesh = SubResource( 8 )
@@ -307,10 +276,6 @@ margin_bottom = 139.293
 
 [node name="9" type="Area2D" parent="."]
 script = ExtResource( 12 )
-money_to_conquer = null
-start_as_player = null
-start_as_bot = null
-bot_number = null
 
 [node name="Sprite" type="MeshInstance2D" parent="9"]
 mesh = SubResource( 9 )
@@ -327,10 +292,6 @@ margin_bottom = 169.453
 
 [node name="10" type="Area2D" parent="."]
 script = ExtResource( 12 )
-money_to_conquer = null
-start_as_player = null
-start_as_bot = null
-bot_number = null
 
 [node name="Sprite" type="MeshInstance2D" parent="10"]
 mesh = SubResource( 10 )
