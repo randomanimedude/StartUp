@@ -18,6 +18,11 @@ void LevelPurchase::_ready()
 	MoneyTransferSpeed = Node2D::cast_to<SmartLabel>(get_node("MoneyTransferSpeed"));
 	TimeToProfit = Node2D::cast_to<SmartLabel>(get_node("TimeToProfit"));
 	BuyButton = Node2D::cast_to<Button>(get_node("BuyButton"));
+	
+	SubstractAnim = cast_to<Label>(get_node(NodePath((String)"/root/Node2D/SubstractAnim")));
+	Animator = cast_to<AnimationPlayer>(get_node(NodePath((String)"/root/Node2D/Animator")));
+
+	SubstractAnim->set_self_modulate(Color(1, 1, 1, 0));
 }
 
 LevelPurchase* LevelPurchase::GetSingleton()
@@ -41,7 +46,7 @@ void LevelPurchase::ShowLevelInfo(int LevelNumber, int LevelCost, int BotMoneyTr
 	String cost = String::num(LevelCost);
 	BuyButton->set_text(cost);
 
-	MainCurrency = /*DataLoader::GetSingleton()->ReturnMainCurrency();*/MainCurrency::GetSingleton()->ReturnValue();
+	MainCurrency = MainCurrency::GetSingleton()->ReturnValue();
 
 	if (LevelCost > MainCurrency)
 		BuyButton->set_disabled(true);
@@ -58,8 +63,15 @@ void LevelPurchase::_on_BuyButton_pressed()
 {
 	DataLoader::GetSingleton()->OpenLevel(LevelNumber);
 	MainCurrency::GetSingleton()->SubtractValue(LevelCost);
+
+	SubstractAnim->set_text((String)"-" + String::num(LevelCost));
+
+	Animator->play(String("SubstactValute"));
+
 	oblast->Open();
 	set_visible(false);
+
+
 }
 
 void LevelPurchase::_on_ReturnButton_pressed()

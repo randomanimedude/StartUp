@@ -81,10 +81,10 @@ align = 1
 valign = 1
 
 [node name="BuyButton" type="Button" parent="."]
-margin_left = -80.5192
-margin_top = 108.065
-margin_right = 34.4808
-margin_bottom = 163.065
+margin_left = -77.1518
+margin_top = 105.82
+margin_right = 37.8482
+margin_bottom = 160.82
 __meta__ = {
 "_edit_use_anchors_": false
 }

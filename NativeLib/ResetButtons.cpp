@@ -23,12 +23,20 @@ void ResetButtons::_on_ResetLevelProgres_pressed()
 {
 	DataLoader::GetSingleton()->ResetLevelsProgres();
 
-	for (int i = 0; i < 23; i++)
+	for (int i = 0; i < 24; i++)
 	{
 		Oblast* oblast;
+
 		oblast = cast_to<Oblast>(get_node(NodePath((String)"/root/Node2D/Map/" + String::num(i + 1))));
-		oblast->Close();
+
+		if (i == 23)
+			oblast->Open();
+
+		else
+			oblast->Close();
 	}
+
+	
 }
 
 void ResetButtons::_on_ResetAllProgres_pressed()
@@ -39,5 +47,5 @@ void ResetButtons::_on_ResetAllProgres_pressed()
 
 void ResetButtons::_on_AddValute_pressed()
 {
-	MainCurrency::GetSingleton()->AddValue(100);
+	MainCurrency::GetSingleton()->AddValue(1000);
 }

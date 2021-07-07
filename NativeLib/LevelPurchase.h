@@ -2,6 +2,7 @@
 #include <Node2D.hpp>
 #include <Label.hpp>
 #include <Button.hpp>
+#include <AnimationPlayer.hpp>
 
 #include "CommonLib.h"
 #include "Oblast.h"
@@ -31,6 +32,10 @@ public:
 
 private:
 	Label* NumberOfLevel;
+	Label* SubstractAnim;
+
+	AnimationPlayer* Animator;
+	
 	SmartLabel* MoneyTransferSpeed;
 	SmartLabel* TimeToProfit;
 
