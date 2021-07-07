@@ -23,7 +23,7 @@ void UpgradeButton::_ready()
 
 void UpgradeButton::_process()
 {
-	set_disabled(MainCurrency::GetSingleton()->ReturnValue() >= default_price * (float)pow(price_multiplier, timesBought));
+	set_disabled(MainCurrency::GetSingleton()->ReturnValue() < default_price * (float)pow(price_multiplier, timesBought));
 }
 
 void UpgradeButton::_on_UpgradeButton_pressed()

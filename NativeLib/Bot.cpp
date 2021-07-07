@@ -35,48 +35,54 @@ void Bot::_physics_process(float delta)
 
 void Bot::DoStuff()
 {
-	////all-in atack to closest among best piece by number 
-	//vector<Piece*> closestPieces = ClosestPiecesByNumber(BestPieces());
-	//cout << closestPieces.size() << endl;
-	//if (closestPieces.size() > 0)
-	//{
-	//	Piece* ataka = closestPieces[rand() % closestPieces.size()];
-	//	if (ataka->GetPriceToConquer(this) < TotalMoney())
-	//		for (Piece* piece : MyPieces())
-	//			piece->TransferMoneyTo(ataka);
-	//}
+	vector<Piece*> myPieces = MyPieces();
+	vector<Piece*> closestPieces;
+	Piece * closest = ClosestPieceByLableTransform(BestPieces());
+	switch (rand() % 5)
+	{
+	case 0:
+		//all-in atack to closest among best piece by number 
+		closestPieces = ClosestPiecesByNumber(BestPieces());
+		if (closestPieces.size() > 0)
+		{
+			Piece* ataka = closestPieces[rand() % closestPieces.size()];
+			if (ataka->GetPriceToConquer(this) < TotalMoney())
+				for (Piece* piece : MyPieces())
+					piece->TransferMoneyTo(ataka);
+		}
+		break;
+	case 1:
+		//all-in atack to closest among best piece by position
+		if (closest != nullptr)
+		{
+			if (closest->GetPriceToConquer(this) < TotalMoney())
+				for (Piece* piece : MyPieces())
+					piece->TransferMoneyTo(closest);
+		}
+		break;
+	case 2: case 3:
+		//atack closest among best with one random piece
+		if (closest != nullptr)
+		{
 
-
-	////all-in atack to closest among best piece by position
-	//Piece* closest = ClosestPieceByLableTransform(BestPieces());
-	//if (closest != nullptr)
-	//{
-	//	if (closest->GetPriceToConquer(this) < TotalMoney())
-	//		for (Piece* piece : MyPieces())
-	//			piece->TransferMoneyTo(closest);
-	//}
-
-
-
-	//vector<Piece*> myPieces = MyPieces();
-	//Piece* closest = ClosestPieceByLableTransform(BestPieces());
-	//if (closest != nullptr)
-	//{
-	//	for (int i = 0; i < myPieces.size(); )
-	//		if (closest->GetPriceToConquer(this) > myPieces[0]->GetMoney())
-	//			myPieces.erase(myPieces.begin() + i);
-	//		else
-	//			++i;
-	//	if (myPieces.size() > 0)
-	//		myPieces[rand() % myPieces.size()]->TransferMoneyTo(closest);
-	//}
-
-	//vector<Piece*> myPieces = MyPieces();
-	//for (Piece* piece : myPieces)
-	//{
-	//	Piece* closest = ClosestPieceByLableTransform(BestPieces(), piece);
-	//}
-
+			for (int i = 0; i < myPieces.size(); )
+				if (closest->GetPriceToConquer(this) > myPieces[i]->GetMoney())
+					myPieces.erase(myPieces.begin() + i);
+				else
+					++i;
+			if (myPieces.size() > 0)
+				myPieces[rand() % myPieces.size()]->TransferMoneyTo(closest);
+		}
+		break;
+	case 4:
+		//one-to-one atack
+		for (Piece* piece : myPieces)
+		{
+			Piece* closest = ClosestPieceByLableTransform(BestPieces(), piece);
+			if (closest != nullptr && closest->GetPriceToConquer(this) <= piece->GetMoney())
+				piece->TransferMoneyTo(closest);
+		}
+	}
 }
 
 void Bot::EarnMoneyAtPiece(Piece* piece, float& timePassed)
@@ -160,13 +166,15 @@ Piece* Bot::ClosestPieceByLableTransform(vector<Piece*> pieces)
 	for (Piece* piece : pieces)
 	{
 		for (Piece* mine : myPieces)
+		{
 			difSum += cast_to<SmartLabel>(piece->get_node("SmartLabel"))->get_global_position().distance_to(cast_to<SmartLabel>(mine->get_node("SmartLabel"))->get_global_position());
+		}
 		if (difSum < minDif)
 		{
 			minDif = difSum;
-			difSum = 0;
 			closest = piece;
 		}
+			difSum = 0;
 	}
 	return closest;
 }
@@ -175,14 +183,13 @@ Piece* Bot::ClosestPieceByLableTransform(vector<Piece*> pieces, Piece* from)
 {
 	Piece* closest = nullptr;
 	int minDif = INT_MAX;
-	int difSum = 0;
+	int dif = 0;
 	for (Piece* piece : pieces)
 	{
-		difSum += cast_to<SmartLabel>(piece->get_node("SmartLabel"))->get_global_position().distance_to(cast_to<SmartLabel>(from->get_node("SmartLabel"))->get_global_position());
-		if (difSum < minDif)
+		dif = cast_to<SmartLabel>(piece->get_node("SmartLabel"))->get_global_position().distance_to(cast_to<SmartLabel>(from->get_node("SmartLabel"))->get_global_position());
+		if (dif < minDif)
 		{
-			minDif = difSum;
-			difSum = 0;
+			minDif = dif;
 			closest = piece;
 		}
 	}

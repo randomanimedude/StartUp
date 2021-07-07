@@ -2,32 +2,42 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="..\NativeLib\Bot.h" />
     <ClInclude Include="..\NativeLib\CameraController.h" />
     <ClInclude Include="..\NativeLib\CommonLib.h" />
-    <ClInclude Include="..\NativeLib\GameManager.h" />
-    <ClInclude Include="..\NativeLib\Oblast.h" />
-    <ClInclude Include="..\NativeLib\ResetCameraButton.h" />
-    <ClInclude Include="..\NativeLib\Piece.h" />
-    <ClInclude Include="..\NativeLib\LabelText.h" />
-    <ClInclude Include="..\NativeLib\Player.h" />
-    <ClInclude Include="..\NativeLib\Bot.h" />
     <ClInclude Include="..\NativeLib\DataLoader.h" />
-    <ClInclude Include="..\NativeLib\MainCurrency.h" />
     <ClInclude Include="..\NativeLib\FlyingMoney.h" />
+    <ClInclude Include="..\NativeLib\GameManager.h" />
+    <ClInclude Include="..\NativeLib\LevelPurchase.h" />
+    <ClInclude Include="..\NativeLib\MainCurrency.h" />
+    <ClInclude Include="..\NativeLib\Oblast.h" />
+    <ClInclude Include="..\NativeLib\Piece.h" />
+    <ClInclude Include="..\NativeLib\Player.h" />
+    <ClInclude Include="..\NativeLib\ProfileButton.h" />
+    <ClInclude Include="..\NativeLib\ResetButtons.h" />
+    <ClInclude Include="..\NativeLib\ResetCameraButton.h" />
+    <ClInclude Include="..\NativeLib\SmartLabel.h" />
+    <ClInclude Include="..\NativeLib\TutorialWindow.h" />
+    <ClInclude Include="..\NativeLib\UpgradeButton.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\NativeLib\Bot.cpp" />
     <ClCompile Include="..\NativeLib\CameraController.cpp" />
     <ClCompile Include="..\NativeLib\CommonLib.cpp" />
+    <ClCompile Include="..\NativeLib\DataLoader.cpp" />
+    <ClCompile Include="..\NativeLib\FlyingMoney.cpp" />
     <ClCompile Include="..\NativeLib\GameManager.cpp" />
+    <ClCompile Include="..\NativeLib\LevelPurchase.cpp" />
+    <ClCompile Include="..\NativeLib\MainCurrency.cpp" />
     <ClCompile Include="..\NativeLib\NativeLib.cpp" />
     <ClCompile Include="..\NativeLib\Oblast.cpp" />
-    <ClCompile Include="..\NativeLib\ResetCameraButton.cpp" />
     <ClCompile Include="..\NativeLib\Piece.cpp" />
-    <ClCompile Include="..\NativeLib\LabelText.cpp" />
     <ClCompile Include="..\NativeLib\Player.cpp" />
-    <ClCompile Include="..\NativeLib\Bot.cpp" />
-    <ClCompile Include="..\NativeLib\DataLoader.cpp" />
-    <ClCompile Include="..\NativeLib\MainCurrency.cpp" />
-    <ClCompile Include="..\NativeLib\FlyingMoney.cpp" />
+    <ClCompile Include="..\NativeLib\ProfileButton.cpp" />
+    <ClCompile Include="..\NativeLib\ResetButtons.cpp" />
+    <ClCompile Include="..\NativeLib\ResetCameraButton.cpp" />
+    <ClCompile Include="..\NativeLib\SmartLabel.cpp" />
+    <ClCompile Include="..\NativeLib\TutorialWindow.cpp" />
+    <ClCompile Include="..\NativeLib\UpgradeButton.cpp" />
   </ItemGroup>
 </Project>
