@@ -1,7 +1,8 @@
 #pragma once
-#include "CommonLib.h"
 #include <TextureButton.hpp>
-#include "LabelText.h"
+
+#include "CommonLib.h"
+#include "SmartLabel.h"
 #include "MainCurrency.h"
 
 class UpgradeButton :
@@ -16,16 +17,13 @@ class UpgradeButton :
 public:
 	static void _register_methods();
 	void _init();
-
 	void _ready();
 	void _process();
+
 	void _on_UpgradeButton_pressed();
 	void UpgradeLabels();
 	void UpgradeProperty();
 
-
 	int timesBought = 0;
-
-
 };
 

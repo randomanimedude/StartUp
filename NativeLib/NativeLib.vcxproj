@@ -167,7 +167,9 @@
     <ClCompile Include="DataLoader.cpp" />
     <ClCompile Include="FlyingMoney.cpp" />
     <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="LabelText.cpp" />
+    <ClCompile Include="ResetButtons.cpp" />
+    <ClCompile Include="SmartLabel.cpp" />
+    <ClCompile Include="LevelPurchase.cpp" />
     <ClCompile Include="MainCurrency.cpp" />
     <ClCompile Include="Music.cpp" />
     <ClCompile Include="NativeLib.cpp" />
@@ -186,7 +188,9 @@
     <ClInclude Include="DataLoader.h" />
     <ClInclude Include="FlyingMoney.h" />
     <ClInclude Include="GameManager.h" />
-    <ClInclude Include="LabelText.h" />
+    <ClInclude Include="ResetButtons.h" />
+    <ClInclude Include="SmartLabel.h" />
+    <ClInclude Include="LevelPurchase.h" />
     <ClInclude Include="MainCurrency.h" />
     <ClInclude Include="Music.h" />
     <ClInclude Include="Oblast.h" />

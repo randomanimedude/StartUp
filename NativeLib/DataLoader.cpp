@@ -23,12 +23,10 @@ void DataLoader::_ready()
 	//Levels status
 	if (file->file_exists(LevelsStatus))
 		LoadLevelsProgres();
-//	ResetLevelsProgresAvailability();
 	else
-		ResetLevelsProgresAvailability();
+		ResetLevelsProgres();
 
 	MainCurrency::GetSingleton()->SetValue(MainCurrency);
-
 
 	//Tutorial
 	if (file->file_exists(TutorialStatus))
@@ -106,7 +104,7 @@ void DataLoader::SaveLevelsProgres()
 	file->close();
 }
 
-void DataLoader::ResetLevelsProgresAvailability()
+void DataLoader::ResetLevelsProgres()
 {
 	for (int i = 0; i < 24; i++)
 		LevelsProgres[i] = false;

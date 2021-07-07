@@ -1,8 +1,9 @@
 #pragma once
-#include "CommonLib.h"
 #include <TextureButton.hpp>
-#include "CameraController.h"
 #include <SceneTree.hpp>
+
+#include "CameraController.h"
+#include "CommonLib.h"
 
 class ResetCameraButton :
     public TextureButton
@@ -14,11 +15,14 @@ public:
 	void _init();
 
 	void _on_ResetCameraButton_pressed();
+
 	static ResetCameraButton* GetSingleton();
+
 	void SetEnabled(bool state);
 
 private:
 	static inline ResetCameraButton* instance;
+
 	bool enabled = false;
 };
 

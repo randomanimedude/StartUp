@@ -1,10 +1,12 @@
 #pragma once
-#include "CommonLib.h"
 #include <Node2D.hpp>
 #include <Sprite.hpp>
+#include <Label.hpp>
+
+#include "CommonLib.h"
 #include "Piece.h"
 #include "Bot.h"
-#include <Label.hpp>
+
 
 class Piece;
 class Bot;
@@ -17,7 +19,6 @@ class FlyingMoney :
 public:
 	static void _register_methods();
 	void _init();
-
 	void _ready();
 	void _physics_process(float delta);
 

@@ -13,55 +13,79 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\UI">
+      <UniqueIdentifier>{25eebee9-0cc8-4f30-b7a1-ee5b2e615add}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Camera">
+      <UniqueIdentifier>{b6e35c06-b23a-49ac-b30b-1e29e30bf4fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game logic">
+      <UniqueIdentifier>{4af267c0-c0c9-44d1-bb1f-0ee1c8a1b87c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Camera">
+      <UniqueIdentifier>{fa057fb8-48a0-4cd7-9eef-62873d51333b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Game logic">
+      <UniqueIdentifier>{3d1f71da-e579-4338-b23e-1d674a3f27b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\UI">
+      <UniqueIdentifier>{8a540b6e-2d41-45eb-8a23-4d5efc271821}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NativeLib.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Oblast.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="CameraController.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="ResetCameraButton.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="CommonLib.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Piece.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="LabelText.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="MainCurrency.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="DataLoader.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Bot.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="FlyingMoney.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="UpgradeButton.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="SmartLabel.cpp">
+      <Filter>Исходные файлы\UI</Filter>
     </ClCompile>
     <ClCompile Include="ProfileButton.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeButton.cpp">
+      <Filter>Исходные файлы\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCurrency.cpp">
+      <Filter>Исходные файлы\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="FlyingMoney.cpp">
+      <Filter>Исходные файлы\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraController.cpp">
+      <Filter>Исходные файлы\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="ResetCameraButton.cpp">
+      <Filter>Исходные файлы\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Bot.cpp">
+      <Filter>Исходные файлы\Game logic</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Исходные файлы\Game logic</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelPurchase.cpp">
+      <Filter>Исходные файлы\Game logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Oblast.cpp">
+      <Filter>Исходные файлы\Game logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Piece.cpp">
+      <Filter>Исходные файлы\Game logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Исходные файлы\Game logic</Filter>
     </ClCompile>
     <ClCompile Include="TutorialWindow.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ResetButtons.cpp">
+      <Filter>Исходные файлы\Game logic</Filter>
     </ClCompile>
     <ClCompile Include="Music.cpp">
       <Filter>Исходные файлы</Filter>
@@ -71,47 +95,53 @@
     <ClInclude Include="CommonLib.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Oblast.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="CameraController.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="GameManager.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="ResetCameraButton.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Piece.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="LabelText.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="MainCurrency.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="DataLoader.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="CameraController.h">
+      <Filter>Файлы заголовков\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="ResetCameraButton.h">
+      <Filter>Файлы заголовков\Camera</Filter>
+    </ClInclude>
     <ClInclude Include="Bot.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Game logic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Файлы заголовков\Game logic</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelPurchase.h">
+      <Filter>Файлы заголовков\Game logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Oblast.h">
+      <Filter>Файлы заголовков\Game logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Piece.h">
+      <Filter>Файлы заголовков\Game logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Файлы заголовков\Game logic</Filter>
     </ClInclude>
     <ClInclude Include="FlyingMoney.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartLabel.h">
+      <Filter>Файлы заголовков\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCurrency.h">
+      <Filter>Файлы заголовков\UI</Filter>
     </ClInclude>
     <ClInclude Include="UpgradeButton.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\UI</Filter>
     </ClInclude>
     <ClInclude Include="ProfileButton.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\UI</Filter>
     </ClInclude>
     <ClInclude Include="TutorialWindow.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ResetButtons.h">
+      <Filter>Файлы заголовков\Game logic</Filter>
     </ClInclude>
     <ClInclude Include="Music.h">
       <Filter>Файлы заголовков</Filter>

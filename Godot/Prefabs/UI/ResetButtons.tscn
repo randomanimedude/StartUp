@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://NativeLib/Scripts/ResetButtons.gdns" type="Script" id=1]
+
+[node name="ResetButtons" type="Node2D"]
+position = Vector2( 426.755, 289.349 )
+script = ExtResource( 1 )
+
+[node name="ResetValuteButton" type="Button" parent="."]
+margin_left = -149.622
+margin_top = -17.9317
+margin_right = -19.6224
+margin_bottom = 16.0683
+text = "Reset valute"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetLevelProgres" type="Button" parent="."]
+margin_left = 15.9266
+margin_top = -18.757
+margin_right = 147.927
+margin_bottom = 15.243
+text = "Reset levels progres"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetAllProgres" type="Button" parent="."]
+margin_left = -65.7302
+margin_top = -76.8394
+margin_right = 61.2698
+margin_bottom = -33.8394
+text = "Reset all progres"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddValute" type="Button" parent="."]
+margin_left = -116.019
+margin_top = 21.5607
+margin_right = -40.0189
+margin_bottom = 41.5607
+text = "+100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ResetValuteButton" to="." method="_on_ResetValuteButton_pressed"]
+[connection signal="pressed" from="ResetLevelProgres" to="." method="_on_ResetLevelProgres_pressed"]
+[connection signal="pressed" from="ResetAllProgres" to="." method="_on_ResetAllProgres_pressed"]
+[connection signal="pressed" from="AddValute" to="." method="_on_AddValute_pressed"]

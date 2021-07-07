@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Prefabs/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/UI.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Textures/uniq.png" type="Texture" id=5]
 [ext_resource path="res://Sound/3.ogg" type="AudioStream" id=6]
 [ext_resource path="res://NativeLib/Scripts/Music.gdns" type="Script" id=7]
+[ext_resource path="res://Prefabs/UI/ResetButtons.tscn" type="PackedScene" id=8]
 [ext_resource path="res://NativeLib/Scripts/CameraController.gdns" type="Script" id=50]
 
 [sub_resource type="DynamicFont" id=1]
@@ -45,3 +46,6 @@ stream = ExtResource( 6 )
 volume_db = -6.0
 autoplay = true
 script = ExtResource( 7 )
+
+[node name="ResetButtons" parent="." instance=ExtResource( 8 )]
+position = Vector2( 340.794, 135.989 )

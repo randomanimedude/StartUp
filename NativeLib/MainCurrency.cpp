@@ -12,7 +12,6 @@ void MainCurrency::_init()
 
 void MainCurrency::_ready() 
 {
-	//AddValue(1000);
 	CounterUpdate();
 }
 
@@ -36,21 +35,21 @@ void MainCurrency::AddValue(int Value)
 	CounterUpdate();
 }
 
-void MainCurrency::SubtractValue(int Value)
+void MainCurrency::SubtractValue(int value)
 {
-	cout << CurrentValue << '-' << Value << '=';
-	CurrentValue -= Value;
-	cout << CurrentValue << endl;
+	CurrentValue -= value;
 	CounterUpdate();
-}
-
-int MainCurrency::ReturnValue()
-{
-	return CurrentValue;
 }
 
 void MainCurrency::SetValue(int value)
 {
 	CurrentValue = value;
 	CounterUpdate();
+}
+
+int MainCurrency::ReturnValue()
+{
+	String StrValue = get_text();
+	int value = StrValue.to_int();
+	return value;
 }
