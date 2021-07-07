@@ -33,8 +33,6 @@ public:
 	static void _register_methods();
 	void _init();
 
-	static Oblast* GetSingleton();
-
 	void _ready();
 	void _physics_process();
 	void _input_event(Node* viewport, InputEventMouseButton* event, int shape_idx);
@@ -77,7 +75,7 @@ private:
 	int MainCurrency;
 	AnimationPlayer* LockAnimation;
 	Sprite* LockSprite;
-	static inline Oblast* instance;
+
 public:
 	bool IsOpen;
 	int LevelNumber;

@@ -8,6 +8,7 @@ void GameManager::_register_methods()
 void GameManager::_init()
 {
     instance = this;
+    srand(time(0));
 }
 
 void GameManager::_ready()
@@ -59,7 +60,9 @@ void GameManager::SetGameIsPlaying(bool playing)
 void GameManager::CheckIfOblastIsCompleted()
 {
     if (selectedOblast != nullptr && selectedOblast->IsCompleted())
+    {
         UnselectOblast();
+    }
 }
 
 GameManager* GameManager::GetSingleton()

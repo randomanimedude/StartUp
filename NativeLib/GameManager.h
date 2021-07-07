@@ -29,6 +29,7 @@ public:
 	Oblast* GetSelectedOblast() { return selectedOblast; }
 
 	Ref<PackedScene> flyingMoney;
+	bool tutorialWindowIsOpen = false;
 
 private:
 	static inline GameManager* instance;

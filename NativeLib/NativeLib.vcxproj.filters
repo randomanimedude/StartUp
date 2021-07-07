@@ -81,6 +81,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>Исходные файлы\Game logic</Filter>
     </ClCompile>
+    <ClCompile Include="TutorialWindow.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonLib.h">
@@ -127,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="ProfileButton.h">
       <Filter>Файлы заголовков\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialWindow.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

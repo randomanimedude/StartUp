@@ -13,7 +13,7 @@ void ResetCameraButton::_init()
 
 void ResetCameraButton::_on_ResetCameraButton_pressed()
 {
-	if(enabled)
+	if(enabled && !GameManager::GetSingleton()->tutorialWindowIsOpen)
 		GameManager::GetSingleton()->UnselectOblast();
 }
 

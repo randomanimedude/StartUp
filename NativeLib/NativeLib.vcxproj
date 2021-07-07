@@ -176,6 +176,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProfileButton.cpp" />
     <ClCompile Include="ResetCameraButton.cpp" />
+    <ClCompile Include="TutorialWindow.cpp" />
     <ClCompile Include="UpgradeButton.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +194,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="ProfileButton.h" />
     <ClInclude Include="ResetCameraButton.h" />
+    <ClInclude Include="TutorialWindow.h" />
     <ClInclude Include="UpgradeButton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
