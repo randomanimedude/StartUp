@@ -3,18 +3,18 @@
 
 #include "CommonLib.h"
 
-class LabelText :
+class SmartLabel :
 	public Label
 {
-	GODOT_CLASS(LabelText, Label);
+	GODOT_CLASS(SmartLabel, Label);
 
 public:
 	static void _register_methods();
 	void _init();
 
 	void SetValue(int Value);
-	void SetValue(String Value);
 	void SetValue(float Value);
+	void SetValue(String Value);
 
 	int ReturnValue();
 };

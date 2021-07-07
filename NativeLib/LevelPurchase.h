@@ -5,7 +5,7 @@
 
 #include "CommonLib.h"
 #include "Oblast.h"
-#include "LabelText.h"
+#include "SmartLabel.h"
 #include "MainCurrency.h"
 #include "DataLoader.h"
 #include "Oblast.h"
@@ -24,12 +24,13 @@ public:
 
 	void _on_BuyButton_pressed();
 	void _on_ReturnButton_pressed();
+
 	void ShowLevelInfo(int LevelNumber, int LevelCost, int BotMoneyTransferSpeed, int BotTimeToProfit);
 
 private:
 	Label* NumberOfLevel;
-	LabelText* MoneyTransferSpeed;
-	LabelText* TimeToProfit;
+	SmartLabel* MoneyTransferSpeed;
+	SmartLabel* TimeToProfit;
 	Button* BuyButton;
 	Oblast* oblast;
 
@@ -38,5 +39,4 @@ private:
 	int LevelCost;
 
 	static inline LevelPurchase* instance;
-
 };

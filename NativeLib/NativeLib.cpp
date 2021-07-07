@@ -4,7 +4,7 @@
 #include "CameraController.h"
 #include "ResetCameraButton.h"
 #include "Piece.h"
-#include "LabelText.h"
+#include "SmartLabel.h"
 #include "Player.h"
 #include "DataLoader.h"
 #include "MainCurrency.h"
@@ -30,7 +30,7 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
 	register_class<CameraController>();
 	register_class<ResetCameraButton>();
 	register_class<Piece>();
-	register_class<LabelText>();
+	register_class<SmartLabel>();
 	register_class<Player>();
 	register_class<DataLoader>();
 	register_class<MainCurrency>();

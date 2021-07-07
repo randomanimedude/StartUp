@@ -6,7 +6,7 @@
 #include <MeshInstance2D.hpp>
 #include <CollisionPolygon2D.hpp>
 #include <InputEventMouseButton.hpp>
-#include "LabelText.h"
+#include "SmartLabel.h"
 #include "Player.h"
 #include "Bot.h"
 #include "FlyingMoney.h"
@@ -51,7 +51,7 @@ private:
 	CollisionPolygon2D* collider;
 	Oblast* oblast;
 	GameManager* gameManager;
-	LabelText* text;
+	SmartLabel* text;
 	Player* player = nullptr;
 
 	State state = Hidden;

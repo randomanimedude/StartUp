@@ -16,8 +16,8 @@ void LevelPurchase::_init()
 void LevelPurchase::_ready()
 {
 	NumberOfLevel = Node2D::cast_to<Label>(get_node("LevelNumber"));
-	MoneyTransferSpeed = Node2D::cast_to<LabelText>(get_node("MoneyTransferSpeed"));
-	TimeToProfit = Node2D::cast_to<LabelText>(get_node("TimeToProfit"));
+	MoneyTransferSpeed = Node2D::cast_to<SmartLabel>(get_node("MoneyTransferSpeed"));
+	TimeToProfit = Node2D::cast_to<SmartLabel>(get_node("TimeToProfit"));
 	BuyButton = Node2D::cast_to<Button>(get_node("BuyButton"));
 }
 
@@ -26,6 +26,9 @@ LevelPurchase* LevelPurchase::GetSingleton()
 	return instance;
 }
 
+/// <summary>
+/// the function assigns a level characteristic to the window and displays this window
+/// </summary>
 void LevelPurchase::ShowLevelInfo(int LevelNumber, int LevelCost, int BotMoneyTransferSpeed, int BotTimeToProfit)
 {
 	oblast = cast_to<Oblast>(get_node(NodePath((String)"/root/Node2D/Map/" + String::num(LevelNumber))));

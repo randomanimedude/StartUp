@@ -23,12 +23,10 @@ void DataLoader::_ready()
 	//Levels status
 	if (file->file_exists(LevelsStatus))
 		LoadLevelsProgres();
-//	ResetLevelsProgresAvailability();
 	else
 		ResetLevelsProgresAvailability();
 
 	MainCurrency::GetSingleton()->SetValue(MainCurrency);
-
 }
 
 DataLoader* DataLoader::GetSingleton()
@@ -40,6 +38,9 @@ DataLoader* DataLoader::GetSingleton()
 //Game currency
 //
 
+/// <summary>
+/// Takes the value of the main currency from the file
+/// </summary>
 void DataLoader::LoadGameCurrency()
 {
 	Ref<File> file = File::_new();
@@ -52,6 +53,9 @@ void DataLoader::LoadGameCurrency()
 	}
 }
 
+/// <summary>
+/// Writes the value of the main currency to a file
+/// </summary>
 void DataLoader::SaveGameCurrency()
 {
 	Ref<File> file = File::_new();
@@ -64,6 +68,9 @@ void DataLoader::SaveGameCurrency()
 	file->close();
 }
 
+/// <summary>
+/// Update and write to the file the value of the main currency
+/// </summary>
 void DataLoader::UpdateMainCurrency(int value)
 {
 	MainCurrency = value;
@@ -74,6 +81,9 @@ void DataLoader::UpdateMainCurrency(int value)
 //Levels progres
 //
 
+/// <summary>
+/// Read progress from file
+/// </summary>
 void DataLoader::LoadLevelsProgres()
 {
 	Ref<File> file = File::_new();
@@ -87,6 +97,9 @@ void DataLoader::LoadLevelsProgres()
 	}
 }
 
+/// <summary>
+/// Record progress to a file
+/// </summary>
 void DataLoader::SaveLevelsProgres()
 {
 	Ref<File> file = File::_new();
@@ -100,6 +113,9 @@ void DataLoader::SaveLevelsProgres()
 	file->close();
 }
 
+/// <summary>
+/// Resetting progress
+/// </summary>
 void DataLoader::ResetLevelsProgresAvailability()
 {
 	for (int i = 0; i < 24; i++)

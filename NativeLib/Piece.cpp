@@ -18,7 +18,7 @@ void Piece::_init()
 
 void Piece::_ready()
 {
-	text = cast_to<LabelText>(get_node("SmartLabel"));
+	text = cast_to<SmartLabel>(get_node("SmartLabel"));
 	collider = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
 	sprite = cast_to<MeshInstance2D>(get_node("Sprite"));
 	oblast = cast_to<Oblast>(get_node("../.."));

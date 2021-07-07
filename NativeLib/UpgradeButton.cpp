@@ -36,8 +36,8 @@ void UpgradeButton::_on_UpgradeButton_pressed()
 
 void UpgradeButton::UpgradeLabels()
 {
-	cast_to<LabelText>(get_node("SmartLabel"))->SetValue(default_price * (float)pow(price_multiplier, timesBought));
-	cast_to<LabelText>(get_node("../SmartLabel"))->SetValue(default_price * (float)pow(property_multiplier, timesBought));
+	cast_to<SmartLabel>(get_node("SmartLabel"))->SetValue(default_price * (float)pow(price_multiplier, timesBought));
+	cast_to<SmartLabel>(get_node("../SmartLabel"))->SetValue(default_price * (float)pow(property_multiplier, timesBought));
 }
 
 void UpgradeButton::UpgradeProperty()

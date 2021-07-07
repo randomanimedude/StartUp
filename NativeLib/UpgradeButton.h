@@ -1,7 +1,7 @@
 #pragma once
 #include "CommonLib.h"
 #include <TextureButton.hpp>
-#include "LabelText.h"
+#include "SmartLabel.h"
 #include "MainCurrency.h"
 
 class UpgradeButton :
