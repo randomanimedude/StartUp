@@ -41,10 +41,13 @@ void LevelPurchase::ShowLevelInfo(int LevelNumber, int LevelCost, int BotMoneyTr
 	String cost = String::num(LevelCost);
 	BuyButton->set_text(cost);
 
-	MainCurrency = MainCurrency::GetSingleton()->ReturnValue();
+	MainCurrency = /*DataLoader::GetSingleton()->ReturnMainCurrency();*/MainCurrency::GetSingleton()->ReturnValue();
 
 	if (LevelCost > MainCurrency)
 		BuyButton->set_disabled(true);
+
+	else 
+		BuyButton->set_disabled(false);
 
 	set_visible(true);
 
