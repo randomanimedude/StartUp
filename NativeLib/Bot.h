@@ -1,6 +1,7 @@
 #pragma once
-#include "CommonLib.h"
 #include <Node.hpp>
+
+#include "CommonLib.h"
 #include "Piece.h"
 //#include "Oblast.h"
 
@@ -20,7 +21,6 @@ class Bot :
 public:
 	static void _register_methods();
 	void _init();
-
 	void _ready();
 	void _physics_process(float delta);
 
@@ -33,11 +33,12 @@ public:
 
 private:
 	vector<Piece*> BestPieces();
-	int TotalMoney();
 	vector<Piece*> MyPieces();
 	vector<Piece*> ClosestPiecesByNumber(vector<Piece*> pieces);
 	Piece* ClosestPieceByLableTransform(vector<Piece*> pieces);
 	Piece* ClosestPieceByLableTransform(vector<Piece*> pieces, Piece* from);
+
+	int TotalMoney();
 
 	Oblast* oblast;
 

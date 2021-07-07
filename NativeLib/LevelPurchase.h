@@ -10,6 +10,8 @@
 #include "DataLoader.h"
 #include "Oblast.h"
 
+class Oblast;
+
 class LevelPurchase :
 	public Node2D
 {
@@ -31,6 +33,7 @@ private:
 	Label* NumberOfLevel;
 	SmartLabel* MoneyTransferSpeed;
 	SmartLabel* TimeToProfit;
+
 	Button* BuyButton;
 	Oblast* oblast;
 

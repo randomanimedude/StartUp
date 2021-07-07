@@ -1,7 +1,7 @@
 #pragma once
+#include <Node.hpp>
 
 #include "CommonLib.h"
-#include <Node.hpp>
 #include "Piece.h"
 
 class Piece;
@@ -22,6 +22,7 @@ public:
 
     float money_speed = 1.0f;
     float time_to_make_money = 1.0f;
+
 private:
     static inline Player* instance;
 };

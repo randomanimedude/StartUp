@@ -1,15 +1,16 @@
 #pragma once
-#include "CommonLib.h"
-#include "Oblast.h"
-#include "GameManager.h"
 #include <Area2D.hpp>
 #include <MeshInstance2D.hpp>
 #include <CollisionPolygon2D.hpp>
 #include <InputEventMouseButton.hpp>
+
+#include "GameManager.h"
 #include "SmartLabel.h"
 #include "Player.h"
 #include "Bot.h"
 #include "FlyingMoney.h"
+#include "CommonLib.h"
+#include "Oblast.h"
 
 class FlyingMoney;
 class Bot;
@@ -29,12 +30,13 @@ class Piece : public Area2D
 public:
 	static void _register_methods();
 	void _init();
-
 	void _ready();
 	void _physics_process(float delta);
 	void _input_event(Node* viewport, InputEventMouseButton* event, int shape_idx);
+
 	void Show();
 	void Hide();
+
 	void UpdateSituation();
 	void AddMoney(int amount);
 	int GetMoney() { return money; }
@@ -43,6 +45,7 @@ public:
 	void UpdateConquerProgressColor();
 	int GetPriceToConquer(Bot* bot);
 	PieceOwner owner;
+
 	Bot* botOwner = nullptr;
 	Bot* botConqueror = nullptr;
 

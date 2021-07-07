@@ -25,6 +25,7 @@ void CameraController::_physics_process(float delta)
 		float local_t = transition_t;// *60 * delta;
 		set_position(Vector2(lerp(get_position().x, newPosition.x, local_t), lerp(get_position().y, newPosition.y, local_t)));
 		set_zoom(Vector2(lerp(get_zoom().x, newZoom.x, local_t), lerp(get_zoom().y, newZoom.y, local_t)));
+
 		if ((get_position().distance_squared_to(newPosition) + get_zoom().distance_squared_to(newZoom)) < 0.01)
 		{
 			set_position(newPosition);

@@ -32,22 +32,26 @@ class Oblast :
 public:
 	static void _register_methods();
 	void _init();
-
 	void _ready();
 	void _physics_process();
 	void _input_event(Node* viewport, InputEventMouseButton* event, int shape_idx);
+
 	void ChangeColorTo(Color color, float force);
-	Vector2 GetSize();
+
 	void Hide();
 	void Show();
 	void ShowPieces();
 	void HidePieces();
+
 	void RegisterPiece(Piece* piece);
 	void UpdateSituation();
 	void SelectPiece(Piece* piece);
 	void UnselectPiece();
+
 	bool IsCompleted();
 	void Open();
+
+	Vector2 GetSize();
 	vector<Piece*> GetPieces() { return pieces; }
 	Piece* GetSelectedPiece();
 

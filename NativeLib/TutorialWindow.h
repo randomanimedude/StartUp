@@ -1,9 +1,10 @@
 #pragma once
+#include <Node2D.hpp>
+#include <TextureButton.hpp>
+
 #include "CommonLib.h"
 #include "DataLoader.h"
 #include "GameManager.h"
-#include <Node2D.hpp>
-#include <TextureButton.hpp>
 
 class TutorialWindow :
     public Node2D
@@ -15,7 +16,6 @@ class TutorialWindow :
 public:
 	static void _register_methods();
 	void _init();
-
 	void _ready();
 
 	void Close();

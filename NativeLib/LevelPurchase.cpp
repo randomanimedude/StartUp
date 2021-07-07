@@ -1,4 +1,3 @@
-
 #include "LevelPurchase.h"
 
 void LevelPurchase::_register_methods()
