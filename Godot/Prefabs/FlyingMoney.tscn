@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://NativeLib/Scripts/FlyingMoney.gdns" type="Script" id=1]
-[ext_resource path="res://Textures/case.png" type="Texture" id=2]
 [ext_resource path="res://Textures/Case/icon_case.png" type="Texture" id=3]
 [ext_resource path="res://Textures/Case/border_case_case.png" type="Texture" id=4]
 [ext_resource path="res://Textures/Case/back_case.png" type="Texture" id=5]
+[ext_resource path="res://Textures/Case/uah.png" type="Texture" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {
@@ -22,10 +22,159 @@ surfaces/0 = {
 [node name="FlyingMoney" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="uah1" type="Sprite" parent="."]
 visible = false
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 2 )
+position = Vector2( -30.7934, 9.63738 )
+rotation = -0.249316
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah2" type="Sprite" parent="."]
+visible = false
+position = Vector2( -31.2287, 4.57043 )
+rotation = 0.215531
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah3" type="Sprite" parent="."]
+visible = false
+position = Vector2( 32.8577, 8.35674 )
+rotation = -0.239567
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah4" type="Sprite" parent="."]
+visible = false
+position = Vector2( 32.9156, 2.45454 )
+rotation = -0.774071
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah5" type="Sprite" parent="."]
+visible = false
+position = Vector2( 29.5328, -2.35929 )
+rotation = -0.495024
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah6" type="Sprite" parent="."]
+visible = false
+position = Vector2( -29.0157, -0.855104 )
+rotation = -0.304575
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah7" type="Sprite" parent="."]
+visible = false
+position = Vector2( -31.7521, -5.1181 )
+rotation = 0.224183
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah8" type="Sprite" parent="."]
+visible = false
+position = Vector2( 30.3321, -12.4077 )
+rotation = 0.0311924
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah9" type="Sprite" parent="."]
+visible = false
+position = Vector2( -34.4632, -10.906 )
+rotation = -0.062578
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah10" type="Sprite" parent="."]
+visible = false
+position = Vector2( 29.9568, -17.4514 )
+rotation = -0.20566
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah11" type="Sprite" parent="."]
+visible = false
+position = Vector2( -31.1861, -15.3506 )
+rotation = 0.233699
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah12" type="Sprite" parent="."]
+visible = false
+position = Vector2( -23.1695, -22.1943 )
+rotation = 0.621938
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah13" type="Sprite" parent="."]
+visible = false
+position = Vector2( 19.2489, -23.9756 )
+rotation = -0.750134
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah14" type="Sprite" parent="."]
+visible = false
+position = Vector2( -20.4233, -24.3965 )
+rotation = -0.750134
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah15" type="Sprite" parent="."]
+visible = false
+position = Vector2( 16.3152, -23.232 )
+rotation = -2.60023
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah16" type="Sprite" parent="."]
+visible = false
+position = Vector2( 31.7974, -5.75236 )
+rotation = -0.427381
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah17" type="Sprite" parent="."]
+visible = false
+position = Vector2( -34.8442, -1.2549 )
+rotation = 0.0626172
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah18" type="Sprite" parent="."]
+visible = false
+position = Vector2( 33.1495, 5.37395 )
+rotation = 0.201553
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah19" type="Sprite" parent="."]
+visible = false
+position = Vector2( -34.3111, 4.44279 )
+rotation = 3.06957
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah20" type="Sprite" parent="."]
+visible = false
+position = Vector2( 33.5334, -3.71028 )
+rotation = 3.06957
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah21" type="Sprite" parent="."]
+visible = false
+position = Vector2( -13.6885, -25.3085 )
+rotation = -2.10308
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
+
+[node name="uah22" type="Sprite" parent="."]
+visible = false
+position = Vector2( 25.6329, -23.3442 )
+rotation = -1.33106
+scale = Vector2( 0.0091638, 0.00916381 )
+texture = ExtResource( 6 )
 
 [node name="BackCase" type="MeshInstance2D" parent="."]
 scale = Vector2( 0.2, 0.2 )

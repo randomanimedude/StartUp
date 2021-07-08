@@ -51,9 +51,6 @@
     <ClCompile Include="MainCurrency.cpp">
       <Filter>Исходные файлы\UI</Filter>
     </ClCompile>
-    <ClCompile Include="FlyingMoney.cpp">
-      <Filter>Исходные файлы\UI</Filter>
-    </ClCompile>
     <ClCompile Include="CameraController.cpp">
       <Filter>Исходные файлы\Camera</Filter>
     </ClCompile>
@@ -90,6 +87,9 @@
     <ClCompile Include="Music.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="FlyingMoney.cpp">
+      <Filter>Исходные файлы\Game logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonLib.h">
@@ -122,9 +122,6 @@
     <ClInclude Include="Player.h">
       <Filter>Файлы заголовков\Game logic</Filter>
     </ClInclude>
-    <ClInclude Include="FlyingMoney.h">
-      <Filter>Файлы заголовков\UI</Filter>
-    </ClInclude>
     <ClInclude Include="SmartLabel.h">
       <Filter>Файлы заголовков\UI</Filter>
     </ClInclude>
@@ -142,9 +139,12 @@
     </ClInclude>
     <ClInclude Include="UpgradeButton.h">
       <Filter>Файлы заголовков\Game logic</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="Music.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FlyingMoney.h">
+      <Filter>Файлы заголовков\Game logic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

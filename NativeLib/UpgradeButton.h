@@ -10,6 +10,7 @@ class UpgradeButton :
 {
 	GODOT_CLASS(UpgradeButton, TextureButton);
 
+	float default_property = 1.0f;
 	float property_multiplier = 1.1f;
 	float default_price = 1.0f;
 	float price_multiplier = 1.5f;
