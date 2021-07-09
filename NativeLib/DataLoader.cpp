@@ -3,6 +3,9 @@
 void DataLoader::_register_methods()
 {
 	register_method("_ready", &DataLoader::_ready);
+
+	register_property("money_speed_bought", &DataLoader::money_speed_bought, 0);
+	register_property("time_to_make_money_bought", &DataLoader::time_to_make_money_bought, 0);
 }
 
 void DataLoader::_init()
@@ -33,6 +36,12 @@ void DataLoader::_ready()
 		LoadTutorialProgres();
 	else
 		ResetTutorialProgress();
+
+	//Player upgrades
+	if (file->file_exists(PlayerUpgrades))
+		LoadPlayerUpgrades();
+	else
+		ResetPlayerUpgrades();
 
 	//ResetLevelsProgres();
 }
@@ -188,4 +197,43 @@ void DataLoader::CompleteTutorialStep(int step)
 {
 	if (step<3 && step>-1)
 		tutorialProgress[step] = true;
+}
+
+//
+//Player upgrades
+//
+
+void DataLoader::LoadPlayerUpgrades()
+{
+	Ref<File> file = File::_new();
+	if (file->file_exists(PlayerUpgrades))
+	{
+		file->open(PlayerUpgrades, file->READ);
+
+		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
+		
+		money_speed_bought = rez[(String)"money_speed_bought"];
+		time_to_make_money_bought = rez[(String)"time_to_make_money_bought"];
+
+		cast_to<UpgradeButton>(get_node("/root/Node2D/UI/UpgradeMenu/money_speed/TextureButton"))->SetUpgradeNumers(money_speed_bought);
+		cast_to<UpgradeButton>(get_node("/root/Node2D/UI/UpgradeMenu/time_to_make_money/TextureButton"))->SetUpgradeNumers(time_to_make_money_bought);
+	}
+}
+
+void DataLoader::SavePlayerUpgrades()
+{
+	Ref<File> file = File::_new();
+	file->open(PlayerUpgrades, file->WRITE);
+
+	Dictionary dict;
+	dict[(String)"money_speed_bought"] = money_speed_bought;
+	dict[(String)"time_to_make_money_bought"] = time_to_make_money_bought;
+	file->store_string(dict.to_json());
+	file->close();
+}
+
+void DataLoader::ResetPlayerUpgrades()
+{
+	money_speed_bought = time_to_make_money_bought = 0;
+	SavePlayerUpgrades();
 }

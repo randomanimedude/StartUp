@@ -28,20 +28,29 @@ void UpgradeButton::_process()
 
 void UpgradeButton::_on_UpgradeButton_pressed()
 {
-	MainCurrency::GetSingleton()->SubtractValue(default_price * (float)pow(price_multiplier, timesBought));
+	MainCurrency::GetSingleton()->SubtractValue((int)(default_price * (float)pow(price_multiplier, timesBought)));
 	++timesBought;
 	UpgradeProperty();
 	UpgradeLabels();
+	DataLoader::GetSingleton()->set(get_parent()->get_name() + (String)"_bought", timesBought);
+	DataLoader::GetSingleton()->SavePlayerUpgrades();
 }
 
 void UpgradeButton::UpgradeLabels()
 {
-	cast_to<SmartLabel>(get_node("SmartLabel"))->SetValue(default_price * (float)pow(price_multiplier, timesBought));
+	cast_to<SmartLabel>(get_node("SmartLabel"))->SetValue((int)(default_price * (float)pow(price_multiplier, timesBought)));
 	cast_to<SmartLabel>(get_node("../SmartLabel"))->SetValue(default_property * (float)pow(property_multiplier, timesBought));
 }
 
 void UpgradeButton::UpgradeProperty()
 {
 	get_node("/root/Player")->set(get_parent()->get_name(), default_property * (float)pow(property_multiplier, timesBought));
+}
+
+void UpgradeButton::SetUpgradeNumers(int num)
+{
+	timesBought = num;
+	UpgradeProperty();
+	UpgradeLabels();
 }
 

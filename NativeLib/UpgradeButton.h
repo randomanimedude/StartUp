@@ -4,6 +4,7 @@
 #include "CommonLib.h"
 #include "SmartLabel.h"
 #include "MainCurrency.h"
+#include "DataLoader.h"
 
 class UpgradeButton :
     public TextureButton
@@ -24,6 +25,7 @@ public:
 	void _on_UpgradeButton_pressed();
 	void UpgradeLabels();
 	void UpgradeProperty();
+	void SetUpgradeNumers(int num);
 
 	int timesBought = 0;
 };

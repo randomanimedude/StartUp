@@ -8,6 +8,7 @@
 
 #include "CommonLib.h"
 #include "MainCurrency.h"
+#include "UpgradeButton.h"
 
 class DataLoader : public Node
 {
@@ -42,12 +43,22 @@ public:
 	bool IsTutorialStepCompleted(int step);
 	void CompleteTutorialStep(int step);
 
+	//Tutorial progress
+	void LoadPlayerUpgrades();
+	void SavePlayerUpgrades();
+	void ResetPlayerUpgrades();
+
+
 private:
 	const String Currency = "user://Currency.save";
 	const String LevelsStatusPath = "user://LevelsStatus.save";
 	const String TutorialStatus = "user://Tutorial.save";
+	const String PlayerUpgrades = "user://PlayerUpgrades.save";
 
 	int MainCurrency = 0;
+
+	int money_speed_bought = 0;
+	int time_to_make_money_bought = 0;
 
 	//0 - the level is closed
 	//1 - the level is open
