@@ -214,7 +214,6 @@ void DataLoader::LoadPlayerUpgrades()
 	if (file->file_exists(PlayerUpgrades))
 	{
 		file->open(PlayerUpgrades, file->READ);
-
 		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
 		
 		money_speed_bought = rez[(String)"money_speed_bought"];
@@ -233,6 +232,9 @@ void DataLoader::SavePlayerUpgrades()
 	Dictionary dict;
 	dict[(String)"money_speed_bought"] = money_speed_bought;
 	dict[(String)"time_to_make_money_bought"] = time_to_make_money_bought;
+
+	file->store_string(dict.to_json());
+	file->close();
 }
 
 //

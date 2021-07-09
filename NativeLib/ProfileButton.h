@@ -10,6 +10,8 @@ class ProfileButton :
 {
 	GODOT_CLASS(ProfileButton, TextureButton);
 
+	String window_name = "UpgradeMenu";
+
 public:
 	static void _register_methods();
 	void _init();
@@ -18,7 +20,7 @@ public:
 	void _on_ProfileButton_pressed();
 
 private:
-	Node2D* upgradeMenu;
+	Node2D* window;
 
 	DataLoader* dataLoader;
 };
