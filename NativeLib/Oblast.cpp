@@ -254,7 +254,7 @@ void Oblast::Complete()
 	DataLoader::GetSingleton()->CompleteLevel(LevelNumber);
 
 
-	if(1)// (!DataLoader::GetSingleton()->IsTutorialStepCompleted(2))
+	if (!DataLoader::GetSingleton()->IsTutorialStepCompleted(2))
 	{
 		cast_to<Node2D>(get_node("../../UI/Tutorial3/Tutorial3"))->set_visible(true);
 		gameManager->tutorialWindowIsOpen = true;
