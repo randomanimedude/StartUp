@@ -44,6 +44,11 @@ void DataLoader::_ready()
 		ResetPlayerUpgrades();
 
 	//ResetLevelsProgres();
+
+	//Windows status
+	SetWindowsStatus(false);
+	SetIsLevelPlaying(false);
+	SetWindowsStatusOnLevels(true);
 }
 
 DataLoader* DataLoader::GetSingleton()
@@ -228,6 +233,72 @@ void DataLoader::SavePlayerUpgrades()
 	Dictionary dict;
 	dict[(String)"money_speed_bought"] = money_speed_bought;
 	dict[(String)"time_to_make_money_bought"] = time_to_make_money_bought;
+
+//
+//Condition of windows
+//
+
+void DataLoader::SetWindowsStatus(bool Status)
+{
+	WindowsStatus = Status;
+
+	Ref<File> file = File::_new();
+	file->open(WindowsStatusPath, file->WRITE);
+
+	Dictionary dict;
+		dict[(String)"WindowsStatus"] = WindowsStatus;
+	file->store_string(dict.to_json());
+	file->close();
+}
+
+bool DataLoader::ReturnWindowsStatus()
+{
+	Ref<File> file = File::_new();
+	if (file->file_exists(WindowsStatusPath))
+	{
+		file->open(WindowsStatusPath, file->READ);
+
+		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
+		WindowsStatus = rez[(String)"WindowsStatus"];
+	}
+	return WindowsStatus;
+}
+
+void DataLoader::SetWindowsStatusOnLevels(bool Status)
+{
+	WindowsStatusOnLevels = Status;
+
+	Ref<File> file = File::_new();
+	file->open(WindowsStatusOnLevelsPath, file->WRITE);
+
+	Dictionary dict;
+	dict[(String)"WindowsStatusOnLevels"] = WindowsStatusOnLevels;
+	file->store_string(dict.to_json());
+	file->close();
+}
+
+bool DataLoader::ReturnWindowsStatusOnLevels()
+{
+	Ref<File> file = File::_new();
+	if (file->file_exists(WindowsStatusOnLevelsPath))
+	{
+		file->open(WindowsStatusOnLevelsPath, file->READ);
+
+		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
+		WindowsStatusOnLevels = rez[(String)"WindowsStatusOnLevels"];
+	}
+	return WindowsStatusOnLevels;
+}
+
+void DataLoader::SetIsLevelPlaying(bool Status)
+{
+	IsLevelPlaying = Status;
+
+	Ref<File> file = File::_new();
+	file->open(IsLevelPlayingPath, file->WRITE);
+
+	Dictionary dict;
+	dict[(String)"IsLevelPlaying"] = IsLevelPlaying;
 	file->store_string(dict.to_json());
 	file->close();
 }
@@ -236,4 +307,17 @@ void DataLoader::ResetPlayerUpgrades()
 {
 	money_speed_bought = time_to_make_money_bought = 0;
 	SavePlayerUpgrades();
+}
+
+bool DataLoader::ReturnIsLevelPlaying()
+{
+	Ref<File> file = File::_new();
+	if (file->file_exists(IsLevelPlayingPath))
+	{
+		file->open(IsLevelPlayingPath, file->READ);
+
+		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
+		IsLevelPlaying = rez[(String)"IsLevelPlaying"];
+	}
+	return IsLevelPlaying;
 }

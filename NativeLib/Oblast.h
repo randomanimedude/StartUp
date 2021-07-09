@@ -62,8 +62,9 @@ public:
 	//2 - the level is complete
 	int IsOpen = -1;
 
-	int LevelNumber;
-	int LevelPrice;
+	int LevelNumber = -1;
+	int LevelPrice = -1;
+
 
 	int first_time_reward = 100;
 	int repeated_reward = 10;
@@ -94,5 +95,7 @@ private:
 	int MainCurrency;
 	AnimationPlayer* LockAnimation;
 	Sprite* LockSprite;
+
+	DataLoader* dataLoader;
 };
 

@@ -7,6 +7,7 @@ void FlyingMoney::_register_methods()
 
 void FlyingMoney::_init()
 {
+
 }
 
 void FlyingMoney::_physics_process(float delta)
