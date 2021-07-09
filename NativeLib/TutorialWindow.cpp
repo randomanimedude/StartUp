@@ -23,11 +23,8 @@ void TutorialWindow::_ready()
 
 void TutorialWindow::Close()
 {
-	if (!dataLoader->IsTutorialStepCompleted(tutorial_step))
-	{
-		set_visible(false);
-		dataLoader->CompleteTutorialStep(tutorial_step);
-		dataLoader->SaveTutorialProgres();
-	}
+	set_visible(false);
+	dataLoader->CompleteTutorialStep(tutorial_step);
+	dataLoader->SaveTutorialProgres();
 	GameManager::GetSingleton()->tutorialWindowIsOpen = false;
 }

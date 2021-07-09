@@ -102,13 +102,6 @@ void Oblast::_physics_process()
 		currentColor = lerp(currentColor, storedColor, transition_t);
 		if (abs(currentColor.r - storedColor.r) * abs(currentColor.g - storedColor.g) * abs(currentColor.b - storedColor.b) < 0.000000000001)
 		{
-			if (!DataLoader::GetSingleton()->IsTutorialStepCompleted(2))
-			{
-				cast_to<Node2D>(get_node("../../UI/Tutorial3/Tutorial3"))->set_visible(true);
-				gameManager->tutorialWindowIsOpen = true;
-				DataLoader::GetSingleton()->SaveLevelsProgres();
-			}
-
 			currentColor = storedColor;
 			state = Visible;
 			piecesCombined = nullptr;
@@ -259,4 +252,11 @@ void Oblast::Complete()
 	IsOpen = 2;
 
 	DataLoader::GetSingleton()->CompleteLevel(LevelNumber);
+
+
+	if(1)// (!DataLoader::GetSingleton()->IsTutorialStepCompleted(2))
+	{
+		cast_to<Node2D>(get_node("../../UI/Tutorial3/Tutorial3"))->set_visible(true);
+		gameManager->tutorialWindowIsOpen = true;
+	}
 }
