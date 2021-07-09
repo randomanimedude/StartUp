@@ -16,6 +16,8 @@ void Oblast::_init()
 
 void Oblast::_ready()
 {
+	dataLoader = DataLoader::GetSingleton();
+
 	gameManager = GameManager::GetSingleton();
 	mainSprite = Node::cast_to<MeshInstance2D>(get_node("Sprite"));
 	collisionShape = Node::cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
@@ -121,7 +123,7 @@ void Oblast::_physics_process()
 void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
 {
 	if (event->is_pressed() && !get_tree()->is_input_handled() &&
-		!gameManager->IsGamePlaying() && IsOpen == 1 && !gameManager->tutorialWindowIsOpen)
+		!gameManager->IsGamePlaying() && IsOpen == 1 && !gameManager->tutorialWindowIsOpen && !dataLoader->ReturnWindowsStatus())
 	{
 		if (gameManager->GetSelectedOblast() == nullptr)
 			gameManager->SelectOblast(this);
@@ -129,7 +131,7 @@ void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shap
 		get_tree()->set_input_as_handled();
 	}
 
-	else if (event->is_pressed() && IsOpen == 0)
+	else if (event->is_pressed() && IsOpen == 0 && !dataLoader->ReturnWindowsStatus())
 		LevelPurchase::GetSingleton()->ShowLevelInfo(LevelNumber, LevelPrice, 1, 1);
 }
 
@@ -218,7 +220,6 @@ bool Oblast::IsCompleted()
 			++controlledByBot;
 		}
 	}
-
 
 	bool toReturn = !(pieces.size() - controlledByPlayer);
 

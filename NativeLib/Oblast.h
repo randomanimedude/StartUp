@@ -62,8 +62,9 @@ public:
 	//2 - the level is complete
 	int IsOpen = -1;
 
-	int LevelNumber;
-	int LevelPrice;
+	int LevelNumber = -1;
+	int LevelPrice = -1;
+
 
 private:
 	MeshInstance2D* mainSprite;
@@ -91,5 +92,7 @@ private:
 	int MainCurrency;
 	AnimationPlayer* LockAnimation;
 	Sprite* LockSprite;
+
+	DataLoader* dataLoader;
 };
 

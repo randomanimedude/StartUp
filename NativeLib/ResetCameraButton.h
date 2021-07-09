@@ -4,6 +4,7 @@
 
 #include "CameraController.h"
 #include "CommonLib.h"
+#include "DataLoader.h"
 
 class ResetCameraButton :
     public TextureButton
@@ -13,6 +14,7 @@ class ResetCameraButton :
 public:
 	static void _register_methods();
 	void _init();
+	void _ready();
 
 	void _on_ResetCameraButton_pressed();
 
@@ -24,5 +26,7 @@ private:
 	static inline ResetCameraButton* instance;
 
 	bool enabled = false;
+
+	DataLoader* dataLoader;
 };
 

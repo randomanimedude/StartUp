@@ -32,6 +32,8 @@ LevelPurchase* LevelPurchase::GetSingleton()
 
 void LevelPurchase::ShowLevelInfo(int LevelNumber, int LevelCost, int BotMoneyTransferSpeed, int BotTimeToProfit)
 {
+	DataLoader::GetSingleton()->SetWindowsStatus(true);
+
 	oblast = cast_to<Oblast>(get_node(NodePath((String)"/root/Node2D/Map/" + String::num(LevelNumber))));
 
 	this->LevelNumber = LevelNumber;
@@ -70,11 +72,11 @@ void LevelPurchase::_on_BuyButton_pressed()
 
 	oblast->Open();
 	set_visible(false);
-
-
+	DataLoader::GetSingleton()->SetWindowsStatus(false);
 }
 
 void LevelPurchase::_on_ReturnButton_pressed()
 {
 	set_visible(false);
+	DataLoader::GetSingleton()->SetWindowsStatus(false);
 }

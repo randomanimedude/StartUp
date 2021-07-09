@@ -66,5 +66,7 @@ private:
 
 	int money = 0;
 	float timeSinceLastEarning = 0;
+
+	DataLoader* dataLoader;
 };
 
