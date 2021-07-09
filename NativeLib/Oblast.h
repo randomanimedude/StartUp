@@ -65,6 +65,9 @@ public:
 	int LevelNumber;
 	int LevelPrice;
 
+	int first_time_reward = 100;
+	int repeated_reward = 10;
+
 private:
 	MeshInstance2D* mainSprite;
 	//Sprite* border;

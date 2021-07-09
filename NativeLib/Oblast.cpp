@@ -8,6 +8,8 @@ void Oblast::_register_methods()
 
 	register_property("LevelNumber", &Oblast::LevelNumber, -1);
 	register_property("LevelPrice", &Oblast::LevelPrice, -1);
+	register_property("first_time_reward", &Oblast::first_time_reward, 100);
+	register_property("repeated_reward", &Oblast::repeated_reward, 10);
 }
 
 void Oblast::_init()
