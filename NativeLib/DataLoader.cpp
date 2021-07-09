@@ -233,6 +233,7 @@ void DataLoader::SavePlayerUpgrades()
 	Dictionary dict;
 	dict[(String)"money_speed_bought"] = money_speed_bought;
 	dict[(String)"time_to_make_money_bought"] = time_to_make_money_bought;
+}
 
 //
 //Condition of windows
