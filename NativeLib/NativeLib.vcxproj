@@ -180,6 +180,7 @@
     <ClCompile Include="ResetCameraButton.cpp" />
     <ClCompile Include="TutorialWindow.cpp" />
     <ClCompile Include="UpgradeButton.cpp" />
+    <ClCompile Include="Volume.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bot.h" />
@@ -188,6 +189,7 @@
     <ClInclude Include="DataLoader.h" />
     <ClInclude Include="FlyingMoney.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Volume.h" />
     <ClInclude Include="ResetButtons.h" />
     <ClInclude Include="SmartLabel.h" />
     <ClInclude Include="LevelPurchase.h" />

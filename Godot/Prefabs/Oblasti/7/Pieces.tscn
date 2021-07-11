@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Textures/new map/7/7.png" type="Texture" id=1]
 [ext_resource path="res://Textures/new map/7/11.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Textures/new map/7/9.png" type="Texture" id=12]
 [ext_resource path="res://Prefabs/SmartLabel.tscn" type="PackedScene" id=13]
 [ext_resource path="res://NativeLib/Scripts/Piece.gdns" type="Script" id=14]
+[ext_resource path="res://NativeLib/Scripts/Bot.gdns" type="Script" id=15]
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {
@@ -173,6 +174,30 @@ surfaces/0 = {
 
 [node name="Pieces" type="Node2D"]
 
+[node name="Bot1" type="Node" parent="."]
+script = ExtResource( 15 )
+color_g = 0
+color_b = 0
+update_t = 2.15
+time_to_make_money = 0.55
+money_speed = 3.5
+
+[node name="Bot2" type="Node" parent="."]
+script = ExtResource( 15 )
+color_r = 0
+color_b = 0
+update_t = 2.15
+time_to_make_money = 0.55
+money_speed = 3.5
+
+[node name="Bot3" type="Node" parent="."]
+script = ExtResource( 15 )
+color_g = 0
+color_b = 127
+update_t = 2.15
+time_to_make_money = 0.48
+money_speed = 3.5
+
 [node name="1" type="Area2D" parent="."]
 script = ExtResource( 14 )
 start_as_player = true
@@ -240,6 +265,8 @@ margin_bottom = -102.398
 
 [node name="5" type="Area2D" parent="."]
 script = ExtResource( 14 )
+start_as_bot = true
+bot_number = 2
 
 [node name="Sprite" type="MeshInstance2D" parent="5"]
 mesh = SubResource( 5 )
@@ -320,6 +347,8 @@ margin_bottom = 240.748
 
 [node name="10" type="Area2D" parent="."]
 script = ExtResource( 14 )
+start_as_bot = true
+bot_number = 3
 
 [node name="Sprite" type="MeshInstance2D" parent="10"]
 mesh = SubResource( 10 )
@@ -352,6 +381,8 @@ margin_bottom = 395.0
 
 [node name="12" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 25
+start_as_bot = true
 
 [node name="Sprite" type="MeshInstance2D" parent="12"]
 mesh = SubResource( 12 )

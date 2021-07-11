@@ -90,6 +90,9 @@
     <ClCompile Include="FlyingMoney.cpp">
       <Filter>Исходные файлы\Game logic</Filter>
     </ClCompile>
+    <ClCompile Include="Volume.cpp">
+      <Filter>Исходные файлы\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonLib.h">
@@ -145,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="FlyingMoney.h">
       <Filter>Файлы заголовков\Game logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Volume.h">
+      <Filter>Файлы заголовков\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
