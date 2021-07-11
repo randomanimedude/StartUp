@@ -179,10 +179,6 @@ void Oblast::RegisterPiece(Piece* piece)
 	pieces.push_back(piece);
 }
 
-void Oblast::UpdateSituation()
-{
-}
-
 void Oblast::SelectPiece(Piece* piece)
 {
 	UnselectPiece();

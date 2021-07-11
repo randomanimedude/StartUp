@@ -44,7 +44,6 @@ public:
 	void HidePieces();
 
 	void RegisterPiece(Piece* piece);
-	void UpdateSituation();
 	void SelectPiece(Piece* piece);
 	void UnselectPiece();
 
@@ -92,7 +91,7 @@ private:
 
 	vector<Piece*> pieces;
 
-	int MainCurrency;
+	//int MainCurrency;
 	AnimationPlayer* LockAnimation;
 	Sprite* LockSprite;
 
