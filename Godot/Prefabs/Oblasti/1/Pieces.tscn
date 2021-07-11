@@ -201,6 +201,7 @@ money_speed = 2.3
 [node name="1" type="Area2D" parent="."]
 script = ExtResource( 14 )
 money_to_conquer = 30
+start_as_player = true
 
 [node name="Sprite" type="MeshInstance2D" parent="1"]
 mesh = SubResource( 1 )

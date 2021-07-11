@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_hidden.png-42f646b7685e89cf3d606968386b45ef.stex"
+path="res://.import/hidden_button.png-14341df9525e9a66356ea49fc63796a1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/button_hidden.png"
-dest_files=[ "res://.import/button_hidden.png-42f646b7685e89cf3d606968386b45ef.stex" ]
+source_file="res://Textures/UI/hidden_button.png"
+dest_files=[ "res://.import/hidden_button.png-14341df9525e9a66356ea49fc63796a1.stex" ]
 
 [params]
 
