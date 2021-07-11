@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://NativeLib/Scripts/Piece.gdns" type="Script" id=1]
 [ext_resource path="res://Textures/new map/21/2.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Textures/new map/21/4.png" type="Texture" id=8]
 [ext_resource path="res://Textures/new map/21/8.png" type="Texture" id=9]
 [ext_resource path="res://Prefabs/SmartLabel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://NativeLib/Scripts/Bot.gdns" type="Script" id=11]
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {
@@ -116,6 +117,14 @@ surfaces/0 = {
 }
 
 [node name="Pieces" type="Node2D"]
+
+[node name="Bot1" type="Node" parent="."]
+script = ExtResource( 11 )
+color_g = 0
+color_b = 0
+update_t = 5.0
+time_to_make_money = 1.5
+money_speed = 2.3
 
 [node name="1" type="Area2D" parent="."]
 script = ExtResource( 1 )
@@ -232,6 +241,7 @@ margin_bottom = 220.25
 
 [node name="8" type="Area2D" parent="."]
 script = ExtResource( 1 )
+start_as_bot = true
 
 [node name="Sprite" type="MeshInstance2D" parent="8"]
 mesh = SubResource( 8 )
