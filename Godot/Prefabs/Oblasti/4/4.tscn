@@ -19,8 +19,12 @@ surfaces/0 = {
 
 [node name="Запорізька область" type="Area2D"]
 script = ExtResource( 1 )
-LevelNumber = 4
-LevelPrice = 100
+LevelNumber = 21
+LevelPrice = 22000
+first_time_reward = 15000
+repeated_reward = 2000
+NumbOfBots = 3
+BotsComplexity = "very hard"
 
 [node name="Sprite" type="MeshInstance2D" parent="."]
 mesh = SubResource( 1 )

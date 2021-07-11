@@ -10,6 +10,8 @@ void Oblast::_register_methods()
 	register_property("LevelPrice", &Oblast::LevelPrice, -1);
 	register_property("first_time_reward", &Oblast::first_time_reward, 100);
 	register_property("repeated_reward", &Oblast::repeated_reward, 10);
+	register_property("NumbOfBots", &Oblast::NumbOfBots, 2);
+	register_property("BotsComplexity", &Oblast::BotsComplexity, (String)"easy");
 }
 
 void Oblast::_init()
@@ -23,6 +25,9 @@ void Oblast::_ready()
 	gameManager = GameManager::GetSingleton();
 	mainSprite = Node::cast_to<MeshInstance2D>(get_node("Sprite"));
 	collisionShape = Node::cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
+
+	Animator = cast_to<AnimationPlayer>(get_node(NodePath((String)"/root/Node2D/Animator")));
+	AdditionalAnim = cast_to<Label>(get_node(NodePath((String)"/root/Node2D/AdditionalAnim")));
 
 	currentColor = get_self_modulate();
 
@@ -117,8 +122,9 @@ void Oblast::_physics_process()
 
 void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
 {
-	if (event->is_pressed() && !get_tree()->is_input_handled() &&
-		!gameManager->IsGamePlaying() && IsOpen == 1 && !gameManager->tutorialWindowIsOpen && !dataLoader->ReturnWindowsStatus())
+	if (IsOpen == 1 || IsOpen == 2)
+		if (event->is_pressed() && !get_tree()->is_input_handled() &&
+		!gameManager->IsGamePlaying() && !gameManager->tutorialWindowIsOpen && !dataLoader->ReturnWindowsStatus())
 	{
 		if (gameManager->GetSelectedOblast() == nullptr)
 			gameManager->SelectOblast(this);
@@ -126,7 +132,7 @@ void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shap
 		get_tree()->set_input_as_handled();
 	}
 
-	else if (event->is_pressed() && IsOpen == 0 && !dataLoader->ReturnWindowsStatus())
+		if (event->is_pressed() && IsOpen == 0 && !dataLoader->ReturnWindowsStatus())
 		LevelPurchase::GetSingleton()->ShowLevelInfo(LevelNumber, LevelPrice, 1, 1);
 }
 
@@ -247,6 +253,20 @@ void Oblast::Close()
 
 void Oblast::Complete()
 {
+	if (dataLoader->ReturnLevelStatus(LevelNumber) == 1)
+	{
+		MainCurrency::GetSingleton()->AddValue(first_time_reward);
+		AdditionalAnim->set_text((String)"+" + String::num(first_time_reward));
+	}
+		
+	else
+	{
+		MainCurrency::GetSingleton()->AddValue(repeated_reward);
+		AdditionalAnim->set_text((String)"+" + String::num(repeated_reward));
+	}
+
+	Animator->play(String("AddValute"));
+
 	ChangeColorTo(blue, 1);
 	IsOpen = 2;
 

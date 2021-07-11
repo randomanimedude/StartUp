@@ -127,7 +127,7 @@ void DataLoader::ResetLevelsProgres()
 	for (int i = 0; i < 24; i++)
 		LevelsStatus[i] = 0;
 
-	LevelsStatus[23] = 1;
+	LevelsStatus[0] = 1;
 
 	SaveLevelsProgres();
 }
@@ -237,6 +237,13 @@ void DataLoader::SavePlayerUpgrades()
 	file->close();
 }
 
+void DataLoader::ResetPlayerUpgrades()
+{
+	money_speed_bought = time_to_make_money_bought = 0;
+	SavePlayerUpgrades();
+	LoadPlayerUpgrades();
+}
+
 //
 //Condition of windows
 //
@@ -304,12 +311,6 @@ void DataLoader::SetIsLevelPlaying(bool Status)
 	dict[(String)"IsLevelPlaying"] = IsLevelPlaying;
 	file->store_string(dict.to_json());
 	file->close();
-}
-
-void DataLoader::ResetPlayerUpgrades()
-{
-	money_speed_bought = time_to_make_money_bought = 0;
-	SavePlayerUpgrades();
 }
 
 bool DataLoader::ReturnIsLevelPlaying()

@@ -15,8 +15,12 @@ void LevelPurchase::_init()
 void LevelPurchase::_ready()
 {
 	NumberOfLevel = Node2D::cast_to<Label>(get_node("LevelNumber"));
-	MoneyTransferSpeed = Node2D::cast_to<SmartLabel>(get_node("MoneyTransferSpeed"));
-	TimeToProfit = Node2D::cast_to<SmartLabel>(get_node("TimeToProfit"));
+
+	NumbOfBots = Node2D::cast_to<SmartLabel>(get_node("NumbOfBots"));
+	BotsComplexity = Node2D::cast_to<SmartLabel>(get_node("BotsComplexity"));
+	FirstReward = Node2D::cast_to<SmartLabel>(get_node("FirstReward"));
+	SubsequentRewards = Node2D::cast_to<SmartLabel>(get_node("SubsequentRewards"));
+
 	BuyButton = Node2D::cast_to<Button>(get_node("BuyButton"));
 	
 	SubstractAnim = cast_to<Label>(get_node(NodePath((String)"/root/Node2D/SubstractAnim")));
@@ -34,7 +38,7 @@ void LevelPurchase::ShowLevelInfo(int LevelNumber, int LevelCost, int BotMoneyTr
 {
 	DataLoader::GetSingleton()->SetWindowsStatus(true);
 
-	oblast = cast_to<Oblast>(get_node(NodePath((String)"/root/Node2D/Map/" + String::num(LevelNumber))));
+	oblast = cast_to<Oblast>(get_node(NodePath((String)"/root/Node2D/Map/" + String::num(25 - LevelNumber))));
 
 	this->LevelNumber = LevelNumber;
 	this->LevelCost = LevelCost;
@@ -42,8 +46,10 @@ void LevelPurchase::ShowLevelInfo(int LevelNumber, int LevelCost, int BotMoneyTr
 	String levelNumber = String::num(LevelNumber) + (String)" level";
 	NumberOfLevel->set_text(levelNumber);
 
-	MoneyTransferSpeed->SetValue(BotMoneyTransferSpeed);
-	TimeToProfit->SetValue(BotMoneyTransferSpeed);
+	NumbOfBots->SetValue(oblast->NumbOfBots);
+	BotsComplexity->SetValue(oblast->BotsComplexity);
+	FirstReward->SetValue(oblast->first_time_reward);
+	SubsequentRewards->SetValue(oblast->repeated_reward);
 
 	String cost = String::num(LevelCost);
 	BuyButton->set_text(cost);
