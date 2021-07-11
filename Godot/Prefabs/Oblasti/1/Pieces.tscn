@@ -200,6 +200,7 @@ money_speed = 2.3
 
 [node name="1" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 30
 
 [node name="Sprite" type="MeshInstance2D" parent="1"]
 mesh = SubResource( 1 )
@@ -216,6 +217,7 @@ margin_bottom = -393.028
 
 [node name="2" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 30
 
 [node name="Sprite" type="MeshInstance2D" parent="2"]
 mesh = SubResource( 2 )
@@ -232,6 +234,7 @@ margin_bottom = -193.753
 
 [node name="3" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 30
 
 [node name="Sprite" type="MeshInstance2D" parent="3"]
 mesh = SubResource( 3 )
@@ -248,6 +251,7 @@ margin_bottom = -288.146
 
 [node name="4" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 30
 
 [node name="Sprite" type="MeshInstance2D" parent="4"]
 mesh = SubResource( 4 )
@@ -264,6 +268,7 @@ margin_bottom = -235.705
 
 [node name="5" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 30
 start_as_bot = true
 bot_number = 2
 
@@ -282,6 +287,7 @@ margin_bottom = -9.46106
 
 [node name="6" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 30
 
 [node name="Sprite" type="MeshInstance2D" parent="6"]
 mesh = SubResource( 6 )
@@ -298,6 +304,7 @@ margin_bottom = -85.8747
 
 [node name="7" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 30
 start_as_bot = true
 bot_number = 3
 
@@ -316,6 +323,7 @@ margin_bottom = -49.9153
 
 [node name="8" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 30
 
 [node name="Sprite" type="MeshInstance2D" parent="8"]
 mesh = SubResource( 8 )
@@ -332,6 +340,7 @@ margin_bottom = 180.824
 
 [node name="9" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 30
 
 [node name="Sprite" type="MeshInstance2D" parent="9"]
 mesh = SubResource( 9 )
@@ -348,6 +357,7 @@ margin_bottom = 104.41
 
 [node name="10" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 30
 
 [node name="Sprite" type="MeshInstance2D" parent="10"]
 mesh = SubResource( 10 )
@@ -364,6 +374,7 @@ margin_bottom = 277.397
 
 [node name="11" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 30
 
 [node name="Sprite" type="MeshInstance2D" parent="11"]
 mesh = SubResource( 11 )
@@ -380,6 +391,7 @@ margin_bottom = 369.466
 
 [node name="12" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 30
 start_as_bot = true
 
 [node name="Sprite" type="MeshInstance2D" parent="12"]

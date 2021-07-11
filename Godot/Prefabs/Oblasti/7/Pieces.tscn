@@ -381,6 +381,7 @@ margin_bottom = 395.0
 
 [node name="12" type="Area2D" parent="."]
 script = ExtResource( 14 )
+money_to_conquer = 25
 start_as_bot = true
 
 [node name="Sprite" type="MeshInstance2D" parent="12"]

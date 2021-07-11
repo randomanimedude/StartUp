@@ -164,6 +164,7 @@ money_speed = 2.8
 
 [node name="1" type="Area2D" parent="."]
 script = ExtResource( 12 )
+money_to_conquer = 15
 start_as_player = true
 
 [node name="Sprite" type="MeshInstance2D" parent="1"]
@@ -181,6 +182,7 @@ margin_bottom = -617.172
 
 [node name="2" type="Area2D" parent="."]
 script = ExtResource( 12 )
+money_to_conquer = 15
 
 [node name="Sprite" type="MeshInstance2D" parent="2"]
 mesh = SubResource( 2 )
@@ -197,6 +199,7 @@ margin_bottom = -426.899
 
 [node name="3" type="Area2D" parent="."]
 script = ExtResource( 12 )
+money_to_conquer = 15
 
 [node name="Sprite" type="MeshInstance2D" parent="3"]
 mesh = SubResource( 3 )
@@ -213,6 +216,7 @@ margin_bottom = -422.675
 
 [node name="4" type="Area2D" parent="."]
 script = ExtResource( 12 )
+money_to_conquer = 15
 
 [node name="Sprite" type="MeshInstance2D" parent="4"]
 mesh = SubResource( 4 )
@@ -229,6 +233,7 @@ margin_bottom = -199.492
 
 [node name="5" type="Area2D" parent="."]
 script = ExtResource( 12 )
+money_to_conquer = 15
 start_as_bot = true
 bot_number = 2
 
@@ -247,6 +252,7 @@ margin_bottom = 72.1434
 
 [node name="6" type="Area2D" parent="."]
 script = ExtResource( 12 )
+money_to_conquer = 15
 
 [node name="Sprite" type="MeshInstance2D" parent="6"]
 mesh = SubResource( 6 )
@@ -263,6 +269,7 @@ margin_bottom = 359.494
 
 [node name="7" type="Area2D" parent="."]
 script = ExtResource( 12 )
+money_to_conquer = 15
 
 [node name="Sprite" type="MeshInstance2D" parent="7"]
 mesh = SubResource( 7 )
@@ -279,6 +286,7 @@ margin_bottom = 274.187
 
 [node name="8" type="Area2D" parent="."]
 script = ExtResource( 12 )
+money_to_conquer = 15
 
 [node name="Sprite" type="MeshInstance2D" parent="8"]
 mesh = SubResource( 8 )
@@ -295,6 +303,7 @@ margin_bottom = 561.185
 
 [node name="9" type="Area2D" parent="."]
 script = ExtResource( 12 )
+money_to_conquer = 15
 
 [node name="Sprite" type="MeshInstance2D" parent="9"]
 mesh = SubResource( 9 )
@@ -311,6 +320,7 @@ margin_bottom = 497.587
 
 [node name="10" type="Area2D" parent="."]
 script = ExtResource( 12 )
+money_to_conquer = 15
 start_as_bot = true
 
 [node name="Sprite" type="MeshInstance2D" parent="10"]
