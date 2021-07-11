@@ -3,6 +3,9 @@
 void DataLoader::_register_methods()
 {
 	register_method("_ready", &DataLoader::_ready);
+
+	register_property("money_speed_bought", &DataLoader::money_speed_bought, 0);
+	register_property("time_to_make_money_bought", &DataLoader::time_to_make_money_bought, 0);
 }
 
 void DataLoader::_init()
@@ -34,7 +37,18 @@ void DataLoader::_ready()
 	else
 		ResetTutorialProgress();
 
+	//Player upgrades
+	if (file->file_exists(PlayerUpgrades))
+		LoadPlayerUpgrades();
+	else
+		ResetPlayerUpgrades();
+
 	//ResetLevelsProgres();
+
+	//Windows status
+	SetWindowsStatus(false);
+	SetIsLevelPlaying(false);
+	SetWindowsStatusOnLevels(true);
 }
 
 DataLoader* DataLoader::GetSingleton()
@@ -188,4 +202,125 @@ void DataLoader::CompleteTutorialStep(int step)
 {
 	if (step<3 && step>-1)
 		tutorialProgress[step] = true;
+}
+
+//
+//Player upgrades
+//
+
+void DataLoader::LoadPlayerUpgrades()
+{
+	Ref<File> file = File::_new();
+	if (file->file_exists(PlayerUpgrades))
+	{
+		file->open(PlayerUpgrades, file->READ);
+		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
+		
+		money_speed_bought = rez[(String)"money_speed_bought"];
+		time_to_make_money_bought = rez[(String)"time_to_make_money_bought"];
+
+		cast_to<UpgradeButton>(get_node("/root/Node2D/UI/UpgradeMenu/money_speed/TextureButton"))->SetUpgradeNumers(money_speed_bought);
+		cast_to<UpgradeButton>(get_node("/root/Node2D/UI/UpgradeMenu/time_to_make_money/TextureButton"))->SetUpgradeNumers(time_to_make_money_bought);
+	}
+}
+
+void DataLoader::SavePlayerUpgrades()
+{
+	Ref<File> file = File::_new();
+	file->open(PlayerUpgrades, file->WRITE);
+
+	Dictionary dict;
+	dict[(String)"money_speed_bought"] = money_speed_bought;
+	dict[(String)"time_to_make_money_bought"] = time_to_make_money_bought;
+
+	file->store_string(dict.to_json());
+	file->close();
+}
+
+//
+//Condition of windows
+//
+
+void DataLoader::SetWindowsStatus(bool Status)
+{
+	WindowsStatus = Status;
+
+	Ref<File> file = File::_new();
+	file->open(WindowsStatusPath, file->WRITE);
+
+	Dictionary dict;
+		dict[(String)"WindowsStatus"] = WindowsStatus;
+	file->store_string(dict.to_json());
+	file->close();
+}
+
+bool DataLoader::ReturnWindowsStatus()
+{
+	Ref<File> file = File::_new();
+	if (file->file_exists(WindowsStatusPath))
+	{
+		file->open(WindowsStatusPath, file->READ);
+
+		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
+		WindowsStatus = rez[(String)"WindowsStatus"];
+	}
+	return WindowsStatus;
+}
+
+void DataLoader::SetWindowsStatusOnLevels(bool Status)
+{
+	WindowsStatusOnLevels = Status;
+
+	Ref<File> file = File::_new();
+	file->open(WindowsStatusOnLevelsPath, file->WRITE);
+
+	Dictionary dict;
+	dict[(String)"WindowsStatusOnLevels"] = WindowsStatusOnLevels;
+	file->store_string(dict.to_json());
+	file->close();
+}
+
+bool DataLoader::ReturnWindowsStatusOnLevels()
+{
+	Ref<File> file = File::_new();
+	if (file->file_exists(WindowsStatusOnLevelsPath))
+	{
+		file->open(WindowsStatusOnLevelsPath, file->READ);
+
+		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
+		WindowsStatusOnLevels = rez[(String)"WindowsStatusOnLevels"];
+	}
+	return WindowsStatusOnLevels;
+}
+
+void DataLoader::SetIsLevelPlaying(bool Status)
+{
+	IsLevelPlaying = Status;
+
+	Ref<File> file = File::_new();
+	file->open(IsLevelPlayingPath, file->WRITE);
+
+	Dictionary dict;
+	dict[(String)"IsLevelPlaying"] = IsLevelPlaying;
+	file->store_string(dict.to_json());
+	file->close();
+}
+
+void DataLoader::ResetPlayerUpgrades()
+{
+	money_speed_bought = time_to_make_money_bought = 0;
+	SavePlayerUpgrades();
+}
+
+bool DataLoader::ReturnIsLevelPlaying()
+{
+	Ref<File> file = File::_new();
+	if (file->file_exists(IsLevelPlayingPath))
+	{
+		file->open(IsLevelPlayingPath, file->READ);
+
+		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
+		IsLevelPlaying = rez[(String)"IsLevelPlaying"];
+	}
+	return IsLevelPlaying;
 }

@@ -19,14 +19,11 @@ class FlyingMoney :
 public:
 	static void _register_methods();
 	void _init();
-	void _ready();
 	void _physics_process(float delta);
 
 	void SetCourse(Piece* from, Piece* to, int amount, PieceOwner owner, Bot* botOwner);
 
 private:
-	Sprite* sprite;
-
 	Vector2 fromPos;
 	Vector2 toPos;
 
@@ -40,6 +37,10 @@ private:
 	PieceOwner owner;
 
 	int money;
+
+	const int numberOfStickingMoney = 20;
+	const int minStickAmount = 11;
+	const int maxStickAmount = 100;
 
 	bool proceed = false;
 };

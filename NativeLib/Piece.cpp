@@ -18,6 +18,8 @@ void Piece::_init()
 
 void Piece::_ready()
 {
+	dataLoader = DataLoader::GetSingleton();
+
 	text = cast_to<SmartLabel>(get_node("SmartLabel"));
 	collider = cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
 	sprite = cast_to<MeshInstance2D>(get_node("Sprite"));
@@ -101,7 +103,7 @@ void Piece::_physics_process(float delta)
 void Piece::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
 {
 	if (event->is_pressed() && !get_tree()->is_input_handled() &&
-		!gameManager->tutorialWindowIsOpen && !gameManager->tutorialWindowIsOpen)
+		!gameManager->tutorialWindowIsOpen && !gameManager->tutorialWindowIsOpen && !dataLoader->ReturnWindowsStatusOnLevels())
 	{
 		Piece* selectedPiece = oblast->GetSelectedPiece();
 		switch (owner)

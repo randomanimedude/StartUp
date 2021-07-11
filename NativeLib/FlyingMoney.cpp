@@ -2,17 +2,12 @@
 
 void FlyingMoney::_register_methods()
 {
-	register_method("_ready", &FlyingMoney::_ready);
 	register_method("_physics_process", &FlyingMoney::_physics_process);
 }
 
 void FlyingMoney::_init()
 {
-}
 
-void FlyingMoney::_ready()
-{
-	sprite = cast_to<Sprite>(get_node("Sprite"));
 }
 
 void FlyingMoney::_physics_process(float delta)
@@ -45,6 +40,14 @@ void FlyingMoney::SetCourse(Piece* from, Piece* to, int amount, PieceOwner owner
 	toPos = cast_to<Label>(to->get_node("SmartLabel"))->get_global_position();
 	this->owner = owner;
 	money = amount;
+
+	//sticking money from case based on amount of money (from 0 to numberOfStickingMoney)
+	int stickingAmount = min((int)max((float)(money - minStickAmount) / (maxStickAmount - minStickAmount) * numberOfStickingMoney, 0.0f), numberOfStickingMoney);
+
+	while (stickingAmount > 0)
+	{
+		cast_to<Node2D>(get_node(NodePath((String)"uah" + String::num(stickingAmount--))))->set_visible(true);
+	}
 
 	this->botOwner = botOwner;
 

@@ -43,5 +43,7 @@ private:
 
 	bool gameIsPlaying = false;
 
+	DataLoader* dataLoader;
+
 };
 

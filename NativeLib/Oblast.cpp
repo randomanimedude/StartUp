@@ -8,6 +8,8 @@ void Oblast::_register_methods()
 
 	register_property("LevelNumber", &Oblast::LevelNumber, -1);
 	register_property("LevelPrice", &Oblast::LevelPrice, -1);
+	register_property("first_time_reward", &Oblast::first_time_reward, 100);
+	register_property("repeated_reward", &Oblast::repeated_reward, 10);
 }
 
 void Oblast::_init()
@@ -16,6 +18,8 @@ void Oblast::_init()
 
 void Oblast::_ready()
 {
+	dataLoader = DataLoader::GetSingleton();
+
 	gameManager = GameManager::GetSingleton();
 	mainSprite = Node::cast_to<MeshInstance2D>(get_node("Sprite"));
 	collisionShape = Node::cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
@@ -102,13 +106,6 @@ void Oblast::_physics_process()
 		currentColor = lerp(currentColor, storedColor, transition_t);
 		if (abs(currentColor.r - storedColor.r) * abs(currentColor.g - storedColor.g) * abs(currentColor.b - storedColor.b) < 0.000000000001)
 		{
-			if (!DataLoader::GetSingleton()->IsTutorialStepCompleted(2))
-			{
-				cast_to<Node2D>(get_node("../../UI/Tutorial3/Tutorial3"))->set_visible(true);
-				gameManager->tutorialWindowIsOpen = true;
-				DataLoader::GetSingleton()->SaveLevelsProgres();
-			}
-
 			currentColor = storedColor;
 			state = Visible;
 			piecesCombined = nullptr;
@@ -121,7 +118,7 @@ void Oblast::_physics_process()
 void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
 {
 	if (event->is_pressed() && !get_tree()->is_input_handled() &&
-		!gameManager->IsGamePlaying() && IsOpen == 1 && !gameManager->tutorialWindowIsOpen)
+		!gameManager->IsGamePlaying() && IsOpen == 1 && !gameManager->tutorialWindowIsOpen && !dataLoader->ReturnWindowsStatus())
 	{
 		if (gameManager->GetSelectedOblast() == nullptr)
 			gameManager->SelectOblast(this);
@@ -129,7 +126,7 @@ void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shap
 		get_tree()->set_input_as_handled();
 	}
 
-	else if (event->is_pressed() && IsOpen == 0)
+	else if (event->is_pressed() && IsOpen == 0 && !dataLoader->ReturnWindowsStatus())
 		LevelPurchase::GetSingleton()->ShowLevelInfo(LevelNumber, LevelPrice, 1, 1);
 }
 
@@ -219,7 +216,6 @@ bool Oblast::IsCompleted()
 		}
 	}
 
-
 	bool toReturn = !(pieces.size() - controlledByPlayer);
 
 	if (toReturn)
@@ -259,4 +255,11 @@ void Oblast::Complete()
 	IsOpen = 2;
 
 	DataLoader::GetSingleton()->CompleteLevel(LevelNumber);
+
+
+	if (!DataLoader::GetSingleton()->IsTutorialStepCompleted(2))
+	{
+		cast_to<Node2D>(get_node("../../UI/Tutorial3/Tutorial3"))->set_visible(true);
+		gameManager->tutorialWindowIsOpen = true;
+	}
 }

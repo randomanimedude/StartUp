@@ -8,6 +8,7 @@
 
 #include "CommonLib.h"
 #include "MainCurrency.h"
+#include "UpgradeButton.h"
 
 class DataLoader : public Node
 {
@@ -42,12 +43,32 @@ public:
 	bool IsTutorialStepCompleted(int step);
 	void CompleteTutorialStep(int step);
 
+	//Tutorial progress
+	void LoadPlayerUpgrades();
+	void SavePlayerUpgrades();
+	void ResetPlayerUpgrades();
+
+	//Condition of windows
+	void SetWindowsStatus(bool Status);
+	bool ReturnWindowsStatus();
+	void SetWindowsStatusOnLevels(bool Status);
+	bool ReturnWindowsStatusOnLevels();
+	void SetIsLevelPlaying(bool Status);
+	bool ReturnIsLevelPlaying();
+
 private:
 	const String Currency = "user://Currency.save";
 	const String LevelsStatusPath = "user://LevelsStatus.save";
 	const String TutorialStatus = "user://Tutorial.save";
+	const String PlayerUpgrades = "user://PlayerUpgrades.save";
+	const String WindowsStatusPath = "user://WindowsStatus.save";
+	const String WindowsStatusOnLevelsPath = "user://WindowsStatusOnLevels.save";
+	const String IsLevelPlayingPath = "user://IsLevelPlaying.save";
 
 	int MainCurrency = 0;
+
+	int money_speed_bought = 0;
+	int time_to_make_money_bought = 0;
 
 	//0 - the level is closed
 	//1 - the level is open
@@ -55,6 +76,11 @@ private:
 	int LevelsStatus[24];
 
 	bool tutorialProgress[3];
+
+	// true - some window is open, false - not open
+	bool WindowsStatus;
+	bool WindowsStatusOnLevels;
+	bool IsLevelPlaying;
 
 	static inline DataLoader* instance;
 };

@@ -4,12 +4,14 @@
 #include "CommonLib.h"
 #include "SmartLabel.h"
 #include "MainCurrency.h"
+#include "DataLoader.h"
 
 class UpgradeButton :
     public TextureButton
 {
 	GODOT_CLASS(UpgradeButton, TextureButton);
 
+	float default_property = 1.0f;
 	float property_multiplier = 1.1f;
 	float default_price = 1.0f;
 	float price_multiplier = 1.5f;
@@ -23,6 +25,7 @@ public:
 	void _on_UpgradeButton_pressed();
 	void UpgradeLabels();
 	void UpgradeProperty();
+	void SetUpgradeNumers(int num);
 
 	int timesBought = 0;
 };

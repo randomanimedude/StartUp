@@ -13,6 +13,8 @@ void GameManager::_init()
 
 void GameManager::_ready()
 {
+    dataLoader = DataLoader::GetSingleton();
+
     flyingMoney = ResourceLoader::get_singleton()->load("res://Prefabs/FlyingMoney.tscn");
 
     camera = CameraController::GetSingleton();
@@ -32,6 +34,10 @@ void GameManager::SelectOblast(Oblast* oblast)
             if (region != selectedOblast)
                 region->Hide();
         }
+
+        dataLoader->SetWindowsStatus(true);
+        dataLoader->SetIsLevelPlaying(true);
+        dataLoader->SetWindowsStatusOnLevels(false);
     }
 }
 
@@ -49,6 +55,10 @@ void GameManager::UnselectOblast()
         selectedOblast = nullptr;
         ResetCameraButton::GetSingleton()->SetEnabled(false);
         SetGameIsPlaying(false);
+
+        dataLoader->SetWindowsStatus(false);
+        dataLoader->SetIsLevelPlaying(false);
+        dataLoader->SetWindowsStatusOnLevels(true);
     }
 }
 
