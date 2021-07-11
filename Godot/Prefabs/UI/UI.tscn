@@ -123,6 +123,7 @@ visible = false
 scale = Vector2( 3, 3 )
 
 [node name="SettingsWindow" parent="." instance=ExtResource( 11 )]
+visible = false
 position = Vector2( 3.77975, 39.0576 )
 
 [node name="Sprite" parent="SettingsWindow" index="0"]
