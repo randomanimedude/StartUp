@@ -43,6 +43,8 @@ void ResetButtons::_on_ResetAllProgres_pressed()
 {
 	_on_ResetValuteButton_pressed();
 	_on_ResetLevelProgres_pressed();
+
+	DataLoader::GetSingleton()->ResetPlayerUpgrades();
 }
 
 void ResetButtons::_on_AddValute_pressed()

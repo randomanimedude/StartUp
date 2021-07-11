@@ -43,7 +43,7 @@ public:
 	bool IsTutorialStepCompleted(int step);
 	void CompleteTutorialStep(int step);
 
-	//Tutorial progress
+	//Player upgrades
 	void LoadPlayerUpgrades();
 	void SavePlayerUpgrades();
 	void ResetPlayerUpgrades();

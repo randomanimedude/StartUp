@@ -36,8 +36,10 @@ private:
 
 	AnimationPlayer* Animator;
 	
-	SmartLabel* MoneyTransferSpeed;
-	SmartLabel* TimeToProfit;
+	SmartLabel* NumbOfBots;
+	SmartLabel* BotsComplexity;
+	SmartLabel* FirstReward;
+	SmartLabel* SubsequentRewards;
 
 	Button* BuyButton;
 	Oblast* oblast;

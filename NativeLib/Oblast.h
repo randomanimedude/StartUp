@@ -68,6 +68,8 @@ public:
 
 	int first_time_reward = 100;
 	int repeated_reward = 10;
+	int NumbOfBots = 2;
+	String BotsComplexity = (String)"easy";
 
 private:
 	MeshInstance2D* mainSprite;
@@ -97,5 +99,8 @@ private:
 	Sprite* LockSprite;
 
 	DataLoader* dataLoader;
+
+	AnimationPlayer* Animator;
+	Label* AdditionalAnim;
 };
 

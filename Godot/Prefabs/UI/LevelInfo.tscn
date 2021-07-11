@@ -9,7 +9,7 @@ position = Vector2( 446.892, 298.399 )
 script = ExtResource( 3 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 0.36264, -11.5132 )
+position = Vector2( 5.69101, -11.1505 )
 texture = ExtResource( 2 )
 
 [node name="LevelNumber" type="Label" parent="."]
@@ -26,23 +26,23 @@ __meta__ = {
 }
 
 [node name="Just label" type="Label" parent="."]
-margin_left = -301.909
-margin_top = -91.3968
-margin_right = -148.909
-margin_bottom = -77.3968
+margin_left = -302.0
+margin_top = -92.0
+margin_right = -167.0
+margin_bottom = -78.0
 rect_scale = Vector2( 2, 2 )
-text = "characteristics of bots : "
+text = "complexity of bots :  "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Just label2" type="Label" parent="."]
-margin_left = -301.0
-margin_top = -49.0
-margin_right = -150.0
-margin_bottom = -32.0
-rect_scale = Vector2( 1.5, 1.5 )
-text = "Money transfer speed : "
+margin_left = -340.685
+margin_top = -56.2935
+margin_right = -189.685
+margin_bottom = -39.2935
+rect_scale = Vector2( 2, 2 )
+text = "number of bots : "
 align = 1
 valign = 1
 __meta__ = {
@@ -50,34 +50,61 @@ __meta__ = {
 }
 
 [node name="Just label3" type="Label" parent="."]
-margin_left = -298.759
-margin_top = -9.8671
-margin_right = -199.759
-margin_bottom = 4.1329
-rect_scale = Vector2( 1.5, 1.5 )
-text = "Time to profit : "
+margin_left = -299.158
+margin_top = -15.4835
+margin_right = -148.158
+margin_bottom = -1.48352
+rect_scale = Vector2( 2, 2 )
+text = "reward for the first pass"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MoneyTransferSpeed" parent="." instance=ExtResource( 1 )]
-margin_left = -89.3001
-margin_top = -49.7976
-margin_right = -49.3001
-margin_bottom = -24.7976
-text = "5"
+[node name="Just label4" type="Label" parent="."]
+margin_left = -298.719
+margin_top = 22.5473
+margin_right = -107.719
+margin_bottom = 36.5473
+rect_scale = Vector2( 2, 2 )
+text = "reward for subsequent passes"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TimeToProfit" parent="." instance=ExtResource( 1 )]
-margin_left = -164.8
-margin_top = -11.7976
-margin_right = -124.8
-margin_bottom = 13.2024
+[node name="NumbOfBots" parent="." instance=ExtResource( 1 )]
+margin_left = -85.9909
+margin_top = -51.5545
+margin_right = 13.0091
+margin_bottom = -26.5545
 text = "5"
-align = 1
+valign = 1
+
+[node name="BotsComplexity" parent="." instance=ExtResource( 1 )]
+margin_left = -41.8952
+margin_top = -92.626
+margin_right = 117.105
+margin_bottom = -65.626
+text = "5"
+valign = 1
+
+[node name="FirstReward" parent="." instance=ExtResource( 1 )]
+margin_left = 6.56546
+margin_top = -13.7172
+margin_right = 127.565
+margin_bottom = 11.2828
+text = "5"
+valign = 1
+
+[node name="SubsequentRewards" parent="." instance=ExtResource( 1 )]
+margin_left = 87.2667
+margin_top = 25.4536
+margin_right = 208.267
+margin_bottom = 50.4536
+text = "5"
 valign = 1
 
 [node name="BuyButton" type="Button" parent="."]
