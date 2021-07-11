@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Prefabs/SmartLabel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Textures/UI/universal window.png" type="Texture" id=2]
 [ext_resource path="res://NativeLib/Scripts/LevelInfo.gdns" type="Script" id=3]
 [ext_resource path="res://Textures/UI/button.png" type="Texture" id=4]
 [ext_resource path="res://Textures/UI/close.png" type="Texture" id=5]
+[ext_resource path="res://Textures/UI/hidden_button.png" type="Texture" id=6]
 
 [node name="LevelInfo" type="Node2D"]
 position = Vector2( 446.892, 298.399 )
@@ -115,7 +116,11 @@ margin_top = 72.1101
 margin_right = 85.8157
 margin_bottom = 158.11
 texture_normal = ExtResource( 4 )
+texture_disabled = ExtResource( 6 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SmartLabel" parent="BuyButton" instance=ExtResource( 1 )]
 margin_left = 16.0436
