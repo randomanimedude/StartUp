@@ -15,6 +15,7 @@
 #include "LevelPurchase.h"
 #include "TutorialWindow.h"
 #include "ResetButtons.h"
+#include "Volume.h"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options * o) {
 	Godot::gdnative_init(o);
@@ -43,4 +44,5 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
 	register_class <LevelPurchase>();
 	register_class<TutorialWindow>();
 	register_class <ResetButtons>();
+	register_class <Volume>();
 }
