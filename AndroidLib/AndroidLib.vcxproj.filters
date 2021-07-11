@@ -19,6 +19,8 @@
     <ClInclude Include="..\NativeLib\SmartLabel.h" />
     <ClInclude Include="..\NativeLib\TutorialWindow.h" />
     <ClInclude Include="..\NativeLib\UpgradeButton.h" />
+    <ClInclude Include="..\NativeLib\Music.h" />
+    <ClInclude Include="..\NativeLib\Volume.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\NativeLib\Bot.cpp" />
@@ -39,5 +41,7 @@
     <ClCompile Include="..\NativeLib\SmartLabel.cpp" />
     <ClCompile Include="..\NativeLib\TutorialWindow.cpp" />
     <ClCompile Include="..\NativeLib\UpgradeButton.cpp" />
+    <ClCompile Include="..\NativeLib\Music.cpp" />
+    <ClCompile Include="..\NativeLib\Volume.cpp" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #pragma once
 #include <Node2D.hpp>
 #include <Label.hpp>
-#include <Button.hpp>
+#include <TextureButton.hpp>
 #include <AnimationPlayer.hpp>
 
 #include "CommonLib.h"
@@ -36,10 +36,12 @@ private:
 
 	AnimationPlayer* Animator;
 	
-	SmartLabel* MoneyTransferSpeed;
-	SmartLabel* TimeToProfit;
+	SmartLabel* NumbOfBots;
+	SmartLabel* BotsComplexity;
+	SmartLabel* FirstReward;
+	SmartLabel* SubsequentRewards;
 
-	Button* BuyButton;
+	TextureButton* BuyButton;
 	Oblast* oblast;
 
 	int MainCurrency;

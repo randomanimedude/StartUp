@@ -44,7 +44,6 @@ public:
 	void HidePieces();
 
 	void RegisterPiece(Piece* piece);
-	void UpdateSituation();
 	void SelectPiece(Piece* piece);
 	void UnselectPiece();
 
@@ -68,6 +67,8 @@ public:
 
 	int first_time_reward = 100;
 	int repeated_reward = 10;
+	int NumbOfBots = 2;
+	String BotsComplexity = (String)"easy";
 
 private:
 	MeshInstance2D* mainSprite;
@@ -92,10 +93,13 @@ private:
 
 	vector<Piece*> pieces;
 
-	int MainCurrency;
+	//int MainCurrency;
 	AnimationPlayer* LockAnimation;
 	Sprite* LockSprite;
 
 	DataLoader* dataLoader;
+
+	AnimationPlayer* Animator;
+	Label* AdditionalAnim;
 };
 

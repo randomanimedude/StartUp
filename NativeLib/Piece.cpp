@@ -146,10 +146,6 @@ void Piece::Hide()
 	state = Hiding;
 }
 
-void Piece::UpdateSituation()
-{
-}
-
 void Piece::AddMoney(int amount)
 {
 	int t = min(amount, moneyToConquer - conquerProgress);

@@ -325,6 +325,7 @@
     <ClInclude Include="..\NativeLib\GameManager.h" />
     <ClInclude Include="..\NativeLib\LevelPurchase.h" />
     <ClInclude Include="..\NativeLib\MainCurrency.h" />
+    <ClInclude Include="..\NativeLib\Music.h" />
     <ClInclude Include="..\NativeLib\Oblast.h" />
     <ClInclude Include="..\NativeLib\Piece.h" />
     <ClInclude Include="..\NativeLib\Player.h" />
@@ -334,6 +335,7 @@
     <ClInclude Include="..\NativeLib\SmartLabel.h" />
     <ClInclude Include="..\NativeLib\TutorialWindow.h" />
     <ClInclude Include="..\NativeLib\UpgradeButton.h" />
+    <ClInclude Include="..\NativeLib\Volume.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -345,6 +347,7 @@
     <ClCompile Include="..\NativeLib\GameManager.cpp" />
     <ClCompile Include="..\NativeLib\LevelPurchase.cpp" />
     <ClCompile Include="..\NativeLib\MainCurrency.cpp" />
+    <ClCompile Include="..\NativeLib\Music.cpp" />
     <ClCompile Include="..\NativeLib\NativeLib.cpp" />
     <ClCompile Include="..\NativeLib\Oblast.cpp" />
     <ClCompile Include="..\NativeLib\Piece.cpp" />
@@ -355,6 +358,7 @@
     <ClCompile Include="..\NativeLib\SmartLabel.cpp" />
     <ClCompile Include="..\NativeLib\TutorialWindow.cpp" />
     <ClCompile Include="..\NativeLib\UpgradeButton.cpp" />
+    <ClCompile Include="..\NativeLib\Volume.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

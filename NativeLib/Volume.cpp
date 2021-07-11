@@ -22,5 +22,6 @@ void Volume::_ready()
 void Volume::_HSlider_value_changed(float value)
 {
 	audioserver->set_bus_volume_db(audioserver->get_bus_index(bus_name), value);
-	//DataLoader::GetSingleton()->SaveSettingsData();
+	DataLoader::GetSingleton()->SetMusicVolume(value);
+	DataLoader::GetSingleton()->SaveSettings();
 }

@@ -37,7 +37,6 @@ public:
 	void Show();
 	void Hide();
 
-	void UpdateSituation();
 	void AddMoney(int amount);
 	int GetMoney() { return money; }
 	void TransferMoneyTo(Piece* piece);
