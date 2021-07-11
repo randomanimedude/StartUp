@@ -1,7 +1,7 @@
 #pragma once
 #include <Node2D.hpp>
 #include <Label.hpp>
-#include <Button.hpp>
+#include <TextureButton.hpp>
 #include <AnimationPlayer.hpp>
 
 #include "CommonLib.h"
@@ -41,7 +41,7 @@ private:
 	SmartLabel* FirstReward;
 	SmartLabel* SubsequentRewards;
 
-	Button* BuyButton;
+	TextureButton* BuyButton;
 	Oblast* oblast;
 
 	int MainCurrency;

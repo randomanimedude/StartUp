@@ -49,6 +49,12 @@ void DataLoader::_ready()
 	SetWindowsStatus(false);
 	SetIsLevelPlaying(false);
 	SetWindowsStatusOnLevels(true);
+
+	//Settings
+	if (file->file_exists(Settings))
+		LoadSettings();
+	else
+		SaveSettings();
 }
 
 DataLoader* DataLoader::GetSingleton()
@@ -324,4 +330,39 @@ bool DataLoader::ReturnIsLevelPlaying()
 		IsLevelPlaying = rez[(String)"IsLevelPlaying"];
 	}
 	return IsLevelPlaying;
+}
+
+//
+//Settings
+//
+
+void DataLoader::SaveSettings()
+{
+	Ref<File> file = File::_new();
+	file->open(Settings, file->WRITE);
+
+	Dictionary dict;
+	dict["MusicVolume"] = musicVolume;
+	file->store_string(dict.to_json());
+	file->close();
+}
+
+void DataLoader::LoadSettings()
+{
+	Ref<File> file = File::_new();
+	if (file->file_exists(Settings))
+	{
+		file->open(Settings, file->READ);
+
+		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
+		musicVolume = rez["MusicVolume"];
+		cast_to<HSlider>(get_node("/root/Node2D/UI/SettingsWindow/MusicSlider"))->set_value(musicVolume);
+		AudioServer::get_singleton()->set_bus_volume_db(AudioServer::get_singleton()->get_bus_index("Master"), musicVolume);
+	}
+}
+
+void DataLoader::SetMusicVolume(float volume)
+{
+	musicVolume = volume;
+	SaveSettings();
 }

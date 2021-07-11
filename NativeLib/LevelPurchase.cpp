@@ -21,7 +21,7 @@ void LevelPurchase::_ready()
 	FirstReward = Node2D::cast_to<SmartLabel>(get_node("FirstReward"));
 	SubsequentRewards = Node2D::cast_to<SmartLabel>(get_node("SubsequentRewards"));
 
-	BuyButton = Node2D::cast_to<Button>(get_node("BuyButton"));
+	BuyButton = Node2D::cast_to<TextureButton>(get_node("BuyButton"));
 	
 	SubstractAnim = cast_to<Label>(get_node(NodePath((String)"/root/Node2D/SubstractAnim")));
 	Animator = cast_to<AnimationPlayer>(get_node(NodePath((String)"/root/Node2D/Animator")));
@@ -52,7 +52,8 @@ void LevelPurchase::ShowLevelInfo(int LevelNumber, int LevelCost, int BotMoneyTr
 	SubsequentRewards->SetValue(oblast->repeated_reward);
 
 	String cost = String::num(LevelCost);
-	BuyButton->set_text(cost);
+	//BuyButton->set_text(cost);
+	cast_to<SmartLabel>(BuyButton->get_node("SmartLabel"))->SetValue(cost);
 
 	MainCurrency = MainCurrency::GetSingleton()->ReturnValue();
 

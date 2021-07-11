@@ -5,6 +5,8 @@
 #include <JSONParseResult.hpp>
 #include <Dictionary.hpp>
 #include <Variant.hpp>
+#include <HSlider.hpp>
+#include <AudioServer.hpp>
 
 #include "CommonLib.h"
 #include "MainCurrency.h"
@@ -56,6 +58,11 @@ public:
 	void SetIsLevelPlaying(bool Status);
 	bool ReturnIsLevelPlaying();
 
+	//Settings
+	void SaveSettings();
+	void LoadSettings();
+	void SetMusicVolume(float volume);
+
 private:
 	const String Currency = "user://Currency.save";
 	const String LevelsStatusPath = "user://LevelsStatus.save";
@@ -64,6 +71,7 @@ private:
 	const String WindowsStatusPath = "user://WindowsStatus.save";
 	const String WindowsStatusOnLevelsPath = "user://WindowsStatusOnLevels.save";
 	const String IsLevelPlayingPath = "user://IsLevelPlaying.save";
+	const String Settings = "user://Settings.save";
 
 	int MainCurrency = 0;
 
@@ -81,6 +89,8 @@ private:
 	bool WindowsStatus;
 	bool WindowsStatusOnLevels;
 	bool IsLevelPlaying;
+
+	float musicVolume = 1;
 
 	static inline DataLoader* instance;
 };
