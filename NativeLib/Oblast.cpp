@@ -114,8 +114,10 @@ void Oblast::_physics_process()
 			piecesCombined = nullptr;
 			pieces.clear();
 		}
+		break;
+	default:
+		UpdateAvailabilityColor();							//light gray if player can unlock
 	}
-	UpdateAvailabilityColor();							//light gray if player can unlock
 	mainSprite->set_self_modulate(currentColor);
 }
 
