@@ -51,6 +51,7 @@ public:
 	void Open();
 	void Close();
 	void Complete();
+	void UpdateAvailabilityColor();
 
 	Vector2 GetSize();
 	vector<Piece*> GetPieces() { return pieces; }
@@ -84,6 +85,7 @@ private:
 	Color def = Color(255, 255, 255, 255)/255.0;
 	Color blue = Color(97, 168, 239, 255)/255.0;
 	Color gray = Color(128, 128, 128, 255) / 255.0;
+	Color lightGray = Color(200, 200, 200, 255) / 255.0;
 
 	Color borderColor = Color(47, 220, 188, 255) / 255.0;
 	Color currentColor = def;

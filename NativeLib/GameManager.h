@@ -7,7 +7,6 @@
 #include "Oblast.h"
 #include "DataLoader.h"
 
-
 class Oblast;
 class CameraController;
 
