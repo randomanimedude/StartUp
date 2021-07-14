@@ -127,9 +127,9 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-property_multiplier = 0.9
+default_property = 1.1
+property_multiplier = 0.95
 default_price = 200.0
-price_multiplier = 1.2
 
 [node name="uniq" type="Sprite" parent="time_to_make_money/TextureButton"]
 position = Vector2( 19.5635, 26.9663 )

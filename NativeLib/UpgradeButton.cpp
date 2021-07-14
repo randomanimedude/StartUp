@@ -6,6 +6,7 @@ void UpgradeButton::_register_methods()
 	register_method("_process", &UpgradeButton::_process);
 	register_method("_on_UpgradeButton_pressed", &UpgradeButton::_on_UpgradeButton_pressed);
 
+	register_property("default_property", &UpgradeButton::default_property, 1.0f);
 	register_property("property_multiplier", &UpgradeButton::property_multiplier, 1.1f);
 	register_property("default_price", &UpgradeButton::default_price, 1.0f);
 	register_property("price_multiplier", &UpgradeButton::price_multiplier, 1.5f);
