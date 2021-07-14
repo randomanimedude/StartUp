@@ -1,17 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Textures/lock.png" type="Texture" id=1]
+[ext_resource path="res://Textures/ClosedLock.png" type="Texture" id=1]
 [ext_resource path="res://Animations/Lock/Appearance.tres" type="Animation" id=2]
 [ext_resource path="res://Animations/Lock/Hide.tres" type="Animation" id=3]
+[ext_resource path="res://Animations/Lock/UILockOpening.tres" type="Animation" id=4]
 
 [node name="Lock" type="Node2D"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Animator" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
 method_call_mode = 1
 anims/Appearance = ExtResource( 2 )
 anims/Hide = ExtResource( 3 )
+anims/LockOpening = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )

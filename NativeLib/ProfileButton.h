@@ -1,8 +1,9 @@
 #pragma once
-#include "CommonLib.h"
-#include "GameManager.h"
 #include <TextureButton.hpp>
 #include <Node2D.hpp>
+#include <AudioStreamPlayer.hpp>
+
+#include "CommonLib.h"
 #include "GameManager.h"
 
 class ProfileButton :
@@ -21,6 +22,8 @@ public:
 
 private:
 	Node2D* window;
+
+	AudioStreamPlayer* ButtonsSound;
 
 	DataLoader* dataLoader;
 };

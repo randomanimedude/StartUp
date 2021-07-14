@@ -27,6 +27,8 @@ void LevelPurchase::_ready()
 	Animator = cast_to<AnimationPlayer>(get_node(NodePath((String)"/root/Node2D/Animator")));
 
 	SubstractAnim->set_self_modulate(Color(1, 1, 1, 0));
+
+	SubstractValute = cast_to<AudioStreamPlayer>(get_node(NodePath((String)"/root/Node2D/SubstractValute")));
 }
 
 LevelPurchase* LevelPurchase::GetSingleton()
@@ -74,6 +76,9 @@ void LevelPurchase::_on_BuyButton_pressed()
 	MainCurrency::GetSingleton()->SubtractValue(LevelCost);
 
 	SubstractAnim->set_text((String)"-" + String::num(LevelCost));
+
+	SubstractValute->stop();
+	SubstractValute->play();
 
 	Animator->play(String("SubstactValute"));
 
