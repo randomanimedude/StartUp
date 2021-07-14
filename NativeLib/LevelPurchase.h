@@ -48,5 +48,7 @@ private:
 	int LevelNumber;
 	int LevelCost;
 
+	AudioStreamPlayer* SubstractValute;
+
 	static inline LevelPurchase* instance;
 };

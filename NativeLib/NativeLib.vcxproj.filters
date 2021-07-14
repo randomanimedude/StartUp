@@ -31,6 +31,12 @@
     <Filter Include="Файлы заголовков\UI">
       <UniqueIdentifier>{8a540b6e-2d41-45eb-8a23-4d5efc271821}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Music">
+      <UniqueIdentifier>{058edc36-bd29-4ef9-b82b-a1718109a727}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Music">
+      <UniqueIdentifier>{507ae369-52d9-4ca8-a567-ba0a0f0cf420}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NativeLib.cpp">
@@ -84,14 +90,14 @@
     <ClCompile Include="UpgradeButton.cpp">
       <Filter>Исходные файлы\Game logic</Filter>
     </ClCompile>
-    <ClCompile Include="Music.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="FlyingMoney.cpp">
       <Filter>Исходные файлы\Game logic</Filter>
     </ClCompile>
+    <ClCompile Include="Music.cpp">
+      <Filter>Исходные файлы\Music</Filter>
+    </ClCompile>
     <ClCompile Include="Volume.cpp">
-      <Filter>Исходные файлы\UI</Filter>
+      <Filter>Исходные файлы\Music</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,14 +149,14 @@
     <ClInclude Include="UpgradeButton.h">
       <Filter>Файлы заголовков\Game logic</Filter>
     </ClInclude>
-    <ClInclude Include="Music.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="FlyingMoney.h">
       <Filter>Файлы заголовков\Game logic</Filter>
     </ClInclude>
+    <ClInclude Include="Music.h">
+      <Filter>Файлы заголовков\Music</Filter>
+    </ClInclude>
     <ClInclude Include="Volume.h">
-      <Filter>Файлы заголовков\UI</Filter>
+      <Filter>Файлы заголовков\Music</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

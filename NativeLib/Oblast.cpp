@@ -31,15 +31,15 @@ void Oblast::_ready()
 
 	currentColor = get_self_modulate();
 
-	IsOpen = DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber);
+	LevelStatus = DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber);
 
-	if (IsOpen == 2)
+	if (LevelStatus == 2)
 		currentColor = blue;
 
-	LockAnimation = Node::cast_to<AnimationPlayer>(get_node("Lock/AnimationPlayer"));
+	LockAnimation = Node::cast_to<AnimationPlayer>(get_node("Lock/Animator"));
 	LockSprite = Node::cast_to<Sprite>(get_node("Lock/Sprite"));
 
-	if (IsOpen == 0)
+	if (LevelStatus == 0)
 	{
 		currentColor = MainCurrency::GetSingleton()->ReturnValue() >= LevelPrice ? lightGray : gray;			//gray for closed, light gray for closed that can be bought
 		LockSprite->set_visible(true);
@@ -61,7 +61,7 @@ void Oblast::_physics_process()
 	{
 	case Hiding:
 
-		if (IsOpen == 0)
+		if (LevelStatus == 0)
 			LockAnimation->play((String)"Hide");
 
 		currentColor.a = lerp(currentColor.a, 0, transition_t);
@@ -75,7 +75,7 @@ void Oblast::_physics_process()
 		break;
 	case Appearing:
 
-		if (IsOpen == 0)
+		if (LevelStatus == 0)
 			LockAnimation->play((String)"Appearance");
 
 		currentColor.a = lerp(currentColor.a, 1, transition_t);
@@ -123,7 +123,7 @@ void Oblast::_physics_process()
 
 void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shape_idx)
 {
-	if (IsOpen == 1 || IsOpen == 2)
+	if (LevelStatus == 1 || LevelStatus == 2)
 		if (event->is_pressed() && !get_tree()->is_input_handled() &&
 		!gameManager->IsGamePlaying() && !gameManager->tutorialWindowIsOpen && !dataLoader->ReturnWindowsStatus())
 	{
@@ -133,7 +133,7 @@ void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shap
 		get_tree()->set_input_as_handled();
 	}
 
-		if (event->is_pressed() && IsOpen == 0 && !dataLoader->ReturnWindowsStatus())
+		if (event->is_pressed() && LevelStatus == 0 && !dataLoader->ReturnWindowsStatus())
 		LevelPurchase::GetSingleton()->ShowLevelInfo(LevelNumber, LevelPrice, 1, 1);
 }
 
@@ -245,9 +245,11 @@ Piece* Oblast::GetSelectedPiece()
 
 void Oblast::Open()
 {
-	LockSprite->set_visible(false);
+	//LockSprite->set_visible(false);
+	if (LevelNumber != 1)
+	LockAnimation->play((String)"LockOpening");
 	ChangeColorTo(Color(1, 1, 1, 1), 1);
-	IsOpen = 1;
+	LevelStatus = 1;
 	
 	DataLoader::GetSingleton()->OpenLevel(LevelNumber);
 }
@@ -256,7 +258,7 @@ void Oblast::Close()
 {
 	LockSprite->set_visible(true);
 	ChangeColorTo(MainCurrency::GetSingleton()->ReturnValue() >= LevelPrice ? lightGray : gray, 1);
-	IsOpen = 0;
+	LevelStatus = 0;
 
 	DataLoader::GetSingleton()->CloseLevel(LevelNumber);
 }
@@ -278,7 +280,7 @@ void Oblast::Complete()
 	Animator->play(String("AddValute"));
 
 	ChangeColorTo(blue, 1);
-	IsOpen = 2;
+	LevelStatus = 2;
 
 	DataLoader::GetSingleton()->CompleteLevel(LevelNumber);
 
@@ -292,7 +294,7 @@ void Oblast::Complete()
 
 void Oblast::UpdateAvailabilityColor()
 {
-	if (IsOpen == 0)
+	if (LevelStatus == 0)
 	{
 		currentColor = MainCurrency::GetSingleton()->ReturnValue() >= LevelPrice ? lightGray : gray;
 	}

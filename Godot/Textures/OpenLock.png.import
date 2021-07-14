@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lock.png-54adeebdc25d806b7dce636f1a8648e5.stex"
+path="res://.import/OpenLock.png-90fc409fe4b07b1efc47bb70c05a330f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/lock.png"
-dest_files=[ "res://.import/lock.png-54adeebdc25d806b7dce636f1a8648e5.stex" ]
+source_file="res://Textures/OpenLock.png"
+dest_files=[ "res://.import/OpenLock.png-90fc409fe4b07b1efc47bb70c05a330f.stex" ]
 
 [params]
 

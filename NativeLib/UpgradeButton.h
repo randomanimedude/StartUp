@@ -1,5 +1,8 @@
 #pragma once
 #include <TextureButton.hpp>
+#include <AnimationPlayer.hpp>
+#include <Label.hpp>
+#include <AudioStreamPlayer.hpp>
 
 #include "CommonLib.h"
 #include "SmartLabel.h"
@@ -28,5 +31,11 @@ public:
 	void SetUpgradeNumers(int num);
 
 	int timesBought = 0;
+
+private:
+	AnimationPlayer* Animator;
+	Label* SubstractAnim;
+
+	AudioStreamPlayer* SubstractValute;
 };
 

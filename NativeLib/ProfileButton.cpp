@@ -17,6 +17,8 @@ void ProfileButton::_ready()
 {
 	dataLoader = DataLoader::GetSingleton();
 
+	ButtonsSound = cast_to<AudioStreamPlayer>(get_node(NodePath((String)"/root/Node2D/ButtonsSound")));
+
 	window = cast_to<Node2D>(get_node(NodePath("../"+window_name)));
 }
 
@@ -25,6 +27,9 @@ void ProfileButton::_on_ProfileButton_pressed()
 	if (!window->is_visible() && !dataLoader->ReturnWindowsStatus() || !window->is_visible() && !dataLoader->ReturnWindowsStatusOnLevels())
 	{
 		window->set_visible(true);
+
+		ButtonsSound->stop();
+		ButtonsSound->play();
 
 		if (dataLoader->ReturnIsLevelPlaying())
 			dataLoader->SetWindowsStatusOnLevels(true);
@@ -37,7 +42,10 @@ void ProfileButton::_on_ProfileButton_pressed()
 
 	else if (window->is_visible())
 	{
-		window->set_visible(false);	
+		window->set_visible(false);
+
+		ButtonsSound->stop();
+		ButtonsSound->play();
 
 		if (dataLoader->ReturnIsLevelPlaying())
 			dataLoader->SetWindowsStatusOnLevels(false);

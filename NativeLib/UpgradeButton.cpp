@@ -19,6 +19,11 @@ void UpgradeButton::_init()
 
 void UpgradeButton::_ready()
 {
+	Animator = cast_to<AnimationPlayer>(get_node(NodePath((String)"/root/Node2D/Animator")));
+	SubstractAnim = cast_to<Label>(get_node(NodePath((String)"/root/Node2D/SubstractAnim")));
+
+	SubstractValute = cast_to<AudioStreamPlayer>(get_node(NodePath((String)"/root/Node2D/SubstractValute")));
+
 	UpgradeLabels();
 }
 
@@ -29,7 +34,17 @@ void UpgradeButton::_process()
 
 void UpgradeButton::_on_UpgradeButton_pressed()
 {
-	MainCurrency::GetSingleton()->SubtractValue((int)(default_price * (float)pow(price_multiplier, timesBought)));
+	int value = (int)(default_price * (float)pow(price_multiplier, timesBought));
+
+	MainCurrency::GetSingleton()->SubtractValue(value);
+
+	SubstractValute->stop();
+	SubstractValute->play();
+
+	Animator->stop();
+	SubstractAnim->set_text((String)"-" + String::num(value));
+	Animator->play(String("SubstactValute"));
+
 	++timesBought;
 	UpgradeProperty();
 	UpgradeLabels();

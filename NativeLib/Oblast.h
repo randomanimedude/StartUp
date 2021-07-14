@@ -57,21 +57,24 @@ public:
 	vector<Piece*> GetPieces() { return pieces; }
 	Piece* GetSelectedPiece();
 
-	//0 - the level is closed
-	//1 - the level is open
-	//2 - the level is complete
-	int IsOpen = -1;
-
+	//
+	//level characteristics
+	//
 	int LevelNumber = -1;
 	int LevelPrice = -1;
-
-
 	int first_time_reward = 100;
 	int repeated_reward = 10;
 	int NumbOfBots = 2;
 	String BotsComplexity = (String)"easy";
 
+	//0 - the level is closed
+	//1 - the level is open
+	//2 - the level is complete
+	int LevelStatus = -1;
+
 private:
+	DataLoader* dataLoader;
+
 	MeshInstance2D* mainSprite;
 	//Sprite* border;
 	CollisionPolygon2D* collisionShape;
@@ -95,11 +98,8 @@ private:
 
 	vector<Piece*> pieces;
 
-	//int MainCurrency;
 	AnimationPlayer* LockAnimation;
 	Sprite* LockSprite;
-
-	DataLoader* dataLoader;
 
 	AnimationPlayer* Animator;
 	Label* AdditionalAnim;
