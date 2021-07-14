@@ -3,7 +3,7 @@
 #include "GameManager.h"
 #include <TextureButton.hpp>
 #include <Node2D.hpp>
-#include "GameManager.h"
+#include <SceneTree.hpp>
 
 class ProfileButton :
     public TextureButton

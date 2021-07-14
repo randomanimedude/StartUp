@@ -31,6 +31,8 @@ void ProfileButton::_on_ProfileButton_pressed()
 
 		else if (!dataLoader->ReturnIsLevelPlaying())
 			dataLoader->SetWindowsStatus(true);
+
+		get_tree()->set_pause(true);
 	}
 
 	else if (window->is_visible())
@@ -41,5 +43,7 @@ void ProfileButton::_on_ProfileButton_pressed()
 			dataLoader->SetWindowsStatusOnLevels(false);
 		else
 			dataLoader->SetWindowsStatus(false);
+
+		get_tree()->set_pause(false);
 	}
 }
