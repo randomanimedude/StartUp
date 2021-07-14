@@ -179,6 +179,11 @@ void Oblast::HidePieces()
 	state = BGToVisible;
 	for (Piece* piece : pieces)
 		piece->Hide();
+	for (int i = piecesCombined->get_child_count() - 1; i >= 0; --i)
+	{
+		if (cast_to<Node>(piecesCombined->get_child(i))->get_name().find("FlyingMoney") != -1)
+			cast_to<Node>(piecesCombined->get_child(i))->queue_free();
+	}
 }
 
 void Oblast::RegisterPiece(Piece* piece)
@@ -219,6 +224,9 @@ bool Oblast::IsCompleted()
 		}
 	}
 
+	if(pieces.size()==controlledByBot)
+		gameManager->UnselectOblast();	//go to map at defeat
+
 	bool toReturn = !(pieces.size() - controlledByPlayer);
 
 	if (toReturn)
@@ -226,6 +234,7 @@ bool Oblast::IsCompleted()
 		storedColor = blue;
 		Complete();
 	}
+
 	return toReturn;
 }
 
