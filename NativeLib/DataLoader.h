@@ -61,7 +61,7 @@ public:
 	//Settings
 	void SaveSettings();
 	void LoadSettings();
-	void SetMusicVolume(float volume);
+	void SetVolume(float volume, String bus);
 
 private:
 	const String Currency = "user://Currency.save";
@@ -90,7 +90,11 @@ private:
 	bool WindowsStatusOnLevels;
 	bool IsLevelPlaying;
 
-	float musicVolume = 1;
+	float MusicVolume = 1;
+	float SFXVolume = 1;
+	float MasterVolume = 1;
 
 	static inline DataLoader* instance;
+
+	AudioServer* audioServer;
 };

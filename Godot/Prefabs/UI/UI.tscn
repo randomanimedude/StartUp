@@ -145,22 +145,44 @@ margin_bottom = 133.698
 text = "Settings"
 align = 1
 
-[node name="Label2" type="Label" parent="SettingsWindow/Sprite" index="1"]
+[node name="Master" type="Label" parent="SettingsWindow/Sprite" index="1"]
 margin_left = 68.7593
-margin_top = 134.01
+margin_top = 90.572
 margin_right = 191.759
-margin_bottom = 178.01
+margin_bottom = 134.572
 custom_fonts/font = SubResource( 1 )
-text = "Volume"
+text = "Master"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MusicSlider" type="HSlider" parent="SettingsWindow"]
-margin_left = 467.168
-margin_top = 214.357
-margin_right = 725.168
-margin_bottom = 233.357
+[node name="SFX" type="Label" parent="SettingsWindow/Sprite" index="2"]
+margin_left = 68.7593
+margin_top = 145.664
+margin_right = 191.759
+margin_bottom = 189.664
+custom_fonts/font = SubResource( 1 )
+text = "SFX"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="Label" parent="SettingsWindow/Sprite" index="3"]
+margin_left = 68.7593
+margin_top = 196.518
+margin_right = 191.759
+margin_bottom = 240.518
+custom_fonts/font = SubResource( 1 )
+text = "Music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MasterSlider" type="HSlider" parent="SettingsWindow/Sprite" index="4"]
+margin_left = 236.663
+margin_top = 97.7878
+margin_right = 494.663
+margin_bottom = 116.788
 rect_scale = Vector2( 1.2, 2 )
 min_value = -40.0
 max_value = 1.0
@@ -171,8 +193,38 @@ __meta__ = {
 }
 bus_name = "Master"
 
-[node name="ResetButtons" parent="SettingsWindow" instance=ExtResource( 14 )]
+[node name="SFXSlider" type="HSlider" parent="SettingsWindow/Sprite" index="5"]
+margin_left = 236.663
+margin_top = 152.88
+margin_right = 494.663
+margin_bottom = 171.88
+rect_scale = Vector2( 1.2, 2 )
+min_value = -40.0
+max_value = 1.0
+value = 1.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+bus_name = "SFX"
+
+[node name="MusicSlider" type="HSlider" parent="SettingsWindow/Sprite" index="6"]
+margin_left = 236.663
+margin_top = 203.734
+margin_right = 494.663
+margin_bottom = 222.734
+rect_scale = Vector2( 1.2, 2 )
+min_value = -40.0
+max_value = 1.0
+value = 1.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+bus_name = "Music"
+
+[node name="ResetButtons" parent="SettingsWindow/Sprite" index="7" instance=ExtResource( 14 )]
 pause_mode = 2
-position = Vector2( 524.755, 440.349 )
+position = Vector2( 294.25, 367.218 )
 
 [editable path="SettingsWindow"]

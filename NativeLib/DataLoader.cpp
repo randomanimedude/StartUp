@@ -6,6 +6,9 @@ void DataLoader::_register_methods()
 
 	register_property("money_speed_bought", &DataLoader::money_speed_bought, 0);
 	register_property("time_to_make_money_bought", &DataLoader::time_to_make_money_bought, 0);
+	register_property("MusicVolume", &DataLoader::MusicVolume, 1.0f);
+	register_property("SFXVolume", &DataLoader::SFXVolume, 1.0f);
+	register_property("MasterVolume", &DataLoader::MasterVolume, 1.0f);
 }
 
 void DataLoader::_init()
@@ -51,6 +54,7 @@ void DataLoader::_ready()
 	SetWindowsStatusOnLevels(true);
 
 	//Settings
+	audioServer = AudioServer::get_singleton();
 	if (file->file_exists(Settings))
 		LoadSettings();
 	else
@@ -342,7 +346,9 @@ void DataLoader::SaveSettings()
 	file->open(Settings, file->WRITE);
 
 	Dictionary dict;
-	dict["MusicVolume"] = musicVolume;
+	dict["MusicVolume"] = MusicVolume;
+	dict["SFXVolume"] = SFXVolume;
+	dict["MasterVolume"] = MasterVolume;
 	file->store_string(dict.to_json());
 	file->close();
 }
@@ -355,14 +361,22 @@ void DataLoader::LoadSettings()
 		file->open(Settings, file->READ);
 
 		Dictionary rez = JSON::get_singleton()->parse(file->get_as_text())->get_result();
-		musicVolume = rez["MusicVolume"];
-		cast_to<HSlider>(get_node("/root/Node2D/UI/SettingsWindow/MusicSlider"))->set_value(musicVolume);
-		AudioServer::get_singleton()->set_bus_volume_db(AudioServer::get_singleton()->get_bus_index("Master"), musicVolume);
+		MasterVolume = rez["MasterVolume"];
+		SFXVolume = rez["SFXVolume"];
+		MusicVolume = rez["MusicVolume"];
+
+		cast_to<HSlider>(get_node("/root/Node2D/UI/SettingsWindow/Sprite/MasterSlider"))->set_value(MasterVolume);
+		cast_to<HSlider>(get_node("/root/Node2D/UI/SettingsWindow/Sprite/SFXSlider"))->set_value(SFXVolume);
+		cast_to<HSlider>(get_node("/root/Node2D/UI/SettingsWindow/Sprite/MusicSlider"))->set_value(MusicVolume);
+
+		audioServer->set_bus_volume_db(AudioServer::get_singleton()->get_bus_index("Master"), MasterVolume);
+		audioServer->set_bus_volume_db(AudioServer::get_singleton()->get_bus_index("SFX"), SFXVolume);
+		audioServer->set_bus_volume_db(AudioServer::get_singleton()->get_bus_index("Music"), MusicVolume);
 	}
 }
 
-void DataLoader::SetMusicVolume(float volume)
+void DataLoader::SetVolume(float volume, String bus)
 {
-	musicVolume = volume;
+	set(bus + "Volume", volume);
 	SaveSettings();
 }

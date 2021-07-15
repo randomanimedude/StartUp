@@ -158,6 +158,7 @@ pause_mode = 2
 stream = ExtResource( 6 )
 volume_db = -20.0
 autoplay = true
+bus = "SFX"
 script = ExtResource( 7 )
 
 [node name="Animator" type="AnimationPlayer" parent="."]
@@ -196,11 +197,13 @@ __meta__ = {
 pause_mode = 2
 stream = ExtResource( 10 )
 volume_db = -10.0
+bus = "SFX"
 
 [node name="SubstractValute" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 11 )
 volume_db = -10.0
+bus = "SFX"
 
 [node name="ChangeOfMusic" type="AnimationPlayer" parent="."]
 playback_speed = 0.75
@@ -210,15 +213,19 @@ anims/TransitionToTheMenu = SubResource( 4 )
 [node name="LevelsBackground" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 volume_db = -80.0
+bus = "Music"
 
 [node name="LevelsBackground1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -50.0
+bus = "Music"
 
 [node name="LevelsBackground2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -50.0
+bus = "Music"
 
 [node name="LevelsBackground3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 volume_db = -50.0
+bus = "Music"
