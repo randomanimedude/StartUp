@@ -1,6 +1,10 @@
 #pragma once
 #include <Node.hpp>
 #include <ResourceLoader.hpp>
+#include <AnimationPlayer.hpp>
+#include <AudioStreamPlayer.hpp>
+#include <stdlib.h>
+#include <AudioStream.hpp>
 
 #include "CommonLib.h"
 #include "CameraController.h"
@@ -35,6 +39,9 @@ public:
 private:
 	static inline GameManager* instance;
 
+	AnimationPlayer* MainMusic;
+
+	AudioStreamPlayer* LevelsMusic;
 	CameraController* camera;
 
 	Oblast* oblasti[24];

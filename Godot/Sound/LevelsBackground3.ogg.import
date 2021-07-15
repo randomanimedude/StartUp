@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/LevelsBackground3.ogg-ad2019d1b7c1501e6e865bfb234c900b.oggstr"
+
+[deps]
+
+source_file="res://Sound/LevelsBackground3.ogg"
+dest_files=[ "res://.import/LevelsBackground3.ogg-ad2019d1b7c1501e6e865bfb234c900b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

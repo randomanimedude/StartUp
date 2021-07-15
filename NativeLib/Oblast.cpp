@@ -21,25 +21,31 @@ void Oblast::_init()
 void Oblast::_ready()
 {
 	dataLoader = DataLoader::GetSingleton();
-
 	gameManager = GameManager::GetSingleton();
+
 	mainSprite = Node::cast_to<MeshInstance2D>(get_node("Sprite"));
 	collisionShape = Node::cast_to<CollisionPolygon2D>(get_node("CollisionPolygon2D"));
 
+	//animation of adding money
 	Animator = cast_to<AnimationPlayer>(get_node(NodePath((String)"/root/Node2D/Animator")));
 	AdditionalAnim = cast_to<Label>(get_node(NodePath((String)"/root/Node2D/AdditionalAnim")));
 
+	//lock animation
+	LockAnimation = Node::cast_to<AnimationPlayer>(get_node("Lock/Animator"));
+	LockSprite = Node::cast_to<Sprite>(get_node("Lock/Sprite"));
+
 	currentColor = get_self_modulate();
 
+	//level status
+	//0 - level is closed
+	//1 - level is open
+	//2 - level passed
 	LevelStatus = DataLoader::GetSingleton()->ReturnLevelStatus(LevelNumber);
 
 	if (LevelStatus == 2)
 		currentColor = blue;
 
-	LockAnimation = Node::cast_to<AnimationPlayer>(get_node("Lock/Animator"));
-	LockSprite = Node::cast_to<Sprite>(get_node("Lock/Sprite"));
-
-	if (LevelStatus == 0)
+	else if (LevelStatus == 0)
 	{
 		currentColor = MainCurrency::GetSingleton()->ReturnValue() >= LevelPrice ? lightGray : gray;			//gray for closed, light gray for closed that can be bought
 		LockSprite->set_visible(true);
@@ -133,16 +139,17 @@ void Oblast::_input_event(Node* viewport, InputEventMouseButton* event, int shap
 		get_tree()->set_input_as_handled();
 	}
 
-		if (event->is_pressed() && LevelStatus == 0 && !dataLoader->ReturnWindowsStatus())
+	if (event->is_pressed() && LevelStatus == 0 && !dataLoader->ReturnWindowsStatus())
 		LevelPurchase::GetSingleton()->ShowLevelInfo(LevelNumber, LevelPrice, 1, 1);
 }
 
 void Oblast::ChangeColorTo(Color color, float force)
 {
-		if ((colorChangeForce += force) > 1)
-			colorChangeForce = 1;
-		currentColor = def - (def - color) * colorChangeForce;
-		mainSprite->set_self_modulate(currentColor);
+	if ((colorChangeForce += force) > 1)
+		colorChangeForce = 1;
+	currentColor = def - (def - color) * colorChangeForce;
+
+	mainSprite->set_self_modulate(currentColor);
 }
 
 Vector2 Oblast::GetSize()
@@ -243,9 +250,20 @@ Piece* Oblast::GetSelectedPiece()
 	return selectedPiece;
 }
 
+void Oblast::UpdateAvailabilityColor()
+{
+	if (LevelStatus == 0)
+		currentColor = MainCurrency::GetSingleton()->ReturnValue() >= LevelPrice ? lightGray : gray;
+
+}
+
+
+//
+//functions to change the status of the level
+//
+
 void Oblast::Open()
 {
-	//LockSprite->set_visible(false);
 	if (LevelNumber != 1)
 	LockAnimation->play((String)"LockOpening");
 	ChangeColorTo(Color(1, 1, 1, 1), 1);
@@ -289,13 +307,5 @@ void Oblast::Complete()
 	{
 		cast_to<Node2D>(get_node("../../UI/Tutorial3/Tutorial3"))->set_visible(true);
 		gameManager->tutorialWindowIsOpen = true;
-	}
-}
-
-void Oblast::UpdateAvailabilityColor()
-{
-	if (LevelStatus == 0)
-	{
-		currentColor = MainCurrency::GetSingleton()->ReturnValue() >= LevelPrice ? lightGray : gray;
 	}
 }

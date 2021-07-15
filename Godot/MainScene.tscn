@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Prefabs/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/UI.tscn" type="PackedScene" id=2]
@@ -7,10 +7,11 @@
 [ext_resource path="res://Textures/uniq.png" type="Texture" id=5]
 [ext_resource path="res://Sound/3.ogg" type="AudioStream" id=6]
 [ext_resource path="res://NativeLib/Scripts/Music.gdns" type="Script" id=7]
-[ext_resource path="res://Prefabs/UI/ResetButtons.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sound/LevelsBackground2.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Animations/SubstactValute.tres" type="Animation" id=9]
 [ext_resource path="res://Sound/PauseButton.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Sound/SubstractValute.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Sound/LevelsBackground3.ogg" type="AudioStream" id=12]
 [ext_resource path="res://NativeLib/Scripts/CameraController.gdns" type="Script" id=50]
 
 [sub_resource type="DynamicFont" id=1]
@@ -46,6 +47,84 @@ tracks/1/keys = {
 "values": [ Vector2( 221.593, -273 ), Vector2( 330, -273 ) ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "TransitionToTheLevel"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, -80.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LevelsBackground:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, -20.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LevelsBackground:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "TransitionToTheMenu"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, -20.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LevelsBackground:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, -80.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LevelsBackground:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
 [node name="Node2D" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [ -820.0 ]
@@ -75,19 +154,19 @@ scale = Vector2( 0.0412262, 0.0464488 )
 texture = ExtResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 6 )
 volume_db = -20.0
 autoplay = true
 script = ExtResource( 7 )
 
-[node name="ResetButtons" parent="." instance=ExtResource( 8 )]
-position = Vector2( 340.794, 135.989 )
-
 [node name="Animator" type="AnimationPlayer" parent="."]
+pause_mode = 2
 anims/AddValute = SubResource( 2 )
 anims/SubstactValute = ExtResource( 9 )
 
 [node name="SubstractAnim" type="Label" parent="."]
+pause_mode = 2
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 401.26
 margin_top = -240.0
@@ -101,6 +180,7 @@ __meta__ = {
 }
 
 [node name="AdditionalAnim" type="Label" parent="."]
+pause_mode = 2
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 330.0
 margin_top = -273.0
@@ -113,9 +193,32 @@ __meta__ = {
 }
 
 [node name="ButtonsSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 10 )
 volume_db = -10.0
 
 [node name="SubstractValute" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 11 )
 volume_db = -10.0
+
+[node name="ChangeOfMusic" type="AnimationPlayer" parent="."]
+playback_speed = 0.75
+anims/TransitionToTheLevel = SubResource( 3 )
+anims/TransitionToTheMenu = SubResource( 4 )
+
+[node name="LevelsBackground" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -80.0
+
+[node name="LevelsBackground1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -50.0
+
+[node name="LevelsBackground2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -50.0
+
+[node name="LevelsBackground3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -50.0

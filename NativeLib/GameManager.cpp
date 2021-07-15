@@ -15,6 +15,8 @@ void GameManager::_ready()
 {
     dataLoader = DataLoader::GetSingleton();
 
+    MainMusic = cast_to<AnimationPlayer>(get_node(NodePath((String)"/root/Node2D/ChangeOfMusic")));
+
     flyingMoney = ResourceLoader::get_singleton()->load("res://Prefabs/FlyingMoney.tscn");
 
     camera = CameraController::GetSingleton();
@@ -34,6 +36,8 @@ void GameManager::SelectOblast(Oblast* oblast)
             if (region != selectedOblast)
                 region->Hide();
         }
+
+        MainMusic->play("TransitionToTheLevel");
 
         dataLoader->SetWindowsStatus(true);
         dataLoader->SetIsLevelPlaying(true);
@@ -55,6 +59,8 @@ void GameManager::UnselectOblast()
         selectedOblast = nullptr;
         ResetCameraButton::GetSingleton()->SetEnabled(false);
         SetGameIsPlaying(false);
+
+        MainMusic->play("TransitionToTheMenu");
 
         dataLoader->SetWindowsStatus(false);
         dataLoader->SetIsLevelPlaying(false);

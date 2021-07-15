@@ -11,6 +11,7 @@ void Music::_init()
 
 void Music::_ready()
 {
+	set_volume_db(-20);
 	play();
 }
 

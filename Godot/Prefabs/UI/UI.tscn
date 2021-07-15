@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://NativeLib/Scripts/ResetCameraButton.gdns" type="Script" id=1]
 [ext_resource path="res://Textures/UI/button_map.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Prefabs/UI/Window.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Prefabs/UI/HSlider.gdns" type="Script" id=12]
 [ext_resource path="res://Textures/UI/Font/FRIZQT__.TTF" type="DynamicFontData" id=13]
+[ext_resource path="res://Prefabs/UI/ResetButtons.tscn" type="PackedScene" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -169,5 +170,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 bus_name = "Master"
+
+[node name="ResetButtons" parent="SettingsWindow" instance=ExtResource( 14 )]
+pause_mode = 2
+position = Vector2( 524.755, 440.349 )
 
 [editable path="SettingsWindow"]
