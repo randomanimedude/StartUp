@@ -16,7 +16,7 @@ script = ExtResource( 4 )
 tutorial_step = 0
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.3, 0.2 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="Sprite"]
@@ -45,9 +45,9 @@ __meta__ = {
 
 [node name="TextureButton" type="TextureButton" parent="."]
 margin_left = 77.7601
-margin_top = 18.9294
+margin_top = 33.5214
 margin_right = 93.7601
-margin_bottom = 33.9294
+margin_bottom = 48.5214
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
