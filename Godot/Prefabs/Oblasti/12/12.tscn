@@ -22,7 +22,7 @@ script = ExtResource( 1 )
 LevelNumber = 13
 LevelPrice = 3500
 first_time_reward = 1500
-repeated_reward = 300
+repeated_reward = 600
 BotsComplexity = "hard"
 
 [node name="Sprite" type="MeshInstance2D" parent="."]

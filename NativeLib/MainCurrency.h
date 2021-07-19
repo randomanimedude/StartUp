@@ -24,7 +24,7 @@ public:
 	int ReturnValue();
 
 private:
-	int CurrentValue;
+	int CurrentValue = 250;
 	static inline MainCurrency* instance;
 };
 

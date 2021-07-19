@@ -20,7 +20,9 @@ surfaces/0 = {
 [node name="1" type="Area2D"]
 script = ExtResource( 1 )
 LevelNumber = 2
-LevelPrice = 40
+LevelPrice = 100
+first_time_reward = 200
+repeated_reward = 45
 NumbOfBots = 1
 
 [node name="Sprite" type="MeshInstance2D" parent="."]

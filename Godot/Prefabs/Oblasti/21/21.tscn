@@ -20,9 +20,9 @@ surfaces/0 = {
 [node name="Львівська область" type="Area2D"]
 script = ExtResource( 1 )
 LevelNumber = 4
-LevelPrice = 170
+LevelPrice = 210
 first_time_reward = 300
-repeated_reward = 35
+repeated_reward = 90
 NumbOfBots = 1
 
 [node name="Sprite" type="MeshInstance2D" parent="."]

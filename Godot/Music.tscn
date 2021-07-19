@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sound/PauseButton.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Sound/SubstractValute.ogg" type="AudioStream" id=2]
+
+[node name="Music" type="Node2D"]
+
+[node name="MenuBackground" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="LevelBackground1" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="LevelBackground2" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="LevelBackground3" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 1 )
+volume_db = -10.0
+bus = "SFX"
+
+[node name="SubstractValute" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 2 )
+volume_db = -10.0
+bus = "SFX"
+
+[node name="Animator" type="AnimationPlayer" parent="."]

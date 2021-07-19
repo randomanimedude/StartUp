@@ -22,7 +22,7 @@ script = ExtResource( 1 )
 LevelNumber = 22
 LevelPrice = 25000
 first_time_reward = 19000
-repeated_reward = 3000
+repeated_reward = 12000
 NumbOfBots = 3
 BotsComplexity = "very hard"
 

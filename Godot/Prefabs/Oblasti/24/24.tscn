@@ -21,6 +21,8 @@ surfaces/0 = {
 script = ExtResource( 1 )
 LevelNumber = 1
 LevelPrice = 100
+first_time_reward = 150
+repeated_reward = 30
 
 [node name="Sprite" type="MeshInstance2D" parent="."]
 mesh = SubResource( 1 )
