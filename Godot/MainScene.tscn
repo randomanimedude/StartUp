@@ -157,7 +157,7 @@ pause_mode = 2
 stream = ExtResource( 6 )
 volume_db = -20.0
 autoplay = true
-bus = "SFX"
+bus = "Music"
 script = ExtResource( 7 )
 
 [node name="Animator" type="AnimationPlayer" parent="."]
@@ -210,6 +210,7 @@ anims/TransitionToTheLevel = SubResource( 3 )
 anims/TransitionToTheMenu = SubResource( 4 )
 
 [node name="LevelsBackground" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 12 )
 volume_db = -80.0
 bus = "Music"
