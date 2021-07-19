@@ -21,7 +21,7 @@ surfaces/0 = {
 script = ExtResource( 1 )
 LevelNumber = 8
 LevelPrice = 550
-first_time_reward = 700
+first_time_reward = 800
 repeated_reward = 250
 BotsComplexity = "normal"
 
