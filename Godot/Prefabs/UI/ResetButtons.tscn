@@ -41,10 +41,12 @@ __meta__ = {
 }
 
 [node name="AddValute" type="Button" parent="."]
+visible = false
 margin_left = -116.019
 margin_top = 21.5607
 margin_right = -40.0189
 margin_bottom = 41.5607
+disabled = true
 text = "+1000"
 __meta__ = {
 "_edit_use_anchors_": false

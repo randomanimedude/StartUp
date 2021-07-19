@@ -15,8 +15,8 @@ void ResetButtons::_init()
 
 void ResetButtons::_on_ResetValuteButton_pressed()
 {
-	DataLoader::GetSingleton()->UpdateMainCurrency(250);
-	MainCurrency::GetSingleton()->SetValue(250);
+	DataLoader::GetSingleton()->UpdateMainCurrency(0);
+	MainCurrency::GetSingleton()->SetValue(0);
 }
 
 void ResetButtons::_on_ResetLevelProgres_pressed()
