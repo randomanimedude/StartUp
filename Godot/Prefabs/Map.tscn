@@ -58,6 +58,7 @@ position = Vector2( -2690.22, -580.692 )
 
 [node name="10" parent="." instance=ExtResource( 9 )]
 position = Vector2( -2522.53, -58.6159 )
+BotsComplexity = "normal"
 
 [node name="11" parent="." instance=ExtResource( 13 )]
 position = Vector2( -2324.54, 354.448 )

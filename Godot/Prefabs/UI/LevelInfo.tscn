@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Prefabs/SmartLabel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Textures/UI/universal window.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Textures/UI/button.png" type="Texture" id=4]
 [ext_resource path="res://Textures/UI/close.png" type="Texture" id=5]
 [ext_resource path="res://Textures/UI/hidden_button.png" type="Texture" id=6]
+[ext_resource path="res://font.tres" type="DynamicFont" id=7]
 
 [node name="LevelInfo" type="Node2D"]
 position = Vector2( 446.892, 298.399 )
@@ -17,10 +18,11 @@ texture = ExtResource( 2 )
 
 [node name="LevelNumber" type="Label" parent="."]
 margin_left = -89.3016
-margin_top = -161.97
+margin_top = -162.719
 margin_right = -39.3016
-margin_bottom = -144.97
-rect_scale = Vector2( 3, 3 )
+margin_bottom = -145.719
+rect_scale = Vector2( 2.5, 2.5 )
+custom_fonts/font = ExtResource( 7 )
 text = "1 level"
 align = 1
 valign = 1
@@ -29,23 +31,24 @@ __meta__ = {
 }
 
 [node name="Just label" type="Label" parent="."]
-margin_left = -302.0
+margin_left = -298.0
 margin_top = -92.0
-margin_right = -167.0
-margin_bottom = -78.0
-rect_scale = Vector2( 2, 2 )
+margin_right = -116.0
+margin_bottom = -67.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 7 )
 text = "complexity of bots :  "
-percent_visible = -0.0588235
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Just label2" type="Label" parent="."]
-margin_left = -340.685
-margin_top = -56.2935
-margin_right = -189.685
-margin_bottom = -39.2935
-rect_scale = Vector2( 2, 2 )
+margin_left = -298.0
+margin_top = -53.774
+margin_right = -147.0
+margin_bottom = -28.774
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 7 )
 text = "number of bots : "
 align = 1
 valign = 1
@@ -54,11 +57,12 @@ __meta__ = {
 }
 
 [node name="Just label3" type="Label" parent="."]
-margin_left = -298.364
-margin_top = -14.6898
-margin_right = -147.364
-margin_bottom = -0.689796
-rect_scale = Vector2( 2, 2 )
+margin_left = -298.0
+margin_top = -15.0
+margin_right = -86.0
+margin_bottom = 10.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 7 )
 text = "reward for the first pass :"
 align = 1
 valign = 1
@@ -67,11 +71,12 @@ __meta__ = {
 }
 
 [node name="Just label4" type="Label" parent="."]
-margin_left = -298.719
-margin_top = 22.5473
-margin_right = -107.719
-margin_bottom = 36.5473
-rect_scale = Vector2( 2, 2 )
+margin_left = -298.0
+margin_top = 22.547
+margin_right = -22.0
+margin_bottom = 47.547
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 7 )
 text = "reward for subsequent passes : "
 align = 1
 valign = 1
@@ -80,34 +85,34 @@ __meta__ = {
 }
 
 [node name="NumbOfBots" parent="." instance=ExtResource( 1 )]
-margin_left = -85.9909
-margin_top = -51.5545
-margin_right = 13.0091
-margin_bottom = -26.5545
+margin_left = -75.2816
+margin_top = -45.2549
+margin_right = 23.7184
+margin_bottom = -20.2549
 text = "5"
 valign = 1
 
 [node name="BotsComplexity" parent="." instance=ExtResource( 1 )]
-margin_left = -41.8952
-margin_top = -92.626
-margin_right = 117.105
-margin_bottom = -65.626
+margin_left = -33.7057
+margin_top = -84.4365
+margin_right = 125.294
+margin_bottom = -57.4365
 text = "5"
 valign = 1
 
 [node name="FirstReward" parent="." instance=ExtResource( 1 )]
-margin_left = 24.8206
-margin_top = -13.7172
-margin_right = 145.82
-margin_bottom = 11.2828
+margin_left = 26.7105
+margin_top = -6.15769
+margin_right = 147.71
+margin_bottom = 18.8423
 text = "5"
 valign = 1
 
 [node name="SubsequentRewards" parent="." instance=ExtResource( 1 )]
-margin_left = 107.109
-margin_top = 25.4536
-margin_right = 228.11
-margin_bottom = 50.4536
+margin_left = 115.298
+margin_top = 33.6431
+margin_right = 236.299
+margin_bottom = 58.6431
 text = "5"
 valign = 1
 
