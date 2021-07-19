@@ -35,6 +35,7 @@ margin_right = -167.0
 margin_bottom = -78.0
 rect_scale = Vector2( 2, 2 )
 text = "complexity of bots :  "
+percent_visible = -0.0588235
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -53,12 +54,12 @@ __meta__ = {
 }
 
 [node name="Just label3" type="Label" parent="."]
-margin_left = -299.158
-margin_top = -15.4835
-margin_right = -148.158
-margin_bottom = -1.48352
+margin_left = -298.364
+margin_top = -14.6898
+margin_right = -147.364
+margin_bottom = -0.689796
 rect_scale = Vector2( 2, 2 )
-text = "reward for the first pass"
+text = "reward for the first pass :"
 align = 1
 valign = 1
 __meta__ = {
@@ -71,7 +72,7 @@ margin_top = 22.5473
 margin_right = -107.719
 margin_bottom = 36.5473
 rect_scale = Vector2( 2, 2 )
-text = "reward for subsequent passes"
+text = "reward for subsequent passes : "
 align = 1
 valign = 1
 __meta__ = {
@@ -95,17 +96,17 @@ text = "5"
 valign = 1
 
 [node name="FirstReward" parent="." instance=ExtResource( 1 )]
-margin_left = 6.56546
+margin_left = 24.8206
 margin_top = -13.7172
-margin_right = 127.565
+margin_right = 145.82
 margin_bottom = 11.2828
 text = "5"
 valign = 1
 
 [node name="SubsequentRewards" parent="." instance=ExtResource( 1 )]
-margin_left = 87.2667
+margin_left = 107.109
 margin_top = 25.4536
-margin_right = 208.267
+margin_right = 228.11
 margin_bottom = 50.4536
 text = "5"
 valign = 1
